@@ -1,0 +1,261 @@
+$cor1: #1e272e;
+$cor2: #d2dae2;
+$cor3: #808e9b;
+$cordestaque:#5a87ae;
+$cordestaquehover:#5c9bd1;
+$conteudo:#101518;
+$letras: #f1f2f6;
+$vermelho: #ff3f34;
+$verde:#0bdd7b;
+$verde-hover: #07b664;
+$corheader: #181f24;
+
+
+/* Fontes */
+$font1:'KoHo', sans-serif;
+$font2:'Kanit', sans-serif;;
+$font3:'Kodchasan', sans-serif;;
+
+    /* Testes */
+$bd: 1px solid white;
+$bb: 1px solid black;
+
+    /* Margin padrão */
+$margin: 0 50px 0 50px;
+
+
+/* Mixins */
+@mixin mobile(){
+  @media(min-width: 680px){
+    @content;
+  }
+}
+@mixin tablet(){
+  @media(min-width: 768px){
+    @content;
+  }
+}
+@mixin sobreMim(){
+  @media(min-width:790px) and (max-width:991px){
+    @content;
+  }
+}
+@mixin onlyMobile(){
+  @media(max-width: 991px){
+    @content;
+  }
+}
+@mixin desktop(){
+  @media(min-width: 992px){
+    @content;
+  }
+}
+@mixin mediumdesktop(){
+  @media(min-width: 1200px){
+    @content;
+  }
+}
+@mixin bigdesktop(){
+  @media(min-width: 1400px){
+    @content;
+  }
+}
+
+/* SCROOL BAR */
+::-webkit-scrollbar-track {
+  background-color:$cor1;
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: $cor3;
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0; margin: 0;
+  font-family: $font1;
+}
+body{
+  background-color: $cor1;
+}
+h1{
+  color: $letras;
+  font-family: $font1;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-align: center;
+}
+h3{
+  color: $letras;
+  font-family: $font2;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-align: start;
+  padding: 5px  0  10px 15px;
+  font-size: 23px;
+}
+h5{
+  color: $letras;
+  font-family: $font2;
+  font-size: 21px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  padding: 5px 0 5px 15px;
+}
+.desativado{
+  filter: saturate(0);
+}
+.desativado:hover{
+  cursor:not-allowed;
+}
+
+
+/* Funções */
+@mixin espacamentoSection(){
+  @include mediumdesktop(){
+    margin-bottom: 100px !important;
+    padding-bottom: 50px !important;
+  }
+}
+
+/* Pré sets */
+[data-height]{
+  @include mediumdesktop(){
+    min-height: 100vh !important;
+  }
+}
+.titulo-secao{
+  @include mediumdesktop(){
+    height: 8%;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+
+  }
+}
+
+
+/* CONTATO */
+.contato{
+  height: 630px;
+  margin-bottom: 50px;
+
+  .conteudo-contato{
+    height: 550px;
+    background-color: $conteudo;
+    margin:0 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-image: url('../image/ilustracao-contato.png');
+    background-repeat:no-repeat ;
+    background-size: contain;
+    background-position: bottom;
+
+    @include desktop(){
+      margin: 0;
+    }
+  }
+}
+.informacoes-contato{
+  color: $letras;
+  padding:15px 10px 0 10px;
+  font-size: 19px;
+  text-align: center;
+}
+.links-contato{
+  height: 400px;
+  display: grid;
+  grid-template-rows: 60px 60px 60px 60px;
+  grid-template-columns: 1fr;
+  place-items: center;
+  gap: 10px;
+  margin:10px 10px;
+
+  @media (min-width: 600px){
+    grid-template-rows: 60px 60px;
+    grid-template-columns: 1fr 1fr;
+  
+  }
+  @include tablet(){
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: start;
+    margin-top: 10px;
+  }
+
+  @include desktop(){
+    grid-template-rows: 60px 60px;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+  }
+
+  a{
+    width: 100%;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 0 10px 0 10px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    text-decoration: none;
+    color: $letras;
+    
+  } 
+}
+
+.link .fa-telegram-plane, .fa-instagram, .fa-linkedin, .fa-envelope{
+  margin-right: 5px;
+  font-size: 20px;
+
+  @include mediumdesktop(){
+    margin-right: 8px;
+  }
+}
+.link-telegram{
+  border: #2FA6E2 1px solid;
+  background-color: #2FA6E2;
+}
+.link-telegram:hover{
+  border: #288cbe 1px solid;
+  background-color: #288cbe;
+}
+.link-likendin{
+  border: #0371AE;
+  background-color: #0371AE;
+}
+.link-likendin:hover{
+  border: #075a86;
+  background-color: #075a86;
+}
+.link-instagram{
+  background-color: #CB2B88;
+  border: #CB2B88;
+}
+.link-instagram:hover{
+  background-color: #8f1f60;
+  border: #8f1f60;
+}
+.link-gmail{
+  background-color: #D64C3E;
+  border: #D64C3E;
+}
+.link-gmail:hover{
+  background-color: #96362c;
+  border: #96362c;
+}
+
+
+/* BOTÃO SUBIR */
+.botao-subir{
+  height: 50px; width: 50px;
+  background: rebeccapurple;
+  position: fixed;
+  bottom: 120px; right: 10px;
+  display: none;
+}
