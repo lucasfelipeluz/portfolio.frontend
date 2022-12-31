@@ -1,7 +1,12 @@
 import React from 'react';
+import { SobreMim } from '../../types/ServicesProps';
 import './index.scss';
 
-export default function Projetos() {
+interface ContatosProps {
+  sobreMim: SobreMim;
+}
+
+export default function ContatosComponent({ sobreMim }: ContatosProps) {
   return (
     <section className='sobremim-contato'>
       <div className='sobremim'>
@@ -13,13 +18,7 @@ export default function Projetos() {
           </div>
 
           <div className='descricao-dev'>
-            <p>
-              Meu nome é Lucas Felipe Luz, sou de Recife - Pernambuco. Comecei a me interessar por
-              programação em 2019 usando o Python, e me apaixonei por Desenvolvimento Web em 2020, e
-              to nele até hoje. Atualmente, sou estágiario na Wipro Limited e além de ser
-              autodidata, faço graduação de Análise e Desenvolvimento de Sistemas, mas nem só de
-              linguagens de programação vive o homem, também estou aprendendo Inglês.
-            </p>
+            <p>{sobreMim.texto}</p>
           </div>
         </div>
       </div>
@@ -32,21 +31,13 @@ export default function Projetos() {
             Se quiser me ajudar, ou até bater um papo sobre programação, não hesite em me chamar.
           </p>
           <div className='links-contato'>
-            <a href='https://t.me/lucasfelipeluz' target='_blank' className='link-telegram link'>
+            <a href={sobreMim.link_telegram} target='_blank' className='link-telegram link'>
               <i className='fab fa-telegram-plane'></i> Telegram
             </a>
-            <a
-              href='https://www.instagram.com/lucasfelipeluz/'
-              target='_blank'
-              className='link-instagram link'
-            >
+            <a href={sobreMim.link_instagram} target='_blank' className='link-instagram link'>
               <i className='fab fa-instagram'></i>Instagram
             </a>
-            <a
-              href='https://www.linkedin.com/in/lucasfelipeluz/'
-              target='_blank'
-              className='link-likendin link'
-            >
+            <a href={sobreMim.link_linkedin} target='_blank' className='link-likendin link'>
               <i className='fab fa-linkedin'></i>Linkedin
             </a>
             <a href='mailto:lucasfelipeluz.dev@gmail.com' className='link-gmail link'>
