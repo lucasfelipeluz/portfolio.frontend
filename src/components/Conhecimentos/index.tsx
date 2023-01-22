@@ -20,7 +20,7 @@ interface ConhecimentosProps {
 
 export default function ConhecimentosComponent({ conhecimentos }: ConhecimentosProps) {
   return (
-    <section className='conhecimentos secao' data-height>
+    <section className='conhecimentos secao' id='conhecimentos' data-height>
       <h1 className='titulo-secao'>Conhecimentos</h1>
 
       <div className='conteudo-conhecimentos'>
