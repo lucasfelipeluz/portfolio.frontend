@@ -9,7 +9,7 @@ interface ProjetosProps {
 
 export default function ProjetosComponent({ projetos }: ProjetosProps) {
   return (
-    <section className='projetos secao' data-height>
+    <section className='projetos secao' id='projetos' data-height>
       <h1 className='titulo-projetos titulo-secao'>Projetos</h1>
 
       <div className='conteudo-projetos'>

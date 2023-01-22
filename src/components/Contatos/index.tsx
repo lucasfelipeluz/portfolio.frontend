@@ -8,13 +8,16 @@ interface ContatosProps {
 
 export default function ContatosComponent({ sobreMim }: ContatosProps) {
   return (
-    <section className='sobremim-contato'>
+    <section className='sobremim-contato' id='sobreMim'>
       <div className='sobremim'>
         <h1 className='titulo-secao'>Sobre Mim</h1>
 
         <div className='conteudo-sobremim'>
           <div className='img-dev'>
-            <img src='assets/image/img-dev.png' alt='' />
+            <img
+              src='https://media.licdn.com/dms/image/C4D03AQHmFTTk-D2XUQ/profile-displayphoto-shrink_800_800/0/1660354670162?e=1680134400&v=beta&t=jLjW4gUaYaTQh2bBospkKrYwaA9D5E4NhpdPB7MQZbo'
+              alt=''
+            />
           </div>
 
           <div className='descricao-dev'>
@@ -23,7 +26,7 @@ export default function ContatosComponent({ sobreMim }: ContatosProps) {
         </div>
       </div>
 
-      <div className='contato'>
+      <div className='contato' id='contato'>
         <h1 className='titulo-secao'>Contato</h1>
 
         <div className='conteudo-contato'>

@@ -18,22 +18,22 @@ export default function Header() {
 
         <ul className='nav-itens'>
           <li className='nav-item'>
-            <a href='projetos' data-target='projetos'>
+            <a href='#projetos' data-target='projetos'>
               Projetos
             </a>
           </li>
           <li className='nav-item'>
-            <a href='conhecimentos' data-target='conhecimentos'>
+            <a href='#conhecimentos' data-target='conhecimentos'>
               Conhecimentos
             </a>
           </li>
           <li className='nav-item'>
-            <a href='sobreMim' data-target='sobreMim'>
+            <a href='#sobreMim' data-target='sobreMim'>
               Sobre mim
             </a>
           </li>
           <li className='nav-item'>
-            <a href='contato' data-target='contato'>
+            <a href='#contato' data-target='contato'>
               Contato
             </a>
           </li>
