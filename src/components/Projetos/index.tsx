@@ -16,7 +16,7 @@ export default function ProjetosComponent({ projetos }: ProjetosProps) {
         {projetos &&
           projetos.map((projeto) => {
             return (
-              <div className='projetos-filho'>
+              <div className='projetos-filho' id={projeto.id.toString()} key={projeto.id}>
                 <h3>{projeto.titulo}</h3>
                 <div className='conteudo-projeto-filho'>
                   <div className='descricao-projeto'>{projeto.descricao}</div>
@@ -30,7 +30,7 @@ export default function ProjetosComponent({ projetos }: ProjetosProps) {
                   </div>
                   <div className='tags-projeto'>
                     {projeto.habilidades?.map((habilidade) => {
-                      return <span>{habilidade.titulo}</span>;
+                      return <span key={habilidade.id}>{habilidade.titulo}</span>;
                     })}
                   </div>
                 </div>

@@ -137,24 +137,13 @@ h5 {
   }
 }
 
-/* Pré sets */
+// /* Pré sets */
 [data-height] {
   @include mediumdesktop() {
     min-height: 100vh !important;
   }
 }
 
-.titulo-secao {
-  @include mediumdesktop() {
-    height: 8%;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-
-  }
-}
 
 /* CONHECIMENTOS */
 section.conhecimentos {
@@ -162,268 +151,343 @@ section.conhecimentos {
   margin-top: 50px;
 
   @include espacamentoSection();
-}
 
-.conteudo-conhecimentos {
-  margin: 0 10px 0 10px;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 100%;
-  gap: 50px;
-  height: calc(100% - 82px);
-
-  @include desktop() {
-    margin: $margin;
+  .conteudo-conhecimentos {
+    margin: 0 10px 0 10px;
     display: grid;
-    grid-template-columns: 1.5fr 3fr;
+    grid-template-columns: 100%;
     grid-template-rows: 100%;
-    gap: 0;
-    height: 100%;
+    gap: 50px;
+    height: calc(100% - 82px);
 
-  }
-}
-
-.tags-conhecimentos,
-.conteudo-tags {
-  color: $cor3;
-  list-style-type: none;
-}
-
-.tags-conhecimentos {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  position: relative;
-
-  @include desktop() {
-    color: $cor3;
-    list-style-type: none;
-    min-height: 450px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 0px 10px 0px 10px;
-    position: relative;
-  }
-
-  /* Instruções */
-  .instrucoes {
-    user-select: none;
-    position: absolute;
-    top: -30px;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    text-align: center;
-    opacity: 0.5;
-  }
-}
-
-.tags-conhecimentos li {
-  height: 50px;
-  width: 100%;
-  padding: 15px;
-  padding-left: 60px;
-  border-radius: 5px;
-  border: none;
-  position: relative;
-  overflow: hidden;
-  background-color: $conteudo;
-  font-size: 18px;
-  font-weight: 600;
-  transition: 0.3s;
-
-  @include desktop() {
-    width: 100%;
-    padding: 15px;
-    padding-left: 60px;
-    border-radius: 5px;
-    border: none;
-    position: relative;
-    overflow: hidden;
-    background-color: $conteudo;
-    font-size: 18px;
-    font-weight: 600;
-    transition: 0.3s;
-  }
-
-  &:hover {
     @include desktop() {
-      transform: translateX(-5px);
-
+      margin: $margin;
+      display: grid;
+      grid-template-columns: 1.5fr 3fr;
+      grid-template-rows: 100%;
+      gap: 0;
+      height: 100%;
     }
-  }
 
-  span {
-    height: 50px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-    color: $cor1;
+    .tags-conhecimentos,
+    .conteudo-tags {
+      color: $cor3;
+      list-style-type: none;
+    }
 
-
-    @include desktop() {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 50px;
+    .tags-conhecimentos {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 35px;
-      color: $cor1;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      position: relative;
+
+      @include desktop() {
+        color: $cor3;
+        list-style-type: none;
+        min-height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0px 10px 0px 10px;
+        position: relative;
+      }
+
+      .instrucoes {
+        user-select: none;
+        position: absolute;
+        top: -30px;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        text-align: center;
+        opacity: 0.5;
+      }
+
+      li {
+        height: 50px;
+        width: 100%;
+        padding: 15px;
+        padding-left: 60px;
+        border-radius: 5px;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        background-color: $conteudo;
+        font-size: 18px;
+        font-weight: 600;
+        transition: 0.3s;
+
+        @include desktop() {
+          width: 100%;
+          padding: 15px;
+          padding-left: 60px;
+          border-radius: 5px;
+          border: none;
+          position: relative;
+          overflow: hidden;
+          background-color: $conteudo;
+          font-size: 18px;
+          font-weight: 600;
+          transition: 0.3s;
+
+          &:hover {
+            border-right: 5px solid;
+          }
+        }
+
+        &:hover {
+          @include desktop() {
+            transform: translateX(-5px);
+          }
+        }
+
+        span {
+          height: 50px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 35px;
+          color: $cor1;
+
+          @include desktop() {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            color: $cor1;
+          }
+        }
+
+        &.open {
+          height: 350px;
+
+          .conteudo-conhecimento-mobile {
+            display: block;
+            height: 350px;
+            height: 0;
+            transition: .3s !important;
+            padding-top: 15px;
+
+          }
+        }
+
+        .conteudo-conhecimento-mobile {
+          display: none;
+
+          p {
+            padding: 5px 0;
+            font-weight: 400;
+            flex-grow: 3;
+
+            &.experiencia-tag-mobile {
+              padding-top: 25px;
+            }
+          }
+        }
+      }
+
+
+    }
+
+    .conteudo-tags {
+      display: none;
+      background-color: $conteudo;
+
+      @include desktop() {
+        color: $cor3;
+        list-style-type: none;
+        min-height: 450px;
+        border-radius: 5px;
+        background-color: $conteudo;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .conteudo-tag {
+        padding: 50px 30px 50px 30px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 100px 40px 2fr;
+        height: 100%;
+
+        & div {
+          display: flex;
+          justify-content: start;
+        }
+
+        & div.icon-habilidade,
+        & div.descricao-tag {
+          justify-content: center;
+        }
+      }
     }
   }
 
 
+
 }
 
-/* Testar cores Background */
-/* [data-btn-conteudo = "html"] span{background: #DD4B25 !important;}
-[data-btn-conteudo = "css"] span{background-color: #2A95CA !important;}
-[data-btn-conteudo = "javascript"] span{background: #EFD81D!important;}
-[data-btn-conteudo = "sass"] span{background:#BF4080 !important;}
-[data-btn-conteudo = "bootstrap"] span{background: #7511F1!important;}
-[data-btn-conteudo = "figma"] span{background: #9D56F7!important;}
-[data-btn-conteudo = "react"] span{background:#05A0CA !important;} */
 
 
-/* Cor borda hover */
-// @include desktop() {
-//   [data-btn-conteudo = "html"]:hover{border-right: 5px solid #DD4B25;}
-//   [data-btn-conteudo = "css"]:hover{border-right: 5px solid #2A95CA;}
-//   [data-btn-conteudo = "javascript"]:hover{border-right: 5px solid #EFD81D;}
-//   [data-btn-conteudo = "sass"]:hover{border-right: 5px solid #BF4080;}
-//   [data-btn-conteudo = "bootstrap"]:hover{border-right: 5px solid #7511F1;}
-//   [data-btn-conteudo = "figma"]:hover{border-right: 5px solid #9D56F7;}
-//   [data-btn-conteudo = "node.js"]:hover{border-right: 5px solid #76AD64;}
-//   [data-btn-conteudo = "sql"]:hover{border-right: 5px solid #4479A1;}
-// }
+
 
 /* Funções Mobile */
-[data-tag] .conteudo-conhecimento-mobile {
-  height: 0;
-  transition: .3s !important;
-}
+// [data-tag] .conteudo-conhecimento-mobile {
+//   height: 0;
+//   transition: .3s !important;
+// }
 
-[data-tag] .conteudo-conhecimento-mobile p {
-  display: none;
-}
+// [data-tag] .conteudo-conhecimento-mobile p {
+//   display: none;
+// }
 
-.tags-conhecimentos li[data-tag="ativo"] {
-  height: 350px;
+// .tags-conhecimentos li.toggle-ativo {
+//   height: 350px;
 
-  @include desktop() {
-    height: 50px;
-  }
-}
+//   @include desktop() {
+//     height: 50px;
+//   }
+// }
 
 
-[data-tag="ativo"] .conteudo-conhecimento-mobile p {
-  display: block;
-}
+// .lista-habilidades {
 
-[data-tag="ativo"] .header-tag span {
-  border-radius: 0 0 5px 0;
-  height: 51px;
-}
 
-[data-tag="ativo"] .conteudo-conhecimento-mobile {
-  height: 90%;
-  margin: 10px 0 0 0;
-}
+//   .conteudo-conhecimento-mobile {
 
-/* Conteudo tag conhecimentos */
-[data-tag="ativo"] .conteudo-conhecimento-mobile {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+//     .descricao-tag-mobile {
+//       padding: 5px 0;
+//       font-weight: 400;
+//       flex-grow: 3;
+//     }
 
-[data-tag="ativo"] .conteudo-conhecimento-mobile .experiencia-tag {
-  flex-grow: 1;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
+//     .experiencia-tag-mobile {
+//       padding: 5px 0;
+//       font-weight: 400;
+//     }
 
-[data-tag="ativo"] .conteudo-conhecimento-mobile .descricao-tag {
-  padding: 5px 0;
-  font-weight: 400;
-  flex-grow: 3;
-}
+//   }
 
-[data-tag="ativo"] .conteudo-conhecimento-mobile .experiencia-tag {
-  padding: 5px 0;
-  font-weight: 400;
+//   &.toggle-ativo {
+//     p {
+//       display: block;
+//     }
 
-}
+//     .header-tag span {
+//       border-radius: 0 0 5px 0;
+//       height: 51px;
+//     }
+//   }
+// }
 
-.conteudo-tags {
-  display: none;
-  background-color: $conteudo;
 
-  @include desktop() {
-    color: $cor3;
-    list-style-type: none;
-    min-height: 450px;
-    border-radius: 5px;
-    background-color: $conteudo;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-  }
-}
+// .toggle-ativo .header-tag span {
+//   border-radius: 0 0 5px 0;
+//   height: 51px;
+// }
 
-[data-conteudo-visivel] {
-  margin: 20px 20px;
-  height: 130px;
+// .toggle-ativo .conteudo-conhecimento-mobile {
+//   height: 90%;
+//   margin: 10px 0 0 0;
+// }
 
-}
+// /* Conteudo tag conhecimentos */
+// .toggle-ativo .conteudo-conhecimento-mobile {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+// }
 
-[data-conteudo-visivel="false"] {
-  display: none;
-}
+// .toggle-ativo .conteudo-conhecimento-mobile .experiencia-tag {
+//   flex-grow: 1;
+//   display: flex;
+//   justify-content: start;
+//   align-items: center;
+// }
 
-[data-conteudo-visivel] .experiencia-tag {
-  margin: 20px 0 0 0;
+// .toggle-ativo .conteudo-conhecimento-mobile .descricao-tag-mobile {
+//   padding: 5px 0;
+//   font-weight: 400;
+//   flex-grow: 3;
+// }
 
-}
+// .toggle-ativo .conteudo-conhecimento-mobile .experiencia-tag-mobile {
+//   padding: 5px 0;
+//   font-weight: 400;
 
-[data-conteudo-visivel="true"] {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-}
+// }
 
-/* SOBREMIM e CONTATO */
-.sobremim-contato {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr;
+// .conteudo-tags {
+//   display: none;
+//   background-color: $conteudo;
 
-  @include desktop() {
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin: $margin;
-  }
+//   @include desktop() {
+//     color: $cor3;
+//     list-style-type: none;
+//     min-height: 450px;
+//     border-radius: 5px;
+//     background-color: $conteudo;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: center;
+//     gap: 10px;
+//   }
+// }
 
-  @include mediumdesktop() {
-    grid-template-rows: 1fr !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 20px;
-  }
-}
+// [data-conteudo-visivel] {
+//   margin: 20px 20px;
+//   height: 130px;
+
+// }
+
+// [data-conteudo-visivel="false"] {
+//   display: none;
+// }
+
+// [data-conteudo-visivel] .experiencia-tag {
+//   margin: 20px 0 0 0;
+
+// }
+
+// [data-conteudo-visivel="true"] {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   align-items: stretch;
+// }
+
+// /* SOBREMIM e CONTATO */
+// .sobremim-contato {
+//   display: grid;
+//   grid-template-rows: 1fr 1fr;
+//   grid-template-columns: 1fr;
+
+//   @include desktop() {
+//     grid-template-rows: 1fr;
+//     grid-template-columns: 1fr 1fr;
+//     gap: 20px;
+//     margin: $margin;
+//   }
+
+//   @include mediumdesktop() {
+//     grid-template-rows: 1fr !important;
+//     grid-template-columns: 1fr 1fr !important;
+//     gap: 20px;
+//   }
+// }
