@@ -9,7 +9,6 @@ interface BoasVindasProps {
 }
 
 export default function BoasVindas({ sobreMim }: BoasVindasProps) {
-  console.log('sobremim', sobreMim);
   return (
     <section className='tela1 tela-inicial secao'>
       <div className='conteudo-inicial'>
