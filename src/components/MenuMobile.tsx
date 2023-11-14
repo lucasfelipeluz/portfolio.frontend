@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarraGradienteMobile } from '../style/Globals';
+import { MobileGradientBar } from '../style/Globals';
 import { MenuContainer, MenuMobile, NavItensMobile } from '../style/Header';
 
 interface Props {
@@ -26,7 +26,7 @@ export default function MenuMobileComponent({ ativo, handleAtivo }: Props) {
           </li>
         </NavItensMobile>
 
-        <BarraGradienteMobile className="barra-gradiente-mobile"></BarraGradienteMobile>
+        <MobileGradientBar className="barra-gradiente-mobile"></MobileGradientBar>
       </MenuContainer>
       <div onClick={handleAtivo} className="sair-menu"></div>
     </MenuMobile>

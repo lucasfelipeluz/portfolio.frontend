@@ -1,36 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { configApi } from './utils/config';
+import Unavailable from './pages/Unavailable';
+import Home from './pages/Home';
+import { LanguageProvider } from './context/LanguageContext';
 
-function App() {
-  // const [projetos, setProjetos] = useState<Projetos[]>();
-  // const [habilidades, setHabilidades] = useState<Habilidades[]>();
-  // const [sobreMim, setSobreMim] = useState<SobreMim>();
+const router = createBrowserRouter([{ path: '/', element: <Home /> }]);
 
-  // const { useGetAll } = useHomeServices();
-  // const { data, isError } = useGetAll();
-
-  // const atualizarData = useCallback(() => {
-  //   setProjetos(data?.projetos);
-  //   setHabilidades(data?.habilidades);
-  //   setSobreMim(data?.sobreMim);
-  // }, [data]);
-
-  // useEffect(() => {
-  //   atualizarData();
-  // }, [data]);
-
+export default function App() {
   return (
-    <div>Opa!saddas!</div>
-    // <div className='App'>
-    //   <HeaderComponent />
-    //   {!data && !isError && <Carregando />}
-    //   {isError && <ErrorComponent />}
-    //   {sobreMim && <BoasVindasComponent sobreMim={sobreMim!} />}
-    //   {projetos && <ProjetosComponent projetos={projetos} />}
-    //   {habilidades && <ConhecimentosComponent conhecimentos={habilidades} />}
-    //   {sobreMim && <ContatosComponent sobreMim={sobreMim} />}
-    //   <FooterComponent />
-    // </div>
+    <LanguageProvider>
+      {configApi.serverOn === 'true' ? <RouterProvider router={router} /> : <Unavailable />}
+    </LanguageProvider>
   );
 }
-
-export default App;

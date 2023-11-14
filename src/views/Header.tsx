@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import MenuMobileComponent from '../components/MenuMobile';
 import NavItensComponent from '../components/NavItens';
-import { BarraGradiente, BarraGradienteMobile } from '../style/Globals';
+import { GradientBar, MobileGradientBar } from '../style/Globals';
 import { HeaderStyle, NavBar, NavButton, NavItens, TitlePortfolio } from '../style/Header';
+import strings from '../utils/strings';
 
 export default function Header() {
   const [toggleMenuMobile, setToggleMenuMobile] = useState<boolean>(false);
@@ -22,12 +23,12 @@ export default function Header() {
           </div>
         </NavButton>
         <TitlePortfolio>
-          <p>Portfólio</p>
+          <p>Portfolio</p>
         </TitlePortfolio>
         <NavItensComponent />
         <MenuMobileComponent ativo={toggleMenuMobile} handleAtivo={handleToggleMenuMobile} />
       </NavBar>
-      <BarraGradiente />
+      <GradientBar />
     </HeaderStyle>
   );
 }
