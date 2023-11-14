@@ -60,4 +60,8 @@ export default {
     en: 'Why?',
     pt: 'Por que?',
   },
+  hello: {
+    en: 'Hello, my name is',
+    pt: 'Olá, meu nome é',
+  },
 };

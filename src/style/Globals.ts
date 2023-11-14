@@ -18,3 +18,17 @@ export const MobileGradientBar = styled(GradientBar)`
   display: grid;
   place-items: center;
 `;
+
+export const Section = styled.section`
+  height: 100vh;
+  width: 100%;
+  /* border: 1px solid white; */
+`;
+
+export const SectionTitle = styled.h2`
+  padding: 15px;
+  color: ${colors.cor2};
+  text-align: center;
+  font-weight: 200;
+  font-size: 1%.7;
+`;
