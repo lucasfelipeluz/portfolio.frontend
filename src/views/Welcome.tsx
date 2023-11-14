@@ -1,25 +1,16 @@
-import React, { useState } from 'react';
-import {
-  DeveloperIlustrationStyled,
-  WelcomeInformationStyled,
-  WelcomeStyled,
-} from '../style/Welcome';
-import { SectionTitle } from '../style/Globals';
+import React from 'react';
 import { LanguageContext } from '../context/LanguageContext';
-import strings from '../utils/strings';
+import { DeveloperIlustrationStyled, WelcomeStyled } from '../style/Welcome';
 // @ts-ignore
 import IlustracaoDev from '../assets/image/ilustração-dev.svg';
+import WelcomeInfomationComponent from '../components/WelcomeInfomation';
 
 export default function Welcome() {
   const { language } = React.useContext(LanguageContext);
 
   return (
     <WelcomeStyled className="container-fluid container-lg">
-      <WelcomeInformationStyled>
-        <p className="hello">{strings.hello[language.code]}</p>
-        <p className="name">Lucas Luz</p>
-        <p className="position">Desenvolvedor</p>
-      </WelcomeInformationStyled>
+      <WelcomeInfomationComponent language={language} />
       <DeveloperIlustrationStyled>
         <img src={IlustracaoDev} />
       </DeveloperIlustrationStyled>
