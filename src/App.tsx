@@ -5,7 +5,13 @@ import Unavailable from './pages/Unavailable';
 import Home from './pages/Home';
 import { LanguageProvider } from './context/LanguageContext';
 
-const router = createBrowserRouter([{ path: '/', element: <Home /> }]);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+    children: [{ path: '/project/:id', element: <>Project carregado!!!!</> }],
+  },
+]);
 
 export default function App() {
   return (
