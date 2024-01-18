@@ -11,6 +11,8 @@ interface Colors {
   verde: string;
   verdeHover: string;
   header: string;
+  dark: string;
+  dark2: string;
 }
 
 interface Fonts {
@@ -35,6 +37,8 @@ export const colors: Colors = {
   verde: '#0bdd7b',
   verdeHover: '#07b664',
   header: '#181f24',
+  dark: '#101518',
+  dark2: '#222F3E',
 };
 
 /**

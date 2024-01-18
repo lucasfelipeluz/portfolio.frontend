@@ -3,9 +3,11 @@ import MenuMobileComponent from '../components/MenuMobile';
 import NavItensComponent from '../components/NavItens';
 import { GradientBar, MobileGradientBar } from '../style/Globals';
 import { HeaderStyle, NavBar, NavButton, NavItens, TitlePortfolio } from '../style/Header';
+import { LanguageContext } from '../context/LanguageContext';
 import strings from '../utils/strings';
 
 export default function Header() {
+  const { language } = React.useContext(LanguageContext);
   const [toggleMenuMobile, setToggleMenuMobile] = useState<boolean>(false);
 
   const handleToggleMenuMobile = () => {
@@ -25,8 +27,12 @@ export default function Header() {
         <TitlePortfolio>
           <p>Portfolio</p>
         </TitlePortfolio>
-        <NavItensComponent />
-        <MenuMobileComponent ativo={toggleMenuMobile} handleAtivo={handleToggleMenuMobile} />
+        <NavItensComponent language={language} />
+        <MenuMobileComponent
+          ativo={toggleMenuMobile}
+          handleAtivo={handleToggleMenuMobile}
+          language={language}
+        />
       </NavBar>
       <GradientBar />
     </HeaderStyle>
