@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProjectCardStyled } from '../style/Project';
+import { ProjectCardLink, ProjectCardStyled } from '../style/Project';
 import { Link } from 'react-router-dom';
 
 export default function ProjectCardComponent({ setShowMoreDetails }: { setShowMoreDetails: any }) {
@@ -23,14 +23,14 @@ export default function ProjectCardComponent({ setShowMoreDetails }: { setShowMo
         <a href="">.NET</a>
       </div>
       <div className="more-info">
-        <Link
+        <ProjectCardLink
           to="/project/1"
           onClick={() => {
             setShowMoreDetails(true);
           }}
         >
           Saber Mais
-        </Link>
+        </ProjectCardLink>
       </div>
     </ProjectCardStyled>
   );

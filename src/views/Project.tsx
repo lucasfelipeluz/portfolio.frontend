@@ -26,21 +26,16 @@ export default function ProjectView() {
   }, [showMoreDetails]);
 
   return (
-    <ProjectSection className="container-fluid container-lg">
+    <ProjectSection className="container-fluid container-lg" id="projects">
       <SectionTitle>{strings.projects[language.code]}</SectionTitle>
       <ProjectContentSection>
         <ProjectCardComponent setShowMoreDetails={setShowMoreDetails} />
         <ProjectCardComponent setShowMoreDetails={setShowMoreDetails} />
         <ProjectCardComponent setShowMoreDetails={setShowMoreDetails} />
       </ProjectContentSection>
-      <MoreDetailsContainer className={`${showMoreDetails ? 'active' : ''}`}>
-        <div className="container">
-          <Outlet />
-        </div>
-      </MoreDetailsContainer>
-      <ContainerButtonSeeAllProjects>
+      {/* <ContainerButtonSeeAllProjects>
         <ButtonSeeAllProjects>Ver Todos</ButtonSeeAllProjects>
-      </ContainerButtonSeeAllProjects>
+      </ContainerButtonSeeAllProjects> */}
     </ProjectSection>
   );
 }

@@ -5,6 +5,8 @@ import { Section } from '../style/Globals';
 import ProjectView from '../views/Project';
 import { Slide } from 'react-slideshow-image/';
 import 'react-slideshow-image/dist/styles.css';
+import ContactView from '../views/Contact';
+import FooterView from '../views/Footer';
 
 export default class Home extends React.Component {
   render(): React.ReactNode {
@@ -15,7 +17,10 @@ export default class Home extends React.Component {
         <Welcome />
 
         <ProjectView />
-        <Section></Section>
+
+        <ContactView />
+
+        <FooterView />
       </>
     );
   }

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { colors, fonts } from './theme';
 import { Button, Section } from './Globals';
+import { Link } from 'react-router-dom';
 
 export const ProjectSection = styled(Section)`
   height: auto;
@@ -113,7 +114,7 @@ export const ButtonSeeAllProjects = styled(Button)`
 `;
 
 export const MoreDetailsContainer = styled.div`
-  display: none;
+  display: flex;
   color: ${colors.letras};
   top: 0;
   left: 0;
@@ -125,23 +126,155 @@ export const MoreDetailsContainer = styled.div`
   z-index: 2000;
   background-color: ${colors.dark2};
   transition: 0.5s linear;
+`;
 
-  &.active {
-    display: flex;
+export const ContainerProject = styled.div`
+  background-color: ${colors.dark};
+  height: 100%;
+  padding: 60px 0px 20px 0px;
+  position: relative;
+  display: grid;
+  gap: 10px;
+  position: relative;
+  overflow-y: auto;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 10px 1.5fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    width: 95%;
+    padding: 60px 20px 20px 20px;
+    gap: 20px;
   }
 
-  .container {
-    background-color: ${colors.dark};
-    width: 95%;
-    height: 95%;
-    border-radius: 10px;
-    padding: 20px;
-    position: relative;
-    display: grid;
-    gap: 10px;
+  .actions {
+    /* border: 1px solid white; */
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+    .title {
+      font-size: 1.5rem;
+
+      @media (min-width: 992px) {
+        opacity: 0;
+      }
+    }
+
+    .fas {
+      position: absolute;
+      left: 10px;
+      font-size: 2rem;
+
+      @media (min-width: 992px) {
+        left: 30px;
+      }
+    }
+  }
+
+  .slide-photos {
+    /* border: 1px solid white; */
+    margin-bottom: 30px;
+
+    .carousel {
+      width: 100%;
+    }
 
     @media (min-width: 992px) {
-      grid-template-columns: 1fr 1.5fr;
+      grid-row: 1/5;
+      grid-column: 3/4;
+      margin-bottom: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide {
+      width: 100%;
+    }
+  }
+
+  .description {
+    padding: 0 15px;
+
+    @media (min-width: 992px) {
+      grid-row: 1/5;
+      grid-column: 1/2;
+    }
+
+    .title-project {
+      display: none;
+
+      @media (min-width: 992px) {
+        display: block;
+        font-size: 1.9rem;
+        margin-bottom: 50px;
+      }
+    }
+
+    .text {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .duration {
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .skills {
+      margin-bottom: 50px;
+
+      .title-skills {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+
+      .content-skill {
+        display: flex;
+        justify-content: start;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        .skill {
+          background-color: ${colors.dark2};
+          padding: 8px;
+          border-radius: 5px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .links {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      .link {
+        background-color: ${colors.dark2};
+        width: 100%;
+        border-radius: 5px;
+        text-align: center;
+        padding: 8px;
+      }
+    }
+
+    /* border: 1px solid white; */
+  }
+
+  .separation-bar {
+    display: none;
+
+    @media (min-width: 992px) {
+      display: grid;
+      grid-row: 1/5;
+      grid-column: 2;
+      background-color: ${colors.cor3};
+      width: 1px;
+      height: 95%;
     }
   }
 `;
@@ -239,5 +372,23 @@ export const ImagesContainerProjectDetail = styled.div`
 
   @media (min-width: 992px) {
     display: flex;
+  }
+`;
+
+export const ProjectCardLink = styled(Link)`
+  background-color: ${colors.cor1};
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 5px;
+  color: ${colors.letras};
+
+  &:hover {
+    color: ${colors.cor2};
+    filter: saturate(1.5);
   }
 `;

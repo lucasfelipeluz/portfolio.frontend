@@ -10,7 +10,6 @@ $verde: #0bdd7b;
 $verde-hover: #07b664;
 $corheader: #181f24;
 
-
 /* Fontes */
 $font1: 'KoHo', sans-serif;
 $font2: 'Kanit', sans-serif;
@@ -123,19 +122,6 @@ h5 {
   padding: 5px 0 5px 15px;
 }
 
-.each-slide-effect>div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  height: 350px;
-  background-color: red;
-}
-
-.each-slide-effect span {
-  padding: 20px;
-  font-size: 20px;
-  background: #efefef;
-  text-align: center;
-  background-color: red;
+.Carousel2-root-14 {
+  height: 100%;
 }

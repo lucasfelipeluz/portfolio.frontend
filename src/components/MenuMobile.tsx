@@ -16,16 +16,16 @@ export default function MenuMobileComponent({ ativo, handleAtivo, language }: Pr
       <MenuContainer className="menu-container">
         <NavItensMobile className="nav-itens-mobile">
           <li className="nav-item" onClick={handleAtivo}>
-            <a href="#projetos">{strings.projects[language.code]}</a>
+            <a href="#projects">{strings.projects[language.code]}</a>
           </li>
-          <li className="nav-item" onClick={handleAtivo}>
+          {/* <li className="nav-item" onClick={handleAtivo}>
             <a href="#conhecimentos">{strings.skills[language.code]}</a>
+          </li> */}
+          <li className="nav-item" onClick={handleAtivo}>
+            <a href="#about-me">{strings.aboutMe[language.code]}</a>
           </li>
           <li className="nav-item" onClick={handleAtivo}>
-            <a href="#sobreMim">{strings.aboutMe[language.code]}</a>
-          </li>
-          <li className="nav-item" onClick={handleAtivo}>
-            <a href="#contato">{strings.contact[language.code]}</a>
+            <a href="#contact">{strings.contact[language.code]}</a>
           </li>
         </NavItensMobile>
 
