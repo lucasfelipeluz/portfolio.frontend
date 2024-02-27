@@ -45,3 +45,15 @@ export const Button = styled.button`
     background-color: ${colors.corDestaque};
   }
 `;
+
+export const SeparatorBar = styled.div`
+  display: none;
+  width: 1px;
+  height: 90%;
+  margin-top: 25px;
+  background-color: ${colors.cor1};
+
+  @media (min-width: 992px) {
+    display: block;
+  }
+`;
