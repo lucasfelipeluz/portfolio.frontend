@@ -1,17 +1,9 @@
 import React, { useEffect } from 'react';
 import ProjectCardComponent from '../components/ProjectCard';
 import { LanguageContext } from '../context/LanguageContext';
-import { Button, SectionTitle } from '../style/Globals';
-import {
-  ButtonSeeAllProjects,
-  ContainerButtonSeeAllProjects,
-  MoreDetailsContainer,
-  ProjectContentSection,
-  ProjectSection,
-} from '../style/Project';
+import { SectionTitle } from '../style/Globals';
+import { ProjectContentSection, ProjectSection } from '../style/Project';
 import strings from '../utils/strings';
-import ProjectDetails from '../components/ProjectDetails';
-import { Outlet, useLocation, useParams } from 'react-router-dom';
 
 export default function ProjectView() {
   const { language } = React.useContext(LanguageContext);

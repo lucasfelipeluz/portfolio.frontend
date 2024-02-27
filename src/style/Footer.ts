@@ -6,6 +6,7 @@ export const FooterSection = styled(Section)`
   height: 100px;
   margin-top: 50px;
   background-color: ${colors.dark};
+  user-select: none;
 
   .container {
     display: flex;

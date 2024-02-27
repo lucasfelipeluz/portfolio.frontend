@@ -4,6 +4,7 @@ import { Button, Section } from './Globals';
 import { Link } from 'react-router-dom';
 
 export const ProjectSection = styled(Section)`
+  min-height: 100vh;
   height: auto;
   padding-bottom: 25px;
 `;
