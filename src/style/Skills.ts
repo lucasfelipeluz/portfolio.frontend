@@ -15,14 +15,17 @@ export const SkillContent = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   color: white;
+  min-height: 80vh;
 
   @media (min-width: 992px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 3px 1fr;
+    height: 100%;
   }
 `;
 
 export const ContainerSkill = styled.div`
   padding: 30px 5px;
+
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -36,7 +39,7 @@ export const StyleSkillDescription = styled.div`
   opacity: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 
   @media (max-width: 992px) {
     display: none;
@@ -115,5 +118,16 @@ export const StyleSkillButtons = styled.div`
         text-align: center;
       }
     }
+  }
+`;
+
+export const HelperText = styled.p`
+  display: none;
+  color: #7a7a7a7f;
+  font-weight: bold;
+  text-align: center;
+
+  @media (min-width: 992px) {
+    display: block;
   }
 `;
