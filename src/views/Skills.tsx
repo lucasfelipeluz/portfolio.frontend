@@ -9,39 +9,43 @@ import {
   SkillsSectionTitle,
 } from '../style/Skills';
 import { SeparatorBar } from '../style/Globals';
+import strings from '../utils/strings';
+import { LanguageContext } from '../context/LanguageContext';
+import { SkillProps } from '../types/ServicesProps';
+
+interface Props {
+  skills: SkillProps[];
+}
 
 interface DescriptionHoverProps {
   description: string;
   links: string[];
 }
 
-export default function SkillsView() {
+export default function SkillsView({ skills }: Props) {
+  const { language } = React.useContext(LanguageContext);
+
   const [descriptionHover, setDescriptionHover] = React.useState<DescriptionHoverProps | null>(
     null
   );
 
   return (
     <SkillsSection>
-      <SkillsSectionTitle id="skills">Skills</SkillsSectionTitle>
-      <HelperText>Passe o mouse por cima da tecnologia para ver a descrição</HelperText>
+      <SkillsSectionTitle id="skills">{strings.skills[language.code]}</SkillsSectionTitle>
+      <HelperText>{strings.hoverUpTheMouseAboveTheSkill[language.code]}</HelperText>
       <SkillContent className="container-fluid container-lg">
         <SkillDescription description={descriptionHover?.description} />
         <SeparatorBar />
         <ContainerSkill>
-          <SkillButtons
-            title="HTML"
-            description="OPa opa aopa"
-            icon="fab fa-html5"
-            color="red"
-            setDescriptionHover={setDescriptionHover}
-          />
-          <SkillButtons
-            title="Pepino"
-            description="OPa opa aopa"
-            icon="fab fa-html5"
-            color="blue"
-            setDescriptionHover={setDescriptionHover}
-          />
+          {skills.map((skill) => {
+            return (
+              <SkillButtons
+                key={skill.id}
+                skill={skill}
+                setDescriptionHover={setDescriptionHover}
+              />
+            );
+          })}
         </ContainerSkill>
       </SkillContent>
     </SkillsSection>

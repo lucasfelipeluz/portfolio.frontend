@@ -1,36 +1,31 @@
 import React from 'react';
 import { ProjectCardLink, ProjectCardStyled } from '../style/Project';
 import { Link } from 'react-router-dom';
+import { ProjectProps } from '../types/ServicesProps';
+import strings from '../utils/strings';
 
-export default function ProjectCardComponent({ setShowMoreDetails }: { setShowMoreDetails: any }) {
+interface Props {
+  project: ProjectProps;
+  langCode: string;
+}
+
+export default function ProjectCardComponent({ project, langCode }: Props) {
   return (
     <ProjectCardStyled>
       <div className="container-title">
-        <p className="title">Projct</p>
+        <p className="title">{project.title}</p>
       </div>
       <div className="description">
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum ex, esse quasi dolor
-          corporis fugit perspiciatis nostrum accusantium. Ducimus adipisci modi atque quaerat quae
-          nesciunt? Nihil ipsa quisquam iure ratione?
-        </p>
+        <p>{project.description}</p>
       </div>
       <div className="skills">
-        <a href="">HTML</a>
-        <a href="">CSS</a>
-        <a href="">JavaScript</a>
-        <a href="">C#</a>
-        <a href="">.NET</a>
+        {project.skills?.map((skill, index) => {
+          if (index < 5) return <a href="">{skill.title}</a>;
+          else return null;
+        })}
       </div>
       <div className="more-info">
-        <ProjectCardLink
-          to="/project/1"
-          onClick={() => {
-            setShowMoreDetails(true);
-          }}
-        >
-          Saber Mais
-        </ProjectCardLink>
+        <ProjectCardLink to="/project/1">{strings.moreDetails[langCode]}</ProjectCardLink>
       </div>
     </ProjectCardStyled>
   );

@@ -1,44 +1,57 @@
-export interface Projetos {
+export interface ProjectProps {
   id: number;
-  titulo: string;
-  descricao: string;
-  prioridade: number;
-  url_github: string;
-  url_website: string;
-  criado_em: string;
-  alterado_em: string;
-  habilidades?: Habilidades[];
+  title: string;
+  description: string;
+  urlWebsite: string;
+  urlGithub: string;
+  viewPriority: number;
+  isActive?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  startedAt: string;
+  finishedAt: string;
+  skills?: SkillProps[];
 }
 
-export interface Habilidades {
+export interface SkillProps {
   id: number;
-  titulo: string;
-  descricao: string;
-  experiencia: number;
-  prioridade: number;
-  cores: string;
-  icones: string;
-  criado_em: string;
-  alterado_em: string;
-  projetos?: Projetos[];
+  title: string;
+  description: string;
+  experience: string;
+  color: string;
+  icon: string;
+  viewPriority: number;
+  isActive?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+  projects?: ProjectProps[];
 }
 
-export interface SobreMim {
+export interface AboutMeProps {
   id: number;
-  nome: string;
-  texto: string;
-  titulo_emprego: string;
-  link_github: string;
-  link_telegram: string;
-  link_instagram: string;
-  link_linkedin: string;
-  disponivel: boolean;
+  name: string;
+  text: string;
+  jobTitle: string;
+  telegramLink: string;
+  instagramLink: string;
+  linkedinLink: string;
+  githubLink: string;
+  isAvailable: boolean;
 }
 
-export interface Home {
-  projetos: Projetos[];
-  habilidades: Habilidades[];
-  sobreMim: SobreMim;
+export interface ActivityProps {
+  id: number;
+  title: string;
+  description: string;
+  icon: string;
+  createdAt: string;
+}
+
+export interface HomeProps {
+  projects: ProjectProps[];
+  skills: SkillProps[];
+  aboutMe: AboutMeProps;
+  activities: ActivityProps[];
 }
 
 export interface ResponseServices<T> {
@@ -48,6 +61,11 @@ export interface ResponseServices<T> {
     msgError?: any;
     msg?: string;
   };
+}
+
+export interface LoginProps {
+  email: string;
+  password: string;
 }
 
 export interface Services {

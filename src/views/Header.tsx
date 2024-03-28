@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import MenuMobileComponent from '../components/MenuMobile';
 import NavItensComponent from '../components/NavItens';
-import { GradientBar, MobileGradientBar } from '../style/Globals';
-import { HeaderStyle, NavBar, NavButton, NavItens, TitlePortfolio } from '../style/Header';
-import { LanguageContext } from '../context/LanguageContext';
-import strings from '../utils/strings';
+import { GradientBar } from '../style/Globals';
+import { HeaderStyle, NavBar, NavButton, TitlePortfolio } from '../style/Header';
+import { HeaderProps } from '../types/Components';
 
-export default function Header() {
-  const { language } = React.useContext(LanguageContext);
+export default function Header({ data, titleHeader }: HeaderProps) {
   const [toggleMenuMobile, setToggleMenuMobile] = useState<boolean>(false);
 
   const handleToggleMenuMobile = () => {
@@ -25,13 +23,13 @@ export default function Header() {
           </div>
         </NavButton>
         <TitlePortfolio>
-          <p>Portfolio</p>
+          <p>{titleHeader}</p>
         </TitlePortfolio>
-        <NavItensComponent language={language} />
+        <NavItensComponent data={data} />
         <MenuMobileComponent
           ativo={toggleMenuMobile}
           handleAtivo={handleToggleMenuMobile}
-          language={language}
+          data={data}
         />
       </NavBar>
       <GradientBar />

@@ -5,6 +5,8 @@ import Unavailable from './pages/Unavailable';
 import Home from './pages/Home';
 import { LanguageProvider } from './context/LanguageContext';
 import Project from './pages/Project';
+import Login from './pages/Login';
+import AdminHome from './pages/AdminHome';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
   {
     path: '/project/:id',
     element: <Project />,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: 'admin/home',
+    element: <AdminHome />,
   },
 ]);
 

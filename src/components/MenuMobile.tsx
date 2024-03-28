@@ -1,32 +1,26 @@
 import React from 'react';
 import { MobileGradientBar } from '../style/Globals';
 import { MenuContainer, MenuMobile, NavItensMobile } from '../style/Header';
-import LanguageProps from '../interfaces/LanguageProps';
-import strings from '../utils/strings';
+import { NavItensProps } from '../types/Components';
 
 interface Props {
   ativo: boolean;
   handleAtivo: Function | any;
-  language: LanguageProps;
+  data: NavItensProps[];
 }
 
-export default function MenuMobileComponent({ ativo, handleAtivo, language }: Props) {
+export default function MenuMobileComponent({ ativo, handleAtivo, data }: Props) {
   return (
     <MenuMobile className={`menu-mobile ${ativo ? 'ativo' : ''}`}>
       <MenuContainer className="menu-container">
         <NavItensMobile className="nav-itens-mobile">
-          <li className="nav-item" onClick={handleAtivo}>
-            <a href="#projects">{strings.projects[language.code]}</a>
-          </li>
-          {/* <li className="nav-item" onClick={handleAtivo}>
-            <a href="#conhecimentos">{strings.skills[language.code]}</a>
-          </li> */}
-          <li className="nav-item" onClick={handleAtivo}>
-            <a href="#about-me">{strings.aboutMe[language.code]}</a>
-          </li>
-          <li className="nav-item" onClick={handleAtivo}>
-            <a href="#contact">{strings.contact[language.code]}</a>
-          </li>
+          {data.map((item) => {
+            return (
+              <li className="nav-item" onClick={handleAtivo}>
+                <a href={`#${item.classNames}`}>{item.name}</a>
+              </li>
+            );
+          })}
         </NavItensMobile>
 
         <MobileGradientBar className="barra-gradiente-mobile"></MobileGradientBar>

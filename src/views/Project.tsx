@@ -1,29 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ProjectCardComponent from '../components/ProjectCard';
 import { LanguageContext } from '../context/LanguageContext';
 import { SectionTitle } from '../style/Globals';
 import { ProjectContentSection, ProjectSection } from '../style/Project';
+import { ProjectProps } from '../types/ServicesProps';
 import strings from '../utils/strings';
 
-export default function ProjectView() {
-  const { language } = React.useContext(LanguageContext);
-  const [showMoreDetails, setShowMoreDetails] = React.useState(false);
+interface Props {
+  projects: ProjectProps[];
+}
 
-  useEffect(() => {
-    if (showMoreDetails) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [showMoreDetails]);
+export default function ProjectView({ projects }: Props) {
+  const { language } = React.useContext(LanguageContext);
 
   return (
-    <ProjectSection className="container-fluid container-lg" id="projects">
+    <ProjectSection className="container-fluid container-lg" id={`${strings.classNames.projects}`}>
       <SectionTitle>{strings.projects[language.code]}</SectionTitle>
       <ProjectContentSection>
-        <ProjectCardComponent setShowMoreDetails={setShowMoreDetails} />
-        <ProjectCardComponent setShowMoreDetails={setShowMoreDetails} />
-        <ProjectCardComponent setShowMoreDetails={setShowMoreDetails} />
+        {projects.map((project) => {
+          return (
+            <ProjectCardComponent key={project.id} project={project} langCode={language.code} />
+          );
+        })}
       </ProjectContentSection>
       {/* <ContainerButtonSeeAllProjects>
         <ButtonSeeAllProjects>Ver Todos</ButtonSeeAllProjects>

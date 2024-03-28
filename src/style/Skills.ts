@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { SectionTitle } from './Globals';
 import { colors } from './theme';
+import Icon from '@mdi/react';
 
 export const SkillsSection = styled.section`
   background-color: ${colors.dark};
@@ -25,7 +26,6 @@ export const SkillContent = styled.div`
 
 export const ContainerSkill = styled.div`
   padding: 30px 5px;
-
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -50,7 +50,7 @@ export const StyleSkillDescription = styled.div`
   }
 `;
 
-export const StyleSkillButtons = styled.div`
+export const StyleSkillButtons = styled.div<{ colorSkill: string }>`
   border: 1px solid ${colors.cor1};
   width: 120px;
   height: 120px;
@@ -63,9 +63,22 @@ export const StyleSkillButtons = styled.div`
   .skill-header {
     transition: 0.5s;
     text-align: center;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-    .skill-icon {
-      font-size: 50px;
+    .container-icon {
+      position: static;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      .skill-icon {
+      }
     }
   }
 
@@ -79,7 +92,7 @@ export const StyleSkillButtons = styled.div`
     @media (min-width: 992px) {
       .skill-header {
         .skill-title,
-        .skill-icon {
+        .container-icon {
           color: ${(props) => props.color};
         }
       }
@@ -96,19 +109,38 @@ export const StyleSkillButtons = styled.div`
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 80px 1fr;
+      border: 1px solid ${(props) => props.color};
 
       .skill-header {
         display: flex;
         justify-content: center;
         text-align: center;
+        align-items: center;
         padding-left: 20px;
+        border-bottom: 1px solid ${colors.cor1};
+        position: relative;
+        overflow: hidden;
+        height: 100%;
 
-        .skill-icon {
+        .container-icon {
           font-size: 30px;
+          background-color: red;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100px;
+          height: 100%;
+          background-color: ${(props) => props.colorSkill};
+
+          .skill-icon {
+            width: 60px;
+            height: 60px;
+          }
         }
+
         .skill-title {
           padding-left: 10px;
-          font-size: 20px;
+          font-size: 30px;
           padding-bottom: 10px;
         }
       }
@@ -120,6 +152,8 @@ export const StyleSkillButtons = styled.div`
     }
   }
 `;
+
+export const SkillIcon = styled(Icon)``;
 
 export const HelperText = styled.p`
   display: none;

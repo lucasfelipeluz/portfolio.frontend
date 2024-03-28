@@ -1,40 +1,35 @@
 import React from 'react';
 import { AboutMeCard } from '../style/Contact';
 import ContactLinkComponent from './ContactLink';
+import { AboutMeProps } from '../types/ServicesProps';
+import strings from '../utils/strings';
 
-export default function AboutMeComponent() {
+interface Props {
+  aboutMe: AboutMeProps;
+  langCode: string;
+}
+
+export default function AboutMeComponent({ aboutMe, langCode }: Props) {
   return (
     <AboutMeCard>
       <div className="img-container">
         <img src="https://avatars.githubusercontent.com/u/65639478?v=4" alt="" />
       </div>
-      <p className="text-container">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta consequatur explicabo
-        cumque nobis mollitia, iure necessitatibus quasi autem obcaecati provident alias veniam
-        laboriosam corporis consequuntur assumenda ipsa placeat est sint! Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Autem dolore, repellat ea consequatur, voluptatem incidunt
-        commodi rem quos eaque illo quidem quis, temporibus sapiente cum harum adipisci error
-        impedit accusamus! Repudiandae deserunt velit saepe eveniet! Qui aliquam adipisci commodi
-        tempora impedit libero rerum at sequi sunt maiores. Error, reprehenderit! Error impedit
-        eius, quas voluptatum labore odit totam accusamus alias ipsum. Velit, necessitatibus eveniet
-        adipisci ad natus quis aperiam reiciendis dignissimos expedita voluptatibus corporis a
-        inventore voluptatem animi? Eos eaque iste ratione nam dolorum, tempore suscipit unde, fugit
-        quaerat illum cupiditate?
-      </p>
+      <p className="text-container">{aboutMe.text}</p>
       <div className="line-separator"></div>
       <div className="contact-links">
-        <p className="title-contact-links">Contatos</p>
+        <p className="title-contact-links">{strings.contact[langCode]}</p>
         <ContactLinkComponent
           codeFontAwesome="fab fa-github"
           color="#71CF62"
-          link="https://github.com/lucasfelipeluz"
+          link={aboutMe.githubLink}
           title="Github"
           target="_blank"
         />
         <ContactLinkComponent
           codeFontAwesome="fab fa-linkedin"
           color="#0077B5"
-          link="https://www.linkedin.com/in/lucasfelipeluz/"
+          link={aboutMe.linkedinLink}
           title="Linkedin"
           target="_blank"
         />
@@ -48,7 +43,7 @@ export default function AboutMeComponent() {
         <ContactLinkComponent
           codeFontAwesome="fab fa-telegram"
           color="#27A6E6"
-          link="https://t.me/lucasfelipeluz"
+          link={aboutMe.telegramLink}
           title="Telegram"
           target="_blank"
         />

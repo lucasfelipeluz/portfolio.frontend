@@ -1,30 +1,54 @@
-import React from 'react';
-import Header from '../views/Header';
-import Welcome from '../views/Welcome';
-import { Section } from '../style/Globals';
-import ProjectView from '../views/Project';
-import { Slide } from 'react-slideshow-image/';
+import React, { useCallback, useContext, useEffect } from 'react';
 import 'react-slideshow-image/dist/styles.css';
+import useHomeServices from '../hooks/useHomeServices';
+import { HomeProps } from '../types/ServicesProps';
 import ContactView from '../views/Contact';
 import FooterView from '../views/Footer';
+import Header from '../views/Header';
+import ProjectView from '../views/Project';
 import SkillsView from '../views/Skills';
+import Welcome from '../views/Welcome';
+import { HeaderProps, NavItensProps } from '../types/Components';
+import { LanguageContext } from '../context/LanguageContext';
+import strings from '../utils/strings';
 
-export default class Home extends React.Component {
-  render(): React.ReactNode {
-    return (
-      <>
-        <Header />
+export default function Home() {
+  const { language } = useContext(LanguageContext);
+  const { useGetHome } = useHomeServices();
 
-        <Welcome />
+  const [home, setHome] = React.useState<HomeProps>();
 
-        <ProjectView />
+  const { data, refetch } = useGetHome();
 
-        <SkillsView />
+  const atualizarHome = useCallback(() => {
+    setHome(data);
+  }, [data, refetch]);
 
-        <ContactView />
+  useEffect(() => {
+    atualizarHome();
+  }, [atualizarHome]);
 
-        <FooterView />
-      </>
-    );
-  }
+  const headerData: NavItensProps[] = [
+    { name: strings.projects[language.code], classNames: strings.classNames.projects },
+    { name: strings.skills[language.code], classNames: strings.classNames.skills },
+    { name: strings.aboutMe[language.code], classNames: strings.classNames.aboutMe },
+    { name: strings.contact[language.code], classNames: strings.classNames.contact },
+  ];
+
+  if (!home) return <>Carregando!</>;
+  return (
+    <>
+      <Header data={headerData} titleHeader={strings.portfolio[language.code]} />
+
+      <Welcome aboutMe={home.aboutMe} />
+
+      <ProjectView projects={home.projects} />
+
+      <SkillsView skills={home.skills} />
+
+      <ContactView aboutMe={home.aboutMe} />
+
+      <FooterView />
+    </>
+  );
 }

@@ -28,6 +28,7 @@ export const ProjectCardStyled = styled.div`
   color: ${colors.letras};
   background-color: ${colors.dark};
   height: 350px;
+  width: 350px;
   display: grid;
   grid-template-rows: 1fr 3fr 1fr 1fr;
   padding: 5px 15px;

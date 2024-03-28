@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { configApi } from '../src/utils/config';
 import App from './App';
+import { configApi } from '../src/utils/config';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
 

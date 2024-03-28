@@ -22,7 +22,6 @@ export const MobileGradientBar = styled(GradientBar)`
 export const Section = styled.section`
   height: 100vh;
   width: 100%;
-  /* border: 1px solid white; */
 `;
 
 export const SectionTitle = styled.h2`

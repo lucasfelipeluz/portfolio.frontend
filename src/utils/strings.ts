@@ -36,6 +36,10 @@ export default {
     pt: 'Sobre mim',
     en: 'About me',
   },
+  portfolio: {
+    pt: 'Portfólio',
+    en: 'Portfolio',
+  },
 
   // Key Words
   myAPI: {
@@ -63,5 +67,26 @@ export default {
   hello: {
     en: 'Hello, my name is',
     pt: 'Olá, meu nome é',
+  },
+  moreDetails: {
+    en: 'More details',
+    pt: 'Mais detalhes',
+  },
+  hoverUpTheMouseAboveTheSkill: {
+    en: 'Hover up the mouse above the skill to see the description',
+    pt: 'Passe o mouse por cima da tecnologia para ver a descrição',
+  },
+
+  // Without translation
+  classNames: {
+    projects: 'projects',
+    skills: 'skills',
+    aboutMe: 'about-me',
+    contact: 'contact',
+  },
+
+  // Routes
+  routes: {
+    login: '/login',
   },
 };

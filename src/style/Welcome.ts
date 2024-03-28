@@ -41,6 +41,16 @@ export const WelcomeInformationStyled = styled.div`
   }
   .position {
     line-height: 1;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 500px) {
+    .hello {
+      margin-bottom: 10px;
+    }
+    .name {
+      font-size: 3rem;
+    }
   }
 
   @media (min-width: 992px) {
@@ -53,6 +63,13 @@ export const WelcomeInformationStyled = styled.div`
     .position {
       font-size: 1.2rem;
     }
+    .name {
+      font-size: 4rem;
+      margin-left: -4px;
+    }
+  }
+
+  @media (min-width: 1200px) {
     .name {
       font-size: 4.8rem;
       margin-left: -4px;
