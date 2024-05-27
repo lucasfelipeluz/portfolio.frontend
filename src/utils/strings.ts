@@ -89,4 +89,8 @@ export default {
   routes: {
     login: '/login',
   },
+
+  // Others
+  user: 'user',
+  token: 'token',
 };

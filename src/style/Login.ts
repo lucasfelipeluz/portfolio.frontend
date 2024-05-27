@@ -37,6 +37,7 @@ export const LoginMainContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 
   /* @media (min-width: 768px) {
     margin-left: 40%;
@@ -62,8 +63,17 @@ export const LoginForm = styled.div`
       max-width: 550px;
     }
 
-    .btn {
+    .btns {
       margin-top: 30px;
+      display: flex;
+      gap: 15px;
     }
   }
+`;
+
+export const AnotherWayToSignIn = styled.div`
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
 `;

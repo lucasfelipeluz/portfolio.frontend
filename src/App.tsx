@@ -1,12 +1,13 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { configApi } from './utils/config';
-import Unavailable from './pages/Unavailable';
-import Home from './pages/Home';
+import { AuthProvider } from './context/AuthContext';
 import { LanguageProvider } from './context/LanguageContext';
-import Project from './pages/Project';
-import Login from './pages/Login';
 import AdminHome from './pages/AdminHome';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Project from './pages/Project';
+import Unavailable from './pages/Unavailable';
+import { configApi } from './utils/config';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,13 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <LanguageProvider>
-      {configApi.serverOn === 'true' ? <RouterProvider router={router} /> : <Unavailable />}
+      <AuthProvider>
+        {configApi.serverOn === 'true' ? (
+          <RouterProvider router={router}></RouterProvider>
+        ) : (
+          <Unavailable />
+        )}
+      </AuthProvider>
     </LanguageProvider>
   );
 }

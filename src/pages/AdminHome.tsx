@@ -7,15 +7,17 @@ import { NavItensProps } from '../types/Components';
 import { Section, SectionTitle } from '../style/Globals';
 import { AdminSection } from '../style/Admin';
 import useHomeServices from '../hooks/useHomeServices';
-import { HomeProps, ProjectProps } from '../types/ServicesProps';
 import { adminHomeProjectColumns, adminHomeSkillColumns } from '../utils/columns';
 import DataGridGlobal from '../components/DataGridGlobal';
 import { Box, Button, Card } from '@mui/material';
+import { useAuth } from '../context/AuthContext';
+import { HomeProps } from '../core/types/Services';
+import { ExitRun } from 'mdi-material-ui';
 
 export default function AdminHome() {
   const { language } = useContext(LanguageContext);
-
   const { useGetHomeAdmin } = useHomeServices();
+  const { logout } = useAuth();
 
   const [home, setHome] = React.useState<HomeProps>();
 
@@ -39,6 +41,15 @@ export default function AdminHome() {
   return (
     <div>
       <Header data={dataHeader} titleHeader="Administrador" />
+      <Button
+        onClick={logout}
+        variant="outlined"
+        color="error"
+        startIcon={<ExitRun />}
+        sx={{ m: 3 }}
+      >
+        Logout
+      </Button>
       <AdminSection>
         <div className="container-lg container-fluid">
           <Box sx={{ mb: 5 }}>

@@ -1,16 +1,15 @@
 import React, { useCallback, useContext, useEffect } from 'react';
-import 'react-slideshow-image/dist/styles.css';
+import { LanguageContext } from '../context/LanguageContext';
 import useHomeServices from '../hooks/useHomeServices';
+import { NavItensProps } from '../types/Components';
 import { HomeProps } from '../types/ServicesProps';
+import strings from '../utils/strings';
 import ContactView from '../views/Contact';
 import FooterView from '../views/Footer';
 import Header from '../views/Header';
 import ProjectView from '../views/Project';
 import SkillsView from '../views/Skills';
 import Welcome from '../views/Welcome';
-import { HeaderProps, NavItensProps } from '../types/Components';
-import { LanguageContext } from '../context/LanguageContext';
-import strings from '../utils/strings';
 
 export default function Home() {
   const { language } = useContext(LanguageContext);
