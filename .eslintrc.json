@@ -1,3 +1,30 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["airbnb", "airbnb-typescript"],
+  "plugins": ["react", "@typescript-eslint", "import-helpers"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "no-console": "warn",
+    "linebreak-style": 2,
+    "jsx-quotes": [2, "prefer-single"],
+    "@typescript-eslint/quotes": "warn",
+    "@typescript-eslint/indent": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "semi": ["error", "always"],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "alphabetize": { "order": "asc", "ignoreCase": true },
+        "groups": ["/^react/", "/^next/", "module", "/^@mui/"]
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 100
+      }
+    ]
+  }
 }
