@@ -8,10 +8,16 @@
     "no-console": "warn",
     "linebreak-style": 2,
     "jsx-quotes": [2, "prefer-single"],
+    "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/quotes": "warn",
     "@typescript-eslint/indent": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
     "semi": ["error", "always"],
+    "react/require-default-props": "off",
+    "quote-props": ["error", "consistent-as-needed"],
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
     "import-helpers/order-imports": [
       "warn",
       {
