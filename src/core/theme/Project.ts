@@ -256,15 +256,15 @@ export const ContainerProject = styled.div`
       gap: 10px;
 
       .link {
+        text-decoration: none;
         background-color: ${colors.dark2};
         width: 100%;
         border-radius: 5px;
         text-align: center;
         padding: 8px;
+        color: ${colors.letras};
       }
     }
-
-    /* border: 1px solid white; */
   }
 
   .separation-bar {

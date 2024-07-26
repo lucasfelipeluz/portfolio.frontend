@@ -2,6 +2,10 @@ import { Square } from 'mdi-material-ui';
 import React, { useEffect } from 'react';
 import { StyleSkillButtons } from 'src/core/theme/Skills';
 import Skill from 'src/types/Skill';
+import * as mdiIconPath from '@mdi/js';
+import Icon from '@mdi/react';
+
+type MdiIcons = typeof import('@mdi/js');
 
 interface Props {
   skill: Skill;
@@ -21,6 +25,8 @@ export default function SkillButtons({ skill, setDescriptionHover }: Props) {
   const [color, setColor] = React.useState('white');
   const [skillSelected, setSkillSelected] = React.useState(false);
   const [experiencia, setExperiencia] = React.useState({ anos: 0, meses: 0 });
+
+  const iconPath = (mdiIconPath as any)[skill.icon];
 
   useEffect(() => {
     const data = new Date(skill.startedAt);
@@ -45,7 +51,7 @@ export default function SkillButtons({ skill, setDescriptionHover }: Props) {
     >
       <div className='skill-header'>
         <div className='container-icon'>
-          <Square />
+          <Icon path={iconPath} />
         </div>
         <div className='skill-title'>{skill.title}</div>
       </div>

@@ -101,7 +101,7 @@ function SectionWelcomeComponent() {
               // filter: 'blur(10px)',
             }}
           >
-            <FloatIcon path={IconPath.mdiLanguagePython} sx={{ ...getRandomLocation() }} />
+            {/* <FloatIcon path={IconPath.mdiLanguagePython} sx={{ ...getRandomLocation() }} />
             <FloatIcon path={IconPath.mdiLanguageJavascript} sx={{ ...getRandomLocation() }} />
             <FloatIcon path={IconPath.mdiLanguageCsharp} sx={{ ...getRandomLocation() }} />
             <FloatIcon path={IconPath.mdiDatabase} sx={{ ...getRandomLocation() }} />
@@ -121,7 +121,7 @@ function SectionWelcomeComponent() {
             <FloatIcon path={IconPath.mdiLanguageGo} sx={{ ...getRandomLocation() }} />
             <FloatIcon path={IconPath.mdiGoogleCloud} sx={{ ...getRandomLocation() }} />
             <FloatIcon path={IconPath.mdiAws} sx={{ ...getRandomLocation() }} />
-            <FloatIcon path={IconPath.mdiMicrosoftAzure} sx={{ ...getRandomLocation() }} />
+            <FloatIcon path={IconPath.mdiMicrosoftAzure} sx={{ ...getRandomLocation() }} /> */}
           </div>
         </DeveloperIlustrationStyled>
       </WelcomeStyled>
