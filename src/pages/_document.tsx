@@ -7,6 +7,7 @@ export default function Document() {
     <Html>
       <Head>
         <link rel='stylesheet' href={oldFontsCDN} />
+        <link rel='icon' href='/images/favicon.png' />
       </Head>
       <body>
         <Main />
