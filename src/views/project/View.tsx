@@ -1,9 +1,10 @@
 import { ArrowLeft } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import { ContainerProject, MoreDetailsContainer } from 'src/core/theme/Project';
+import useHomeServices from 'src/hooks/useServices/useHomeServices';
 import { Project } from 'src/types/Project';
 import { formatISODateToBRDate } from 'src/utils/helpers';
 
@@ -20,10 +21,21 @@ function Item(props: { item: string }) {
 }
 
 interface Props {
-  project: Project;
+  id: number;
 }
 
-function View({ project }: Props) {
+function View({ id }: Props) {
+  const { data, refetch } = useHomeServices.getHomeProject(id);
+
+  const [project, setProjectData] = useState<Project>();
+
+  useEffect(() => {
+    if (data) {
+      setProjectData(data);
+    }
+    refetch();
+  }, [data, project]);
+
   const router = useRouter();
 
   const onHandleToBackPage = () => {
@@ -70,44 +82,48 @@ function View({ project }: Props) {
             </Carousel>
           </div>
         </div>
-        <div className='description'>
-          <p className='title-project'>{project.title}</p>
-          <p className='text'>{project.description}</p>
-          <div className='duration'>
-            <p className='started-at'>Iniciado em: {formatISODateToBRDate(project.startedAt)}</p>
-            {project.finishedAt && (
-              <p className='started-at'>
-                Terminado em: {formatISODateToBRDate(project.finishedAt)}
-              </p>
-            )}
-          </div>
+        {project ? (
+          <div className='description'>
+            <p className='title-project'>{project.title}</p>
+            <p className='text'>{project.description}</p>
+            <div className='duration'>
+              <p className='started-at'>Iniciado em: {formatISODateToBRDate(project.startedAt)}</p>
+              {project.finishedAt && (
+                <p className='started-at'>
+                  Terminado em: {formatISODateToBRDate(project.finishedAt)}
+                </p>
+              )}
+            </div>
 
-          <div className='skills'>
-            <p className='title-skills'>Tecnologias utilizadas:</p>
-            <div className='content-skill'>
-              {project.skills.map((skill) => (
-                <p className='skill'>{skill.title}</p>
-              ))}
-              {/* <p className='skill'>HTML</p>
-              <p className='skill'>CSS</p>
-              <p className='skill'>JavaScript</p>
-              <p className='skill'>JavaScript</p>
-              <p className='skill'>JavaScript</p>
-              <p className='skill'>JavaScript</p>
-              <p className='skill'>JavaScript</p>
-              <p className='skill'>JavaScript</p>
-              <p className='skill'>JavaScript</p> */}
+            <div className='skills'>
+              <p className='title-skills'>Tecnologias utilizadas:</p>
+              <div className='content-skill'>
+                {project.skills.map((skill) => (
+                  <p className='skill'>{skill.title}</p>
+                ))}
+                {/* <p className='skill'>HTML</p>
+                <p className='skill'>CSS</p>
+                <p className='skill'>JavaScript</p>
+                <p className='skill'>JavaScript</p>
+                <p className='skill'>JavaScript</p>
+                <p className='skill'>JavaScript</p>
+                <p className='skill'>JavaScript</p>
+                <p className='skill'>JavaScript</p>
+                <p className='skill'>JavaScript</p> */}
+              </div>
+            </div>
+            <div className='links'>
+              <a className='link' href={project.urlGithub} target='_blank' rel='noreferrer'>
+                Github
+              </a>
+              <a className='link' href={project.urlWebsite} target='_blank' rel='noreferrer'>
+                Site do projeto
+              </a>
             </div>
           </div>
-          <div className='links'>
-            <a className='link' href={project.urlGithub} target='_blank' rel='noreferrer'>
-              Github
-            </a>
-            <a className='link' href={project.urlWebsite} target='_blank' rel='noreferrer'>
-              Site do projeto
-            </a>
-          </div>
-        </div>
+        ) : (
+          <p>Carregando...</p>
+        )}
         <div className='separation-bar' />
       </ContainerProject>
     </MoreDetailsContainer>

@@ -16,6 +16,7 @@ import * as IconPath from '@mdi/js';
 import { IconProps } from '@mdi/react/dist/IconProps';
 import { colors } from 'src/core/theme/theme';
 import { red } from '@mui/material/colors';
+import { AboutMe } from 'src/types/AboutMe';
 import WelcomeInfomationComponent from '../container/WelcomeInfomation';
 
 const FloatJavascript = styled(LanguagePython)`
@@ -71,7 +72,11 @@ function getRandomLocation() {
   return { left: `${left}%`, top: `${top}%` };
 }
 
-function SectionWelcomeComponent() {
+interface Props {
+  aboutMe: AboutMe;
+}
+
+function SectionWelcomeComponent({ aboutMe }: Props) {
   const { language } = useLanguage();
 
   return (
@@ -79,8 +84,8 @@ function SectionWelcomeComponent() {
       <WelcomeStyled className='container-fluid container-lg'>
         <WelcomeInfomationComponent
           language={language}
-          jobTitle='Desenvolvedor Full Stack'
-          name='Lucas Felipe Luz'
+          jobTitle={aboutMe.jobTitle}
+          name={aboutMe.name}
         />
         <DeveloperIlustrationStyled>
           <WelcomeIllustrationDeveloperStyled

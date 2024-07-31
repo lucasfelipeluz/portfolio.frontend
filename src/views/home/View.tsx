@@ -2,6 +2,7 @@ import React from 'react';
 import FooterComponent from 'src/components/container/Footer';
 
 import Header from 'src/components/header/HomeHeader';
+import SectionContactComponent from 'src/components/section/SectionContact';
 import SectionProjectComponent from 'src/components/section/SectionProjects';
 import SectionSkillComponent from 'src/components/section/SectionSkill';
 import SectionWelcomeComponent from 'src/components/section/SectionWelcome';
@@ -29,9 +30,10 @@ function View({ data }: Props) {
   return (
     <div style={{ backgroundColor: colors.cor1, height: '100%' }}>
       <Header data={headerData} titleHeader='Portfolio' />
-      <SectionWelcomeComponent />
+      {data ? <SectionWelcomeComponent aboutMe={data?.aboutMe} /> : null}
       {data ? <SectionProjectComponent projects={data.projects} /> : null}
       {data ? <SectionSkillComponent skills={data?.skills} /> : null}
+      {data ? <SectionContactComponent aboutMe={data.aboutMe} /> : null}
       <FooterComponent />
     </div>
   );
