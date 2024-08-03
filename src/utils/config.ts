@@ -1,11 +1,12 @@
 // @ts-nocheck
-import LanguageProps from '../interfaces/LanguageProps';
+
+import { LanguageProps } from 'src/core/types/languageContext';
 
 export const configApi = {
-  urlApi: import.meta.env.VITE_API_URL || 'localhost',
-  hostApi: import.meta.env.VITE_API_HOST || '8080',
-  serverMode: import.meta.env.VITE_SERVER_MODE || 'dev',
-  serverOn: import.meta.env.VITE_SERVER_ON || 'true',
+  urlApi: 'http://localhost',
+  hostApi: '8181',
+  serverMode: 'dev',
+  serverOn: 'true',
 };
 
 export const languages: LanguageProps[] = [

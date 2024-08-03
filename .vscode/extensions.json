@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "microsoft.eslint",
+    "aaron-bond.better-comments",
+    "usernamehw.errorlens"
+  ]
+}

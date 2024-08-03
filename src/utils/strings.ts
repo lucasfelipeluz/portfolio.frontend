@@ -36,6 +36,10 @@ export default {
     pt: 'Sobre mim',
     en: 'About me',
   },
+  portfolio: {
+    pt: 'Portfólio',
+    en: 'Portfolio',
+  },
 
   // Key Words
   myAPI: {
@@ -64,4 +68,33 @@ export default {
     en: 'Hello, my name is',
     pt: 'Olá, meu nome é',
   },
+  moreDetails: {
+    en: 'More details',
+    pt: 'Mais detalhes',
+  },
+  hoverUpTheMouseAboveTheSkill: {
+    en: 'Hover up the mouse above the skill to see the description',
+    pt: 'Passe o mouse por cima da tecnologia para ver a descrição',
+  },
+
+  // Without translation
+  classNames: {
+    projects: 'projects',
+    skills: 'skills',
+    aboutMe: 'about-me',
+    contact: 'contact',
+  },
+
+  // Routes
+  routes: {
+    login: '/login',
+  },
+
+  // Others
+  user: 'user',
+  token: 'token',
 };
+
+export const oldFontsCDN =
+  // eslint-disable-next-line max-len
+  'https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap';
