@@ -1,3 +1,4 @@
+import { ProjectImage } from './ProjectImage';
 import Skill from './Skill';
 
 export interface Project {
@@ -13,5 +14,5 @@ export interface Project {
   updatedAt: string;
   deletedAt: string;
   skills: Skill[];
-  images: unknown[];
+  images: ProjectImage[];
 }

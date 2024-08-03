@@ -17,26 +17,21 @@ interface Props {
   skills: Skill[];
 }
 
-interface DescriptionHoverProps {
-  description: string;
-  links: string[];
-}
-
 function SectionSkillComponent({ skills }: Props) {
   const { language } = useLanguage();
 
-  const [descriptionHover, setDescriptionHover] = useState<DescriptionHoverProps | null>(null);
+  const [skillSelected, setSkillSelected] = useState<Skill | null>(null);
 
   return (
     <SkillsSection>
       <SkillsSectionTitle id='skills'>{strings.skills[language.code]}</SkillsSectionTitle>
       <HelperText>{strings.hoverUpTheMouseAboveTheSkill[language.code]}</HelperText>
       <SkillContent className='container-fluid container-lg'>
-        <SkillDescription description={descriptionHover?.description} />
+        <SkillDescription skillSelected={skillSelected} />
         <SeparatorBar />
         <ContainerSkill>
           {skills.map((skill) => (
-            <SkillButtons key={skill.id} skill={skill} setDescriptionHover={setDescriptionHover} />
+            <SkillButtons key={skill.id} skill={skill} setSkillSelected={setSkillSelected} />
           ))}
         </ContainerSkill>
       </SkillContent>

@@ -6,13 +6,14 @@ import Carousel from 'react-material-ui-carousel';
 import { ContainerProject, MoreDetailsContainer } from 'src/core/theme/Project';
 import useHomeServices from 'src/hooks/useServices/useHomeServices';
 import { Project } from 'src/types/Project';
+import { ProjectImage } from 'src/types/ProjectImage';
 import { formatISODateToBRDate } from 'src/utils/helpers';
 
-function Item(props: { item: string }) {
+function Item({ img }: { img: ProjectImage }) {
   return (
     <div style={{ height: '350px' }}>
       <img
-        src={props.item}
+        src={img.path}
         style={{ height: '100%', width: '100%', objectFit: 'contain' }}
         alt='ok'
       />
@@ -42,21 +43,6 @@ function View({ id }: Props) {
     router.back();
   };
 
-  const items = [
-    {
-      src: '/images/illustration/illustration-contact.png',
-    },
-    {
-      src: '/images/illustration/illustration-contact.png',
-    },
-    {
-      src: '/images/illustration/illustration-contact.png',
-    },
-    {
-      src: '/images/illustration/illustration-contact.png',
-    },
-  ];
-
   return (
     <MoreDetailsContainer>
       <ContainerProject className='container-lg container-fluid'>
@@ -75,11 +61,7 @@ function View({ id }: Props) {
         </div>
         <div className='slide-photos'>
           <div className='slide'>
-            <Carousel>
-              {items.map((item, i) => (
-                <Item key={i as number} item={item.src} />
-              ))}
-            </Carousel>
+            <Carousel>{project?.images.map((img) => <Item key={img.id} img={img} />)}</Carousel>
           </div>
         </div>
         {project ? (

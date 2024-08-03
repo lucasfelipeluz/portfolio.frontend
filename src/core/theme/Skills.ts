@@ -37,9 +37,10 @@ export const StyleSkillDescription = styled.div`
   padding: 50px 10px;
   transition: 0.3s;
   opacity: 0;
+  text-align: start;
   display: flex;
-  justify-content: center;
-  align-items: start;
+  flex-direction: column;
+  gap: 10px;
 
   @media (max-width: 992px) {
     display: none;
@@ -47,6 +48,10 @@ export const StyleSkillDescription = styled.div`
 
   &.selected {
     opacity: 1;
+  }
+
+  p.xp {
+    font-size: 14px;
   }
 `;
 

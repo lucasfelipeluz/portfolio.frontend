@@ -22,6 +22,7 @@ export const AboutMeCard = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 
     img {
       width: 180px;
@@ -40,6 +41,7 @@ export const AboutMeCard = styled.div`
     padding: 0 25px;
     color: ${colors.letras};
     text-align: center;
+    font-size: 15px;
   }
 
   .contact-links {

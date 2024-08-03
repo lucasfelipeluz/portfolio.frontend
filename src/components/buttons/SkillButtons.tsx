@@ -9,7 +9,7 @@ type MdiIcons = typeof import('@mdi/js');
 
 interface Props {
   skill: Skill;
-  setDescriptionHover: Function;
+  setSkillSelected: Function;
 }
 
 function calcularAnosMesesPassados(data: Date) {
@@ -21,9 +21,9 @@ function calcularAnosMesesPassados(data: Date) {
   return { anos: anosPassados, meses: mesesPassados };
 }
 
-export default function SkillButtons({ skill, setDescriptionHover }: Props) {
+export default function SkillButtons({ skill, setSkillSelected }: Props) {
   const [color, setColor] = React.useState('white');
-  const [skillSelected, setSkillSelected] = React.useState(false);
+  const [isSkillSelected, setIsSkillSelected] = React.useState(false);
   const [experiencia, setExperiencia] = React.useState({ anos: 0, meses: 0 });
 
   const iconPath = (mdiIconPath as any)[skill.icon];
@@ -36,18 +36,18 @@ export default function SkillButtons({ skill, setDescriptionHover }: Props) {
 
   return (
     <StyleSkillButtons
-      className={`skill ${skillSelected ? 'selected' : ''}`}
+      className={`skill ${isSkillSelected ? 'selected' : ''}`}
       color={skill.color}
       colorSkill={skill.color}
       onMouseEnter={() => {
-        setDescriptionHover({ description: skill.description, links: [] });
+        setSkillSelected(skill);
         setColor(skill.color);
       }}
       onMouseLeave={() => {
-        setDescriptionHover(null);
+        setSkillSelected(null);
         setColor('white');
       }}
-      onClick={() => setSkillSelected(!skillSelected)}
+      onClick={() => setIsSkillSelected(!isSkillSelected)}
     >
       <div className='skill-header'>
         <div className='container-icon'>
