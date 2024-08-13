@@ -1,29 +1,53 @@
 import React from 'react';
-import { MobileGradientBar } from 'src/core/theme/globals';
-import { MenuContainer, MenuMobile, NavItensMobile } from 'src/core/theme/Header';
 import { NavItensProps } from 'src/types/Components';
+import { Box, styled } from '@mui/material';
+import MenuMobileLine from 'src/components/line/MenuMobile';
+import MenuMobileList from 'src/components/list/MenuMobile';
+
+const MenuMobile = styled(Box)(() => ({
+  position: 'fixed',
+  top: '-800px',
+  zIndex: 1,
+  width: '100%',
+  height: '100vh',
+  transition: '0.3s',
+  display: 'grid',
+  gridTemplateRows: '60% 40%',
+  gap: 0,
+
+  '@media (min-width: 992px)': {
+    display: 'none',
+  },
+
+  '&.ativo': {
+    top: '0px',
+  },
+}));
+
+const MenuContainer = styled(Box)(({ theme }) => ({
+  width: '100%',
+  backgroundColor: theme.palette.background.paper,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-end',
+  position: 'relative',
+}));
 
 interface Props {
   ativo: boolean;
-  handleAtivo: () => void;
+  handleCloseMenu: () => void;
   data: NavItensProps[];
 }
 
-export default function MenuMobileComponent({ ativo, handleAtivo, data }: Props) {
+export default function MenuMobileComponent({ ativo, handleCloseMenu, data }: Props) {
   return (
     <MenuMobile className={`menu-mobile ${ativo ? 'ativo' : ''}`}>
-      <MenuContainer className='menu-container'>
-        <NavItensMobile className='nav-itens-mobile'>
-          {data.map((item, index) => (
-            <li className='nav-item' onClick={handleAtivo} key={index as number}>
-              <a href={`#${item.classNames}`}>{item.name}</a>
-            </li>
-          ))}
-        </NavItensMobile>
+      <MenuContainer>
+        <MenuMobileList itens={data} handleCloseMenu={handleCloseMenu} />
 
-        <MobileGradientBar className='barra-gradiente-mobile' />
+        <MenuMobileLine />
       </MenuContainer>
-      <div onClick={handleAtivo} className='sair-menu' />
+      <div onClick={handleCloseMenu} className='sair-menu' />
     </MenuMobile>
   );
 }

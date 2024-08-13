@@ -1,10 +1,10 @@
 import React from 'react';
 import { useLanguage } from 'src/core/context/languageContext';
 import { ProjectContentSection, ProjectSection } from 'src/core/theme/Project';
-import { SectionTitle } from 'src/core/theme/globals';
 import strings from 'src/utils/strings';
 import { Project } from 'src/types/Project';
 import CardProjectComponent from '../card/CardProject';
+import SectionTitleComponent from '../typography/SectionTitle';
 
 interface Props {
   projects: Project[];
@@ -15,7 +15,8 @@ export default function SectionProjectComponent({ projects }: Props) {
 
   return (
     <ProjectSection className='container-fluid container-lg' id={`${strings.classNames.projects}`}>
-      <SectionTitle>{strings.projects[language.code]}</SectionTitle>
+      <SectionTitleComponent title={strings.projects[language.code]} />
+      {/* <SectionTitle>{strings.projects[language.code]}</SectionTitle> */}
       <ProjectContentSection>
         {projects.map((project, index) => {
           if (index < 9) {

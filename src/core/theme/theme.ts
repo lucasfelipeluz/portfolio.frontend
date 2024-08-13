@@ -1,3 +1,5 @@
+import { createTheme, ThemeOptions } from '@mui/material';
+
 interface Colors {
   cor1: string;
   cor2: string;
@@ -19,10 +21,28 @@ interface Fonts {
   font1: string;
   font2: string;
   font3: string;
+  font4: string;
+}
+
+interface Color {
+  main: string;
+  light: string;
+  dark: string;
+  contrastText: string;
+}
+
+interface DefaultColors {
+  primary: Color;
+  secondary: Color;
+  error: Color;
+  warning: Color;
+  info: Color;
+  success: Color;
 }
 
 /**
  * Paletas de cores do App
+ * @deprecated
  */
 export const colors: Colors = {
   cor1: '#1e272e',
@@ -43,9 +63,105 @@ export const colors: Colors = {
 
 /**
  * Fontes do App.
+ * @deprecated
  */
 export const fonts: Fonts = {
   font1: 'KoHo',
   font2: 'Kanit',
   font3: 'Kodchasan',
+  font4: 'IBM Plex Sans',
 };
+
+export const defaultColors: DefaultColors = {
+  primary: {
+    main: '#5C9BD1',
+    light: '#89BEEC',
+    dark: '#43729A',
+    contrastText: '#43729A',
+  },
+  secondary: {
+    main: '#808E9B',
+    light: '#A7BACB',
+    dark: '#4F5860',
+    contrastText: '#4F5860',
+  },
+  error: {
+    main: '#FF3F34',
+    light: '#FF7C75',
+    dark: '#FF7C75',
+    contrastText: '#FF7C75',
+  },
+  warning: {
+    main: '#FFA239',
+    light: '#FACC99',
+    dark: '#AD6D25',
+    contrastText: '#AD6D25',
+  },
+  success: {
+    main: '#0BDD7B',
+    light: '#66E3A9',
+    dark: '#099654',
+    contrastText: '#099654',
+  },
+  info: {
+    main: '#3D5396',
+    light: '#6B7AA7',
+    dark: '#12204B',
+    contrastText: '#12204B',
+  },
+};
+
+const defaultTheme: ThemeOptions = {
+  palette: {
+    background: { default: '#101518', paper: '#1E272E' },
+    mode: 'dark',
+
+    primary: defaultColors.primary,
+    secondary: defaultColors.secondary,
+    error: defaultColors.error,
+    warning: defaultColors.warning,
+    success: defaultColors.success,
+    info: defaultColors.info,
+    text: {
+      primary: '#f1f2f6',
+      secondary: '#CECFD2',
+      disabled: '#5C5C5C',
+    },
+  },
+  typography: {
+    fontFamily: `${fonts.font4}, 'Roboto', 'Arial', sans-serif`,
+    button: {
+      textTransform: 'none',
+    },
+  },
+  components: {
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: colors.letras,
+          fontFamily: `${fonts.font4}, 'Roboto', 'Arial', sans-serif`,
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '5px',
+          backgroundColor: colors.dark2,
+          color: colors.letras,
+          fontSize: '15px',
+          transition: '0.1s linear',
+          border: 'none',
+          width: '100%',
+          fontWeight: '400',
+          minWidth: 'none',
+          ':hover': {
+            backgroundColor: colors.corDestaque,
+          },
+        },
+      },
+    },
+  },
+};
+
+export const theme = createTheme(defaultTheme);

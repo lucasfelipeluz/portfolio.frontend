@@ -1,3 +1,4 @@
+import { Box, Button, styled, Typography } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 import { colors } from 'src/core/theme/theme';
@@ -5,9 +6,8 @@ import { LanguageCode } from 'src/core/types/languageContext';
 
 import { Project } from 'src/types/Project';
 import strings from 'src/utils/strings';
-import styled from 'styled-components';
 
-export const ProjectCardStyled = styled.div`
+export const ProjectCardStyled = styled(Box)`
   color: ${colors.letras};
   background-color: ${colors.dark};
   height: 350px;
@@ -19,66 +19,6 @@ export const ProjectCardStyled = styled.div`
   max-width: 400px;
 
   @media (min-width: 725px) {
-  }
-
-  .container-title .title {
-    text-align: center;
-    font-size: 1.5rem;
-  }
-
-  .description {
-    padding: 10px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .skills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    padding: 5px;
-    flex-wrap: nowrap;
-
-    a {
-      background-color: ${colors.dark2};
-      padding: 5px 10px;
-      font-size: 0.8rem;
-      text-decoration: none;
-      color: ${colors.letras};
-      transition: 0.1s linear;
-      border-radius: 5px;
-
-      &:hover {
-        background-color: ${colors.corDestaque};
-      }
-    }
-  }
-
-  .more-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    button {
-      background-color: ${colors.dark2};
-      padding: 5px;
-      font-size: 0.8rem;
-      text-decoration: none;
-      color: ${colors.letras};
-      transition: 0.1s linear;
-      border: none;
-      padding: 5px 10px;
-      width: 100%;
-      height: 80%;
-      border-radius: 5px;
-
-      &:hover {
-        background-color: ${colors.corDestaque};
-      }
-    }
   }
 `;
 
@@ -100,6 +40,30 @@ export const ProjectCardLink = styled(Link)`
   }
 `;
 
+const DescriptionBox = styled(Box)`
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SkillsBox = styled(Box)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  flex-wrap: nowrap;
+`;
+
+const ButtonSkills = styled(Button)`
+  max-width: 35%;
+  padding: 5px;
+  font-size: 15px;
+  text-decoration: none;
+`;
+
 interface Props {
   project: Project;
   langCode: LanguageCode;
@@ -108,21 +72,46 @@ interface Props {
 function CardProjectComponent({ project, langCode }: Props) {
   return (
     <ProjectCardStyled>
-      <div className='container-title'>
-        <p className='title'>{project.title}</p>
-      </div>
-      <div className='description'>
-        <p>{project.description}</p>
-      </div>
-      <div className='skills'>
+      <Box>
+        <Typography
+          sx={{
+            textAlign: 'center',
+            fontSize: '1.5rem',
+          }}
+        >
+          {project.title}
+        </Typography>
+      </Box>
+      <DescriptionBox>
+        <Typography>{project.description}</Typography>
+      </DescriptionBox>
+      <SkillsBox>
         {project.skills?.map((skill, index) => {
-          if (index < 5) return <a href='t'>{skill.title}</a>;
+          if (index < 5) return <ButtonSkills href='t'>{skill.title}</ButtonSkills>;
           return null;
         })}
-      </div>
-      <div className='more-info'>
-        <ProjectCardLink href='/project/1'>{strings.moreDetails[langCode]}</ProjectCardLink>
-      </div>
+      </SkillsBox>
+
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Button
+          href={`/project/${project.id}`}
+          variant='contained'
+          color='primary'
+          sx={{
+            padding: '5px 10px',
+            height: '80%',
+            fontSize: '17px',
+          }}
+        >
+          {strings.moreDetails[langCode]}
+        </Button>
+      </Box>
     </ProjectCardStyled>
   );
 }

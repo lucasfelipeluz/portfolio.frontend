@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import { Icon } from '@mui/material';
-import { SectionTitle } from './globals';
+
 import { colors } from './theme';
 
 export const SkillsSection = styled.section`
   background-color: ${colors.dark};
   min-height: 100vh;
 `;
-
-export const SkillsSectionTitle = styled(SectionTitle)``;
 
 export const SkillContent = styled.div`
   height: 100%;

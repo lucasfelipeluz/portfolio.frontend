@@ -1,6 +1,8 @@
+import { ThemeProvider } from '@mui/material';
 import React, { createContext, useContext, useState } from 'react';
 
 import { LayoutSettings, LayoutSettingsProviderInput } from 'src/core/types/layoutSettings';
+import { theme } from '../theme/theme';
 
 const initLayoutSettings: LayoutSettings = {
   layoutMode: 'light',
@@ -13,7 +15,7 @@ function LayoutSettingsProvider({ children }: LayoutSettingsProviderInput) {
 
   return (
     <LayoutSettingsContext.Provider value={layoutSettings}>
-      {children}
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </LayoutSettingsContext.Provider>
   );
 }

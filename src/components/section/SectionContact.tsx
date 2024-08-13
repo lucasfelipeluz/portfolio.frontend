@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLanguage } from 'src/core/context/languageContext';
 import { ContactSection } from 'src/core/theme/Contact';
-import { SectionTitle } from 'src/core/theme/globals';
 import strings from 'src/utils/strings';
 import { AboutMe } from 'src/types/AboutMe';
+import SectionTitle from 'src/components/typography/SectionTitle';
 import AboutMeComponent from '../container/AboutMe';
 
 interface Props {
@@ -15,7 +15,7 @@ function SectionContactComponent({ aboutMe }: Props) {
 
   return (
     <ContactSection className='container-fluid container-lg' id='about-me'>
-      <SectionTitle id='contact'>{strings.aboutMe[language.code]}</SectionTitle>
+      <SectionTitle title={strings.aboutMe[language.code]} />
       <AboutMeComponent aboutMe={aboutMe} langCode={language.code} />
     </ContactSection>
   );

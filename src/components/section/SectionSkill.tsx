@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
 import { useLanguage } from 'src/core/context/languageContext';
-import {
-  ContainerSkill,
-  HelperText,
-  SkillContent,
-  SkillsSection,
-  SkillsSectionTitle,
-} from 'src/core/theme/Skills';
+import { ContainerSkill, HelperText, SkillContent, SkillsSection } from 'src/core/theme/Skills';
 import Skill from 'src/types/Skill';
 import strings from 'src/utils/strings';
 import { SeparatorBar } from 'src/core/theme/globals';
 import SkillDescription from '../container/SkillDescription';
 import SkillButtons from '../buttons/SkillButtons';
+import SectionTitle from '../typography/SectionTitle';
 
 interface Props {
   skills: Skill[];
@@ -23,8 +18,8 @@ function SectionSkillComponent({ skills }: Props) {
   const [skillSelected, setSkillSelected] = useState<Skill | null>(null);
 
   return (
-    <SkillsSection>
-      <SkillsSectionTitle id='skills'>{strings.skills[language.code]}</SkillsSectionTitle>
+    <SkillsSection id='skills'>
+      <SectionTitle title={strings.skills[language.code]} />
       <HelperText>{strings.hoverUpTheMouseAboveTheSkill[language.code]}</HelperText>
       <SkillContent className='container-fluid container-lg'>
         <SkillDescription skillSelected={skillSelected} />
