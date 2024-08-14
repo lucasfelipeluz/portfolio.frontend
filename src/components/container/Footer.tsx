@@ -1,12 +1,13 @@
+import { Box, Typography } from '@mui/material';
 import React from 'react';
-import { FooterSection } from 'src/core/theme/Footer';
+import { FooterSection } from '../styles/section';
 
 export default function FooterComponent() {
   return (
     <FooterSection>
-      <div className='container'>
-        <p className='copyright'>Desenvolvido por Lucas Luz</p>
-      </div>
+      <Box className='container'>
+        <Typography className='copyright'>Montado pixel a pixel por Lucas Luz 💡 </Typography>
+      </Box>
     </FooterSection>
   );
 }

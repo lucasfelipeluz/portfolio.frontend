@@ -1,4 +1,5 @@
-import { createTheme, ThemeOptions } from '@mui/material';
+import { createTheme, PaletteMode, ThemeOptions } from '@mui/material';
+import { useMemo, useState } from 'react';
 
 interface Colors {
   cor1: string;
@@ -165,3 +166,15 @@ const defaultTheme: ThemeOptions = {
 };
 
 export const theme = createTheme(defaultTheme);
+
+export const useColorTheme = () => {
+  const [mode, setMode] = useState<PaletteMode>('dark');
+
+  const toggleColorMode = () => {
+    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+  };
+
+  const modifiedTheme = useMemo(() => createTheme(theme), [mode]);
+
+  return { mode, toggleColorMode, theme: modifiedTheme };
+};

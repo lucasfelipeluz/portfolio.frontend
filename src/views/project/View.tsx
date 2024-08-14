@@ -1,13 +1,21 @@
-import { ArrowLeft } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { ArrowBack } from '@mui/icons-material';
+import { Box, IconButton, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
 import Carousel from 'react-material-ui-carousel';
-import { ContainerProject, MoreDetailsContainer } from 'src/core/theme/Project';
+import {
+  ActionsProjectDetails,
+  DescriptionProjectDetails,
+  ProjectDetails,
+  SlideProjectDetails,
+} from 'src/components/styles/container';
+import { LinkProjectDetails } from 'src/components/styles/link';
+import { SkillProjectDetails } from 'src/components/styles/typography';
 import useHomeServices from 'src/hooks/useServices/useHomeServices';
 import { Project } from 'src/types/Project';
 import { ProjectImage } from 'src/types/ProjectImage';
 import { formatISODateToBRDate } from 'src/utils/helpers';
+import { SeparatorProjectDetails } from 'src/components/styles/line';
 
 function Item({ img }: { img: ProjectImage }) {
   return (
@@ -44,71 +52,71 @@ function View({ id }: Props) {
   };
 
   return (
-    <MoreDetailsContainer>
-      <ContainerProject className='container-lg container-fluid'>
-        <div className='actions'>
+    <ProjectDetails>
+      <div className='container-project container-lg container-fluid'>
+        <ActionsProjectDetails className='actions'>
           <IconButton
-            className='fas fa-arrow-left'
             onClick={() => {
               onHandleToBackPage();
             }}
           >
-            <ArrowLeft sx={{ color: 'white' }} />
+            <ArrowBack sx={{ color: 'white' }} />
           </IconButton>
-          <p className='title' style={{ color: 'white' }}>
-            Projeto
-          </p>
-        </div>
-        <div className='slide-photos'>
+          <Typography className='title'>Voltar</Typography>
+        </ActionsProjectDetails>
+        <SlideProjectDetails>
           <div className='slide'>
             <Carousel>{project?.images.map((img) => <Item key={img.id} img={img} />)}</Carousel>
           </div>
-        </div>
+        </SlideProjectDetails>
         {project ? (
-          <div className='description'>
-            <p className='title-project'>{project.title}</p>
-            <p className='text'>{project.description}</p>
-            <div className='duration'>
-              <p className='started-at'>Iniciado em: {formatISODateToBRDate(project.startedAt)}</p>
+          <DescriptionProjectDetails>
+            <Typography variant='h5'>{project.title}</Typography>
+            <Typography variant='body1' marginBottom='10px'>
+              {project.description}
+            </Typography>
+            <Box marginBottom='15px'>
+              <Typography variant='body2'>
+                Iniciado em: {formatISODateToBRDate(project.startedAt)}
+              </Typography>
               {project.finishedAt && (
-                <p className='started-at'>
+                <Typography variant='body2'>
                   Terminado em: {formatISODateToBRDate(project.finishedAt)}
-                </p>
+                </Typography>
               )}
-            </div>
+            </Box>
 
-            <div className='skills'>
-              <p className='title-skills'>Tecnologias utilizadas:</p>
-              <div className='content-skill'>
+            <Box sx={{ marginBottom: '15px' }}>
+              <Typography variant='body1'>Tecnologias utilizadas:</Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'start',
+                  gap: '10px',
+                  flexWrap: 'wrap',
+                  padding: '5px 0',
+                }}
+              >
                 {project.skills.map((skill) => (
-                  <p className='skill'>{skill.title}</p>
+                  <SkillProjectDetails>{skill.title}</SkillProjectDetails>
                 ))}
-                {/* <p className='skill'>HTML</p>
-                <p className='skill'>CSS</p>
-                <p className='skill'>JavaScript</p>
-                <p className='skill'>JavaScript</p>
-                <p className='skill'>JavaScript</p>
-                <p className='skill'>JavaScript</p>
-                <p className='skill'>JavaScript</p>
-                <p className='skill'>JavaScript</p>
-                <p className='skill'>JavaScript</p> */}
-              </div>
-            </div>
-            <div className='links'>
-              <a className='link' href={project.urlGithub} target='_blank' rel='noreferrer'>
+              </Box>
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: '10px' }}>
+              <LinkProjectDetails href={project.urlGithub} target='_blank' rel='noreferrer'>
                 Github
-              </a>
-              <a className='link' href={project.urlWebsite} target='_blank' rel='noreferrer'>
+              </LinkProjectDetails>
+              <LinkProjectDetails href={project.urlWebsite} target='_blank' rel='noreferrer'>
                 Site do projeto
-              </a>
-            </div>
-          </div>
+              </LinkProjectDetails>
+            </Box>
+          </DescriptionProjectDetails>
         ) : (
-          <p>Carregando...</p>
+          <Typography>Carregando...</Typography>
         )}
-        <div className='separation-bar' />
-      </ContainerProject>
-    </MoreDetailsContainer>
+        <SeparatorProjectDetails />
+      </div>
+    </ProjectDetails>
   );
 }
 

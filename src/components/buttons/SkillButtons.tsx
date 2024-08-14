@@ -1,11 +1,9 @@
-import { Square } from 'mdi-material-ui';
 import React, { useEffect } from 'react';
-import { StyleSkillButtons } from 'src/core/theme/Skills';
-import Skill from 'src/types/Skill';
 import * as mdiIconPath from '@mdi/js';
 import Icon from '@mdi/react';
-
-type MdiIcons = typeof import('@mdi/js');
+import { Box, Typography } from '@mui/material';
+import Skill from 'src/types/Skill';
+import { SkillButton } from '../styles/container';
 
 interface Props {
   skill: Skill;
@@ -35,10 +33,9 @@ export default function SkillButtons({ skill, setSkillSelected }: Props) {
   }, [skill.startedAt]);
 
   return (
-    <StyleSkillButtons
+    <SkillButton
       className={`skill ${isSkillSelected ? 'selected' : ''}`}
       color={skill.color}
-      colorSkill={skill.color}
       onMouseEnter={() => {
         setSkillSelected(skill);
         setColor(skill.color);
@@ -49,18 +46,18 @@ export default function SkillButtons({ skill, setSkillSelected }: Props) {
       }}
       onClick={() => setIsSkillSelected(!isSkillSelected)}
     >
-      <div className='skill-header'>
-        <div className='container-icon'>
-          <Icon path={iconPath} />
-        </div>
-        <div className='skill-title'>{skill.title}</div>
-      </div>
-      <div className='skill-content'>
-        <p>
+      <Box className='skill-header'>
+        <Box className='container-icon'>
+          <Icon path={iconPath} className='skill-icon' />
+        </Box>
+        <Box className='skill-title'>{skill.title}</Box>
+      </Box>
+      <Box className='skill-content'>
+        <Typography>
           {skill.description} <br />
           Experiência: {experiencia.anos} anos.
-        </p>
-      </div>
-    </StyleSkillButtons>
+        </Typography>
+      </Box>
+    </SkillButton>
   );
 }

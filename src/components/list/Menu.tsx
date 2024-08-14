@@ -1,32 +1,8 @@
-import { List as MuiList, ListItem, styled, Link as MuiLink } from '@mui/material';
+import { ListItem } from '@mui/material';
 import React from 'react';
 import { NavItensProps } from 'src/types/Components';
-
-const List = styled(MuiList)(() => ({
-  display: 'none',
-
-  '@media (min-width: 992px)': {
-    height: '100%',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    listStyleType: 'none',
-  },
-}));
-
-const Link = styled(MuiLink)(({ theme }) => ({
-  height: '100%',
-  transition: '0.5s',
-  fontSize: '18px',
-  color: theme.palette.text.primary,
-  textDecoration: 'none',
-  textAlign: 'center',
-
-  '&:hover': {
-    color: theme.palette.primary.main,
-  },
-}));
+import { MenuList as List } from 'src/components/styles/list';
+import { MenuListLink } from '../styles/link';
 
 interface Props {
   data: NavItensProps[];
@@ -41,7 +17,7 @@ export default function MenuList({ data }: Props) {
           className={`${item.classNames}`}
           key={index as number}
         >
-          <Link href={`#${item.classNames}`}>{item.name}</Link>
+          <MenuListLink href={`#${item.classNames}`}>{item.name}</MenuListLink>
         </ListItem>
       ))}
     </List>

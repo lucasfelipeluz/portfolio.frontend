@@ -1,25 +1,18 @@
-import { ThemeProvider } from '@mui/material';
 import React, { createContext, useContext, useState } from 'react';
 
-import { LayoutSettings, LayoutSettingsProviderInput } from 'src/core/types/layoutSettings';
-import { theme } from '../theme/theme';
+import { LayoutSettingsProviderInput } from 'src/core/types/layoutSettings';
+import { Settings } from 'src/core/types/settings';
 
-const initLayoutSettings: LayoutSettings = {
-  layoutMode: 'light',
-};
+const initSettings: Settings = {};
 
-const LayoutSettingsContext = createContext<LayoutSettings>(initLayoutSettings);
+const SettingsContext = createContext<Settings>(initSettings);
 
-function LayoutSettingsProvider({ children }: LayoutSettingsProviderInput) {
-  const [layoutSettings, setLayoutSettings] = useState<LayoutSettings>(initLayoutSettings);
+function SettingsProvider({ children }: LayoutSettingsProviderInput) {
+  const [settings, setSettings] = useState<Settings>(initSettings);
 
-  return (
-    <LayoutSettingsContext.Provider value={layoutSettings}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </LayoutSettingsContext.Provider>
-  );
+  return <SettingsContext.Provider value={settings}>{children}</SettingsContext.Provider>;
 }
 
-const useLayoutSettings = (): LayoutSettings => useContext(LayoutSettingsContext);
+const useSettings = (): Settings => useContext(SettingsContext);
 
-export { LayoutSettingsContext, LayoutSettingsProvider, useLayoutSettings };
+export { SettingsContext, SettingsProvider, useSettings };

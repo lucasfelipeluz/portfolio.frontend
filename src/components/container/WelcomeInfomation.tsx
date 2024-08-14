@@ -1,7 +1,8 @@
 import React from 'react';
-import { WelcomeInformationStyled } from 'src/core/theme/Welcome';
 import { LanguageProps } from 'src/core/types/languageContext';
 import strings from 'src/utils/strings';
+import { Typography } from '@mui/material';
+import { WelcomeInformation } from '../styles/welcome';
 
 interface Props {
   name: string;
@@ -11,10 +12,10 @@ interface Props {
 
 export default function WelcomeInfomationComponent({ jobTitle, name, language }: Props) {
   return (
-    <WelcomeInformationStyled>
-      <p className='hello'>{strings.hello[language.code]}</p>
-      <p className='name'>{name}</p>
-      <p className='position'>{jobTitle}</p>
-    </WelcomeInformationStyled>
+    <WelcomeInformation>
+      <Typography variant='body1'>{strings.hello[language.code]}</Typography>
+      <Typography variant='h2'>{name}</Typography>
+      <Typography variant='body1'>{jobTitle}</Typography>
+    </WelcomeInformation>
   );
 }
