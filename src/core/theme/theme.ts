@@ -1,21 +1,39 @@
-import { createTheme, PaletteMode, ThemeOptions } from '@mui/material';
-import { useMemo, useState } from 'react';
+import { createTheme, ThemeOptions } from '@mui/material';
 
 interface Colors {
-  cor1: string;
-  cor2: string;
-  cor3: string;
-  corDestaque: string;
-  corDestaqueHover: string;
-  conteudo: string;
-  letras: string;
-  vermelho: string;
-  vermelhoHover: string;
-  verde: string;
-  verdeHover: string;
-  header: string;
-  dark: string;
-  dark2: string;
+  backgroundDarkMode1: string;
+  backgroundDarkMode2: string;
+  backgroundLightMode1: string;
+  backgroundLightMode2: string;
+  primary: {
+    dark: Color;
+    light: Color;
+  };
+  secondary: {
+    dark: Color;
+    light: Color;
+  };
+  error: {
+    dark: Color;
+    light: Color;
+  };
+  warning: {
+    dark: Color;
+    light: Color;
+  };
+  info: {
+    dark: Color;
+    light: Color;
+  };
+  success: {
+    dark: Color;
+    light: Color;
+  };
+  text: {
+    dark: TextColor;
+    light: TextColor;
+  };
+  grey: string;
 }
 
 interface Fonts {
@@ -32,34 +50,120 @@ interface Color {
   contrastText: string;
 }
 
-interface DefaultColors {
-  primary: Color;
-  secondary: Color;
-  error: Color;
-  warning: Color;
-  info: Color;
-  success: Color;
+interface TextColor {
+  main: string;
+  medium: string;
+  disabled: string;
 }
 
 /**
  * Paletas de cores do App
- * @deprecated
  */
 export const colors: Colors = {
-  cor1: '#1e272e',
-  cor2: '#d2dae2',
-  cor3: '#808e9b',
-  corDestaque: '#5a87ae',
-  corDestaqueHover: '#5c9bd1',
-  conteudo: '#101518',
-  letras: '#f1f2f6',
-  vermelho: '#ff3f34',
-  vermelhoHover: '#ff3f34',
-  verde: '#0bdd7b',
-  verdeHover: '#07b664',
-  header: '#181f24',
-  dark: '#101518',
-  dark2: '#222F3E',
+  backgroundDarkMode1: '#1E272E',
+  backgroundDarkMode2: '#101518',
+  backgroundLightMode1: '#fcfcfc',
+  backgroundLightMode2: '#E1E5F0',
+
+  grey: '#CECFD2',
+
+  primary: {
+    dark: {
+      main: '#5C9BD1',
+      light: '#89BEEC',
+      dark: '#43729A',
+      contrastText: '#43729A',
+    },
+    light: {
+      main: '#5C9BD1',
+      light: '#89BEEC',
+      dark: '#43729A',
+      contrastText: '#43729A',
+    },
+  },
+  secondary: {
+    dark: {
+      main: '#808E9B',
+      light: '#A7BACB',
+      dark: '#4F5860',
+      contrastText: '#4F5860',
+    },
+    light: {
+      main: '#808E9B',
+      light: '#A7BACB',
+      dark: '#4F5860',
+      contrastText: '#4F5860',
+    },
+  },
+  error: {
+    dark: {
+      main: '#FF3F34',
+      light: '#FF7C75',
+      dark: '#B42C25',
+      contrastText: '#B42C25',
+    },
+    light: {
+      main: '#FF3F34',
+      light: '#FF7C75',
+      dark: '#B42C25',
+      contrastText: '#B42C25',
+    },
+  },
+  warning: {
+    dark: {
+      main: '#FFA239',
+      light: '#FACC99',
+      dark: '#AD6D25',
+      contrastText: '#AD6D25',
+    },
+    light: {
+      main: '#FFA239',
+      light: '#FACC99',
+      dark: '#AD6D25',
+      contrastText: '#AD6D25',
+    },
+  },
+  info: {
+    dark: {
+      main: '#3D5396',
+      light: '#6B7AA7',
+      dark: '#12204B',
+      contrastText: '#12204B',
+    },
+    light: {
+      main: '#3D5396',
+      light: '#6B7AA7',
+      dark: '#12204B',
+      contrastText: '#12204B',
+    },
+  },
+  success: {
+    dark: {
+      main: '#0BDD7B',
+      light: '#66E3A9',
+      dark: '#099654',
+      contrastText: '#099654',
+    },
+    light: {
+      main: '#0BDD7B',
+      light: '#66E3A9',
+      dark: '#099654',
+      contrastText: '#099654',
+    },
+  },
+
+  text: {
+    dark: {
+      main: '#f1f2f6',
+      medium: '#CECFD2',
+      disabled: '#5C5C5C',
+    },
+    light: {
+      main: '#101518',
+      medium: '#101518',
+      disabled: '#101518',
+    },
+  },
 };
 
 /**
@@ -73,64 +177,25 @@ export const fonts: Fonts = {
   font4: 'IBM Plex Sans',
 };
 
-export const defaultColors: DefaultColors = {
-  primary: {
-    main: '#5C9BD1',
-    light: '#89BEEC',
-    dark: '#43729A',
-    contrastText: '#43729A',
-  },
-  secondary: {
-    main: '#808E9B',
-    light: '#A7BACB',
-    dark: '#4F5860',
-    contrastText: '#4F5860',
-  },
-  error: {
-    main: '#FF3F34',
-    light: '#FF7C75',
-    dark: '#FF7C75',
-    contrastText: '#FF7C75',
-  },
-  warning: {
-    main: '#FFA239',
-    light: '#FACC99',
-    dark: '#AD6D25',
-    contrastText: '#AD6D25',
-  },
-  success: {
-    main: '#0BDD7B',
-    light: '#66E3A9',
-    dark: '#099654',
-    contrastText: '#099654',
-  },
-  info: {
-    main: '#3D5396',
-    light: '#6B7AA7',
-    dark: '#12204B',
-    contrastText: '#12204B',
-  },
-};
-
-const defaultTheme: ThemeOptions = {
+const defaultDarkThemeOptions: ThemeOptions = {
   palette: {
-    background: { default: '#101518', paper: '#1E272E' },
+    background: { default: colors.backgroundDarkMode1, paper: colors.backgroundDarkMode2 },
     mode: 'dark',
-
-    primary: defaultColors.primary,
-    secondary: defaultColors.secondary,
-    error: defaultColors.error,
-    warning: defaultColors.warning,
-    success: defaultColors.success,
-    info: defaultColors.info,
+    primary: colors.primary.dark,
+    secondary: colors.secondary.dark,
+    error: colors.error.dark,
+    warning: colors.warning.dark,
+    success: colors.success.dark,
+    info: colors.info.dark,
     text: {
-      primary: '#f1f2f6',
-      secondary: '#CECFD2',
-      disabled: '#5C5C5C',
+      primary: colors.text.dark.main,
+      secondary: colors.text.dark.medium,
+      disabled: colors.text.dark.disabled,
     },
+    divider: colors.grey,
   },
   typography: {
-    fontFamily: `${fonts.font4}, 'Roboto', 'Arial', sans-serif`,
+    fontFamily: "'IBM Plex Sans', 'Roboto', 'Arial', sans-serif",
     button: {
       textTransform: 'none',
     },
@@ -139,42 +204,65 @@ const defaultTheme: ThemeOptions = {
     MuiTypography: {
       styleOverrides: {
         root: {
-          color: colors.letras,
-          fontFamily: `${fonts.font4}, 'Roboto', 'Arial', sans-serif`,
+          color: colors.text.dark.main,
+          fontFamily: "'IBM Plex Sans', 'Roboto', 'Arial', sans-serif",
         },
       },
     },
-    MuiButton: {
+    MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: '5px',
-          backgroundColor: colors.dark2,
-          color: colors.letras,
-          fontSize: '15px',
-          transition: '0.1s linear',
-          border: 'none',
-          width: '100%',
-          fontWeight: '400',
-          minWidth: 'none',
-          ':hover': {
-            backgroundColor: colors.corDestaque,
-          },
+          backgroundColor: colors.backgroundDarkMode2,
+          backgroundImage: 'none',
         },
       },
     },
   },
 };
 
-export const theme = createTheme(defaultTheme);
-
-export const useColorTheme = () => {
-  const [mode, setMode] = useState<PaletteMode>('dark');
-
-  const toggleColorMode = () => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-  };
-
-  const modifiedTheme = useMemo(() => createTheme(theme), [mode]);
-
-  return { mode, toggleColorMode, theme: modifiedTheme };
+const defaultLigthThemeOptions: ThemeOptions = {
+  palette: {
+    background: { default: colors.backgroundLightMode1, paper: colors.backgroundLightMode2 },
+    mode: 'light',
+    primary: colors.primary.light,
+    secondary: colors.secondary.light,
+    error: colors.error.light,
+    warning: colors.warning.light,
+    success: colors.success.light,
+    info: colors.info.light,
+    text: {
+      primary: colors.text.light.main,
+      secondary: colors.text.light.medium,
+      disabled: colors.text.light.disabled,
+    },
+    divider: colors.grey,
+  },
+  typography: {
+    fontFamily: "'IBM Plex Sans', 'Roboto', 'Arial', sans-serif",
+    button: {
+      textTransform: 'none',
+    },
+  },
+  components: {
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: colors.text.light.main,
+          fontFamily: "'IBM Plex Sans', 'Roboto', 'Arial', sans-serif",
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: colors.backgroundLightMode2,
+          backgroundImage: 'none',
+        },
+      },
+    },
+  },
 };
+
+export const defaultDarkTheme = createTheme(defaultDarkThemeOptions);
+
+export const defaultLightTheme = createTheme(defaultLigthThemeOptions);

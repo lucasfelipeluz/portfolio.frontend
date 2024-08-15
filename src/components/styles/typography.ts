@@ -1,6 +1,9 @@
 import { styled, Typography } from '@mui/material';
+import { colors } from 'src/core/theme/theme';
 
-export const PortfolioTitle = styled(Typography)(() => ({
+export const PortfolioTitle = styled(Typography)(({ theme }) => ({
+  // color: theme.palette.mode === 'dark' ? colors.text.dark.main : colors.text.light.main,
+
   '@media (min-width: 992px)': {
     width: '100%',
     display: 'flex',

@@ -26,7 +26,7 @@ function View({ data }: Props) {
   ];
 
   return (
-    <Box sx={{ backgroundColor: 'background.paper', height: '100%' }}>
+    <Box sx={{ backgroundColor: 'background.default', height: '100%' }}>
       <Header data={headerData} />
       {data ? <SectionWelcomeComponent aboutMe={data?.aboutMe} /> : null}
       {data ? <SectionProjectComponent projects={data.projects} /> : null}

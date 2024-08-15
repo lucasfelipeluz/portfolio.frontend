@@ -1,4 +1,4 @@
-import { Box, styled } from '@mui/material';
+import { Box, Card, styled } from '@mui/material';
 
 export const ProjectContentContainer = styled(Box)(() => ({
   display: 'grid',
@@ -24,9 +24,9 @@ export const SkillsContainerOnProject = styled(Box)(() => ({
   WebkitFlexWrap: 'nowrap',
 }));
 
-export const ProjectCard = styled(Box)(({ theme }) => ({
+export const ProjectCard = styled(Card)(({ theme }) => ({
   color: theme.palette.text.primary,
-  backgroundColor: theme.palette.background.default,
+  // backgroundColor: theme.palette.background.default,
   height: '350px',
   width: '350px',
   display: 'grid',
@@ -210,7 +210,7 @@ export const SkillButton = styled(Box)(({ theme, color }) => ({
 }));
 
 export const AboutMeContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: theme.palette.background.paper,
   height: '100%',
   display: 'grid',
   gridTemplateRows: '200px 1fr 1fr',

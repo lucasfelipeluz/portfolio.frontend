@@ -1,7 +1,7 @@
-import { Box, styled, Typography } from '@mui/material';
+import { Box, styled } from '@mui/material';
 
 export const Header = styled('header')(({ theme }) => ({
-  backgroundColor: '#181f24',
+  backgroundColor: theme.palette.background.paper,
   height: '60px',
   position: 'relative',
 
@@ -73,7 +73,6 @@ export const BurgerButton = styled(Box)(() => ({
 }));
 
 export const TitleContainer = styled(Box)(() => ({
-  color: '#f1f2f6',
   height: '100%',
   display: 'grid',
   placeItems: 'center',

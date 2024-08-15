@@ -3,7 +3,7 @@ import { Box, styled } from '@mui/material';
 export const MenuLine = styled(Box)(({ theme }) => ({
   width: '100%',
   height: '2px',
-  backgroundColor: theme.palette.primary.light,
+  backgroundColor: theme.palette.primary.dark,
 }));
 
 export const MenuMobileLine = styled(Box)(({ theme }) => ({
@@ -11,7 +11,7 @@ export const MenuMobileLine = styled(Box)(({ theme }) => ({
   bottom: '0',
   width: '100%',
   height: '2px',
-  backgroundColor: theme.palette.primary.light,
+  backgroundColor: theme.palette.primary.dark,
   display: 'grid',
   placeItems: 'center',
 }));

@@ -1,6 +1,7 @@
 import { Box, styled } from '@mui/material';
 
 export const WelcomeContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
   color: theme.palette.text.primary,
   height: '100%',
   display: 'flex',

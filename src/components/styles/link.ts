@@ -46,12 +46,14 @@ export const MenuMobileLink = styled(MuiLink)(({ theme }) => ({
 export const ButtonLink = styled(MuiLink)(({ theme }) => ({
   textDecoration: 'none',
   color: theme.palette.text.primary,
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.background.default,
   transition: '0.3s',
 
   '&:hover': {
     color: theme.palette.text.secondary,
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.mode === 'light' ? theme.palette.primary.light : '',
+    // backgroundColor: theme.palette.primary.dark,
+    filter: 'saturate(1.7)',
   },
 }));
 
@@ -72,7 +74,7 @@ export const ProjectCardLink = styled(ProjectButtonLink)(() => ({
 }));
 
 export const ContactLink = styled(MuiLink)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.background.default,
   borderRadius: '5px',
   overflow: 'hidden',
   padding: '10px 15px',
