@@ -40,7 +40,7 @@ export const AboutMeText = styled(Typography)(({ theme }) => ({
 }));
 
 export const SkillProjectDetails = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.background.default,
   padding: '3px',
   fontSize: '12px',
   borderRadius: '5px',

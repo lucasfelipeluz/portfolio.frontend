@@ -16,6 +16,10 @@ import { Project } from 'src/types/Project';
 import { ProjectImage } from 'src/types/ProjectImage';
 import { formatISODateToBRDate } from 'src/utils/helpers';
 import { SeparatorProjectDetails } from 'src/components/styles/line';
+import { NavItensProps } from 'src/types/Components';
+import { useLanguage } from 'src/core/context/languageContext';
+import strings from 'src/utils/strings';
+import Header from 'src/components/header/HomeHeader';
 
 function Item({ img }: { img: ProjectImage }) {
   return (
@@ -34,6 +38,7 @@ interface Props {
 }
 
 function View({ id }: Props) {
+  const { language } = useLanguage();
   const { data, refetch } = useHomeServices.getHomeProject(id);
 
   const [project, setProjectData] = useState<Project>();
@@ -51,72 +56,82 @@ function View({ id }: Props) {
     router.back();
   };
 
-  return (
-    <ProjectDetails>
-      <div className='container-project container-lg container-fluid'>
-        <ActionsProjectDetails className='actions'>
-          <IconButton
-            onClick={() => {
-              onHandleToBackPage();
-            }}
-          >
-            <ArrowBack sx={{ color: 'white' }} />
-          </IconButton>
-          <Typography className='title'>Voltar</Typography>
-        </ActionsProjectDetails>
-        <SlideProjectDetails>
-          <div className='slide'>
-            <Carousel>{project?.images.map((img) => <Item key={img.id} img={img} />)}</Carousel>
-          </div>
-        </SlideProjectDetails>
-        {project ? (
-          <DescriptionProjectDetails>
-            <Typography variant='h5'>{project.title}</Typography>
-            <Typography variant='body1' marginBottom='10px'>
-              {project.description}
-            </Typography>
-            <Box marginBottom='15px'>
-              <Typography variant='body2'>
-                Iniciado em: {formatISODateToBRDate(project.startedAt)}
-              </Typography>
-              {project.finishedAt && (
-                <Typography variant='body2'>
-                  Terminado em: {formatISODateToBRDate(project.finishedAt)}
-                </Typography>
-              )}
-            </Box>
+  const headerData: NavItensProps[] = [
+    { name: strings.projects[language.code], classNames: strings.classNames.projects },
+    { name: strings.skills[language.code], classNames: strings.classNames.skills },
+    { name: strings.aboutMe[language.code], classNames: strings.classNames.aboutMe },
+    { name: strings.contact[language.code], classNames: strings.classNames.contact },
+  ];
 
-            <Box sx={{ marginBottom: '15px' }}>
-              <Typography variant='body1'>Tecnologias utilizadas:</Typography>
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'start',
-                  gap: '10px',
-                  flexWrap: 'wrap',
-                  padding: '5px 0',
-                }}
-              >
-                {project.skills.map((skill) => (
-                  <SkillProjectDetails>{skill.title}</SkillProjectDetails>
-                ))}
+  return (
+    <>
+      <Header data={headerData} />
+      <ProjectDetails>
+        <div className='container-project container-lg container-fluid'>
+          <ActionsProjectDetails className='actions'>
+            <IconButton
+              onClick={() => {
+                onHandleToBackPage();
+              }}
+            >
+              <ArrowBack sx={{ color: 'text.primary' }} />
+            </IconButton>
+            <Typography className='title'>Voltar</Typography>
+          </ActionsProjectDetails>
+          <SlideProjectDetails>
+            <div className='slide'>
+              <Carousel>{project?.images.map((img) => <Item key={img.id} img={img} />)}</Carousel>
+            </div>
+          </SlideProjectDetails>
+          {project ? (
+            <DescriptionProjectDetails>
+              <Typography variant='h5'>{project.title}</Typography>
+              <Typography variant='body1' marginBottom='10px'>
+                {project.description}
+              </Typography>
+              <Box marginBottom='15px'>
+                <Typography variant='body2'>
+                  Iniciado em: {formatISODateToBRDate(project.startedAt)}
+                </Typography>
+                {project.finishedAt && (
+                  <Typography variant='body2'>
+                    Terminado em: {formatISODateToBRDate(project.finishedAt)}
+                  </Typography>
+                )}
               </Box>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: '10px' }}>
-              <LinkProjectDetails href={project.urlGithub} target='_blank' rel='noreferrer'>
-                Github
-              </LinkProjectDetails>
-              <LinkProjectDetails href={project.urlWebsite} target='_blank' rel='noreferrer'>
-                Site do projeto
-              </LinkProjectDetails>
-            </Box>
-          </DescriptionProjectDetails>
-        ) : (
-          <Typography>Carregando...</Typography>
-        )}
-        <SeparatorProjectDetails />
-      </div>
-    </ProjectDetails>
+
+              <Box sx={{ marginBottom: '15px' }}>
+                <Typography variant='body1'>Tecnologias utilizadas:</Typography>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'start',
+                    gap: '10px',
+                    flexWrap: 'wrap',
+                    padding: '5px 0',
+                  }}
+                >
+                  {project.skills.map((skill) => (
+                    <SkillProjectDetails>{skill.title}</SkillProjectDetails>
+                  ))}
+                </Box>
+              </Box>
+              <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: '10px' }}>
+                <LinkProjectDetails href={project.urlGithub} target='_blank' rel='noreferrer'>
+                  Github
+                </LinkProjectDetails>
+                <LinkProjectDetails href={project.urlWebsite} target='_blank' rel='noreferrer'>
+                  Site do projeto
+                </LinkProjectDetails>
+              </Box>
+            </DescriptionProjectDetails>
+          ) : (
+            <Typography>Carregando...</Typography>
+          )}
+          <SeparatorProjectDetails />
+        </div>
+      </ProjectDetails>
+    </>
   );
 }
 

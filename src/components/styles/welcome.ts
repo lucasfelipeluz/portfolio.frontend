@@ -31,7 +31,7 @@ export const DeveloperIlustration = styled(Box)(() => ({
   alignItems: 'center',
   marginBottom: '80px',
 
-  img: {
+  'img, .svg': {
     display: 'flex',
     position: 'relative',
     zIndex: 3,

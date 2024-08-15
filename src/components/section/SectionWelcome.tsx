@@ -4,6 +4,7 @@ import { AboutMe } from 'src/types/AboutMe';
 import WelcomeInfomationComponent from '../container/WelcomeInfomation';
 import { Section } from '../styles/section';
 import { DeveloperIlustration, WelcomeContainer } from '../styles/welcome';
+import WelcomeSvg from '../svg/Welcome';
 
 interface Props {
   aboutMe: AboutMe;
@@ -24,7 +25,7 @@ function SectionWelcomeComponent({ aboutMe }: Props) {
           name={aboutMe.name}
         />
         <DeveloperIlustration>
-          <img src='/images/illustration/illustration-dev.svg' alt='Developer' />
+          <WelcomeSvg />
         </DeveloperIlustration>
       </WelcomeContainer>
     </Section>

@@ -46,7 +46,7 @@ export const SeparatorProjectDetails = styled(Box)(({ theme }) => ({
   display: 'none',
   gridRow: '1/5',
   gridColumn: '2',
-  backgroundColor: theme.palette.text.disabled,
+  backgroundColor: theme.palette.divider,
   width: '1px',
   height: '90%',
 
