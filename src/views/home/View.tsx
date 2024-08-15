@@ -26,7 +26,9 @@ function View({ data }: Props) {
   ];
 
   return (
-    <Box sx={{ backgroundColor: 'background.default', height: '100%' }}>
+    <Box
+      sx={{ backgroundColor: 'background.default', height: '100%', transition: '0.3s ease-in-out' }}
+    >
       <Header data={headerData} />
       {data ? <SectionWelcomeComponent aboutMe={data?.aboutMe} /> : null}
       {data ? <SectionProjectComponent projects={data.projects} /> : null}

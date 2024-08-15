@@ -1,6 +1,7 @@
 import { Box, styled } from '@mui/material';
 
 export const Header = styled('header')(({ theme }) => ({
+  transition: '0.3s linear',
   backgroundColor: theme.palette.background.paper,
   height: '60px',
   position: 'relative',
@@ -45,7 +46,7 @@ export const NavButton = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const BurgerButton = styled(Box)(() => ({
+export const BurgerButton = styled(Box)(({ theme }) => ({
   height: '50%',
   display: 'flex',
   flexDirection: 'column',
@@ -54,8 +55,8 @@ export const BurgerButton = styled(Box)(() => ({
   '.burger-button': {
     height: '3px',
     width: '35px',
+    backgroundColor: theme.palette.text.primary,
     borderRadius: '20px',
-    backgroundColor: 'white',
     transition: '0.3s',
 
     '&.ativo': {
@@ -96,7 +97,7 @@ export const MenuMobile = styled(Box)(() => ({
   zIndex: 1,
   width: '100%',
   height: '100vh',
-  transition: '0.3s',
+  transition: '0.3s linear',
   display: 'grid',
   gridTemplateRows: '60% 40%',
   gap: 0,

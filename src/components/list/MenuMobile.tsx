@@ -3,6 +3,7 @@ import { ListItem } from '@mui/material';
 import { NavItensProps } from 'src/types/Components';
 import { MenuMobileList as List } from 'src/components/styles/list';
 import { MenuMobileLink } from '../styles/link';
+import DarkModeIcon from '../icon/DarkModeIcon';
 
 interface Props {
   itens: NavItensProps[];
@@ -21,6 +22,7 @@ export default function MenuMobileList({ itens, handleCloseMenu }: Props) {
           <MenuMobileLink href={`#${item.classNames}`}>{item.name}</MenuMobileLink>
         </ListItem>
       ))}
+      <DarkModeIcon />
     </List>
   );
 }

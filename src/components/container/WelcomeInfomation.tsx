@@ -13,9 +13,15 @@ interface Props {
 export default function WelcomeInfomationComponent({ jobTitle, name, language }: Props) {
   return (
     <WelcomeInformation>
-      <Typography variant='body1'>{strings.hello[language.code]}</Typography>
-      <Typography variant='h2'>{name}</Typography>
-      <Typography variant='body1'>{jobTitle}</Typography>
+      <Typography variant='body1' sx={{ paddingLeft: '5px' }}>
+        {strings.hello[language.code]}
+      </Typography>
+      <Typography variant='h2' sx={{ lineHeight: '49px', letterSpacing: '-3px' }}>
+        {name}
+      </Typography>
+      <Typography variant='body1' sx={{ paddingLeft: '5px' }}>
+        {jobTitle}
+      </Typography>
     </WelcomeInformation>
   );
 }

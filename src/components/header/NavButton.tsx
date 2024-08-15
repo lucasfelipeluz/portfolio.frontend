@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from '@mui/material';
 import { BurgerButton, NavButton } from '../styles/header';
 
 interface Props {
@@ -10,9 +11,9 @@ export default function NavButtonComponent({ toggleMenuMobile, handleToggleMenuM
   return (
     <NavButton onClick={handleToggleMenuMobile}>
       <BurgerButton>
-        <div className={`burger-button ${toggleMenuMobile ? 'ativo' : ''}`} />
-        <div className={`burger-button ${toggleMenuMobile ? 'ativo' : ''}`} />
-        <div className={`burger-button ${toggleMenuMobile ? 'ativo' : ''}`} />
+        <Box className={`burger-button ${toggleMenuMobile ? 'ativo' : ''}`} />
+        <Box className={`burger-button ${toggleMenuMobile ? 'ativo' : ''}`} />
+        <Box className={`burger-button ${toggleMenuMobile ? 'ativo' : ''}`} />
       </BurgerButton>
     </NavButton>
   );

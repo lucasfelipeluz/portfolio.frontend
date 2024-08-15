@@ -16,8 +16,12 @@ export const WelcomeContainer = styled(Box)(({ theme }) => ({
 
 export const WelcomeInformation = styled(Box)(() => ({
   width: '100%',
-  textAlign: 'start',
+  textAlign: 'center',
   marginBottom: '200px',
+
+  '@media (min-width: 992px)': {
+    textAlign: 'start',
+  },
 }));
 
 export const DeveloperIlustration = styled(Box)(() => ({
