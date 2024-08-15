@@ -31,7 +31,7 @@ function CardProjectComponent({ project, langCode }: Props) {
         {project.skills?.map((skill, index) => {
           if (index < 5) {
             return (
-              <SkillSmallButtonOnProject href={`/skill/${skill.id}`}>
+              <SkillSmallButtonOnProject href={`/skill/${skill.id}`} key={skill.id as number}>
                 {skill.title}
               </SkillSmallButtonOnProject>
             );
