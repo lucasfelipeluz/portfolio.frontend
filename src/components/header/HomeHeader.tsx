@@ -1,40 +1,43 @@
 import React, { useState } from 'react';
-
-import { GradientBar } from 'src/core/theme/globals';
-import { HeaderStyle, NavBar, NavButton, TitlePortfolio } from 'src/core/theme/Header';
-
-import { HeaderProps } from 'src/types/Components';
+import { NavItensProps } from 'src/types/Components';
+import MenuList from 'src/components/list/Menu';
+import PortfolioTitle from 'src/components/typography/PortfolioTitle';
 import MenuMobileComponent from './MenuMobile';
-import NavItensComponent from './NavItens';
+import NavButtonComponent from './NavButton';
+import { Header, NavBar } from '../styles/header';
+import { MenuLine } from '../styles/line';
 
-export default function Header({ data, titleHeader }: HeaderProps) {
+interface Props {
+  data: NavItensProps[];
+}
+
+export default function HeaderComponent({ data }: Props) {
   const [toggleMenuMobile, setToggleMenuMobile] = useState<boolean>(false);
 
   const handleToggleMenuMobile = () => {
     setToggleMenuMobile(!toggleMenuMobile);
   };
 
+  const closeMenuMobile = () => {
+    setToggleMenuMobile(false);
+  };
+
   return (
-    <HeaderStyle>
+    <Header>
       <NavBar className='container-fluid container-lg'>
-        <NavButton onClick={handleToggleMenuMobile}>
-          <div className='burger' data-burger='inativo'>
-            <div className={`burger-button ${toggleMenuMobile ? 'ativo' : ''}`} />
-            <div className={`burger-button ${toggleMenuMobile ? 'ativo' : ''}`} />
-            <div className={`burger-button ${toggleMenuMobile ? 'ativo' : ''}`} />
-          </div>
-        </NavButton>
-        <TitlePortfolio>
-          <p>{titleHeader}</p>
-        </TitlePortfolio>
-        <NavItensComponent data={data} />
+        <NavButtonComponent
+          toggleMenuMobile={toggleMenuMobile}
+          handleToggleMenuMobile={handleToggleMenuMobile}
+        />
+        <PortfolioTitle />
+        <MenuList data={data} />
         <MenuMobileComponent
           ativo={toggleMenuMobile}
-          handleAtivo={handleToggleMenuMobile}
+          handleCloseMenu={closeMenuMobile}
           data={data}
         />
       </NavBar>
-      <GradientBar />
-    </HeaderStyle>
+      <MenuLine />
+    </Header>
   );
 }

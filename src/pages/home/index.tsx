@@ -5,7 +5,7 @@ import Home from 'src/types/Home';
 import View from 'src/views/home/View';
 
 function HomePage() {
-  const { data, refetch, isLoading, isSuccess, isError } = useHomeServices.getHome();
+  const { data, isLoading, isSuccess, isError } = useHomeServices.getHome();
 
   const [homeData, setHomeData] = useState<Home>();
 

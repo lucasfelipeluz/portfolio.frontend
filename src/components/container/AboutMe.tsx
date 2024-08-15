@@ -2,10 +2,13 @@ import React from 'react';
 import strings from 'src/utils/strings';
 import { LanguageCode } from 'src/core/types/languageContext';
 import { AboutMe } from 'src/types/AboutMe';
-import { AboutMeCard } from 'src/core/theme/Contact';
 import { Github, Linkedin } from 'mdi-material-ui';
 import { Email, Telegram } from '@mui/icons-material';
+import { Typography } from '@mui/material';
 import ContactLink from '../link/Contact';
+import { AboutMeContainer, AboutMeImgDev, ContactLinks } from '../styles/container';
+import { SeparatorAboutMe } from '../styles/line';
+import { AboutMeText } from '../styles/typography';
 
 interface Props {
   aboutMe: AboutMe;
@@ -14,14 +17,14 @@ interface Props {
 
 export default function AboutMeComponent({ aboutMe, langCode }: Props) {
   return (
-    <AboutMeCard>
-      <div className='img-container'>
+    <AboutMeContainer>
+      <AboutMeImgDev gridRow={1}>
         <img src='https://avatars.githubusercontent.com/u/65639478?v=4' alt='' />
-      </div>
-      <p className='text-container'>{aboutMe.text}</p>
-      <div className='line-separator' />
-      <div className='contact-links'>
-        <p className='title-contact-links'>{strings.contact[langCode]}</p>
+      </AboutMeImgDev>
+      <AboutMeText gridRow={2}>{aboutMe.text}</AboutMeText>
+      <SeparatorAboutMe />
+      <ContactLinks gridRow={3}>
+        <Typography className='title-contact-links'>{strings.contact[langCode]}</Typography>
         <ContactLink
           icon={<Github />}
           color='#71CF62'
@@ -50,7 +53,7 @@ export default function AboutMeComponent({ aboutMe, langCode }: Props) {
           title='Telegram'
           target='_blank'
         />
-      </div>
-    </AboutMeCard>
+      </ContactLinks>
+    </AboutMeContainer>
   );
 }

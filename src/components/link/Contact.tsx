@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import { ContactLinkStyled } from 'src/core/theme/Contact';
+import { Box, Typography } from '@mui/material';
+import { ContactLink as LinkStyled } from 'src/components/styles/link';
 
 interface Props {
   color: string;
@@ -11,11 +12,11 @@ interface Props {
 
 export default function ContactLink({ color, link, title, target, icon }: Props) {
   return (
-    <ContactLinkStyled href={link} className={title.trim().replace(' ', '-')} target={target}>
-      <div className='container-icon' style={{ backgroundColor: color }}>
+    <LinkStyled href={link} className={title.trim().replace(' ', '-')} target={target}>
+      <Box className='container-icon' style={{ backgroundColor: color }}>
         {icon}
-      </div>
-      <p className='title'>{title}</p>
-    </ContactLinkStyled>
+      </Box>
+      <Typography className='title'>{title}</Typography>
+    </LinkStyled>
   );
 }

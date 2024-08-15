@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSkillDescription } from 'src/core/theme/Skills';
+import { Typography } from '@mui/material';
 import Skill from 'src/types/Skill';
 import { calculateHowMuchTimeHasPassed } from 'src/utils/helpers';
+import { SkillDescription as SkillDescriptionStyle } from '../styles/container';
 
 interface Props {
   skillSelected: Skill | null;
@@ -21,15 +22,15 @@ export default function SkillDescription({ skillSelected }: Props) {
   }, [skillSelected]);
 
   return (
-    <StyleSkillDescription
+    <SkillDescriptionStyle
       className={`skill-description ${skillSelected?.description ? 'selected' : '.'}`}
     >
-      <p>{skillSelected?.description}</p>
+      <Typography>{skillSelected?.description}</Typography>
       {skillSelected?.startedAt && (
-        <p className='xp'>
+        <Typography className='xp'>
           {experience.years} anos e {experience.months} meses de experiência
-        </p>
+        </Typography>
       )}
-    </StyleSkillDescription>
+    </SkillDescriptionStyle>
   );
 }

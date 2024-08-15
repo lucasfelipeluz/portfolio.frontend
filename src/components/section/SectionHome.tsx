@@ -32,13 +32,14 @@ const SectionContent = styled(Box)(() => ({
 
 interface Props {
   title?: string;
+  children: React.ReactNode;
 }
 
-function SectionHomeComponent({ title }: Props) {
+function SectionHomeComponent({ title, children }: Props) {
   return (
     <Section>
       {title && <SectionTitle variant='h5'>{title}</SectionTitle>}
-      <SectionContent>Opa</SectionContent>
+      <SectionContent>{children}</SectionContent>
     </Section>
   );
 }

@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { useLanguage } from 'src/core/context/languageContext';
-import {
-  ContainerSkill,
-  HelperText,
-  SkillContent,
-  SkillsSection,
-  SkillsSectionTitle,
-} from 'src/core/theme/Skills';
 import Skill from 'src/types/Skill';
 import strings from 'src/utils/strings';
-import { SeparatorBar } from 'src/core/theme/globals';
-import SkillDescription from '../container/SkillDescription';
 import SkillButtons from '../buttons/SkillButtons';
+import SkillDescription from '../container/SkillDescription';
+import { SkillsContainer, SkillSelector } from '../styles/container';
+import { SeparatorSkillDescription } from '../styles/line';
+import { SkillSection } from '../styles/section';
+import { HelpTextSkillContainer, SectionTitle } from '../styles/typography';
 
 interface Props {
   skills: Skill[];
@@ -23,19 +19,21 @@ function SectionSkillComponent({ skills }: Props) {
   const [skillSelected, setSkillSelected] = useState<Skill | null>(null);
 
   return (
-    <SkillsSection>
-      <SkillsSectionTitle id='skills'>{strings.skills[language.code]}</SkillsSectionTitle>
-      <HelperText>{strings.hoverUpTheMouseAboveTheSkill[language.code]}</HelperText>
-      <SkillContent className='container-fluid container-lg'>
+    <SkillSection id='skills'>
+      <SectionTitle>{strings.skills[language.code]}</SectionTitle>
+      <HelpTextSkillContainer>
+        {strings.hoverUpTheMouseAboveTheSkill[language.code]}
+      </HelpTextSkillContainer>
+      <SkillsContainer className='container-fluid container-lg'>
         <SkillDescription skillSelected={skillSelected} />
-        <SeparatorBar />
-        <ContainerSkill>
+        <SeparatorSkillDescription />
+        <SkillSelector>
           {skills.map((skill) => (
             <SkillButtons key={skill.id} skill={skill} setSkillSelected={setSkillSelected} />
           ))}
-        </ContainerSkill>
-      </SkillContent>
-    </SkillsSection>
+        </SkillSelector>
+      </SkillsContainer>
+    </SkillSection>
   );
 }
 
