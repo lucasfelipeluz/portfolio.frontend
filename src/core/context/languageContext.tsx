@@ -5,6 +5,7 @@ import { LanguageContextProps, LanguageProps } from 'src/core/types/languageCont
 
 export const LanguageContext = createContext({
   language: languages[1],
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setLanguage: (language: LanguageProps) => {},
 } as LanguageContextProps);
 

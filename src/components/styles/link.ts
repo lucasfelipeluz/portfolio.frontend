@@ -34,13 +34,13 @@ export const MenuMobileLink = styled(MuiLink)(({ theme }) => ({
     opacity: 0,
   },
 
-  '&:hover:after': {
-    opacity: 1,
-    content: '""',
-    height: '2px',
-    background: '#1ad78a',
-    position: 'absolute',
-  },
+  // '&:hover:after': {
+  //   opacity: 1,
+  //   content: '""',
+  //   height: '2px',
+  //   color: theme.palette.background.paper,
+  //   position: 'absolute',
+  // },
 }));
 
 export const ButtonLink = styled(MuiLink)(({ theme }) => ({
@@ -73,46 +73,51 @@ export const ProjectCardLink = styled(ProjectButtonLink)(() => ({
   textAlign: 'center',
 }));
 
-export const ContactLink = styled(MuiLink)(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
+export const ContactLink = styled(MuiLink)(({ theme, color }) => ({
   borderRadius: '5px',
   overflow: 'hidden',
   padding: '10px 15px',
   textDecoration: 'none',
   position: 'relative',
   transition: '0.3s',
-  height: '40px',
+  height: '80px',
+  width: '80px',
   cursor: 'pointer',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  filter: 'saturate(0.5)',
+  border: `3px solid ${color}`,
 
   '.container-icon': {
     transition: '0.3s',
-    filter: 'saturate(0.5)',
-    position: 'absolute',
-    left: '0',
-    top: '0',
-    bottom: '0',
-    width: '50px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     color: theme.palette.text.primary,
-  },
 
-  '.title': {
-    fontSize: '16px',
-    marginLeft: '50px',
+    svg: {
+      transition: '0.3s linear',
+      fontSize: '35px',
+      color: theme.palette.text.primary,
+    },
   },
 
   '&:hover': {
     filter: 'saturate(1.7)',
+    backgroundColor: `${color}`,
 
     '.container-icon': {
       filter: 'saturate(1.2)',
+
+      svg: {
+        color: theme.palette.background.paper,
+      },
     },
   },
 }));
 
-export const LinkProjectDetails = styled(ButtonLink)(({ theme }) => ({
+export const LinkProjectDetails = styled(ButtonLink)(() => ({
   width: '100%',
   borderRadius: '5px',
   textAlign: 'center',

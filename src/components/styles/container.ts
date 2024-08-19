@@ -211,16 +211,16 @@ export const SkillButton = styled(Box)(({ theme, color }) => ({
 
 export const AboutMeContainer = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
-  height: '100%',
   display: 'grid',
-  gridTemplateRows: '200px 1fr 1fr',
-  gap: '50px',
+  gridTemplateRows: '1fr 1fr',
+  gridTemplateColumns: '1fr',
+  gap: '15px',
   padding: '80px 15px',
   borderRadius: '10px',
 
   '@media (min-width: 992px)': {
+    height: '500px',
     gridTemplateColumns: '1fr 10px 1fr',
-    gridTemplateRows: '1fr 1fr',
     gap: '0',
   },
 }));
@@ -236,20 +236,26 @@ export const AboutMeImgDev = styled(Box)(() => ({
     height: '180px',
     objectFit: 'contain',
     borderRadius: '100%',
+
+    '@media (min-width: 992px)': {
+      width: '300px',
+      height: '300px',
+    },
   },
 
   '@media (min-width: 992px)': {
-    gridRow: '1',
+    gridRow: '1/3',
     gridColumn: '1',
   },
 }));
 
 export const ContactLinks = styled(Box)(({ theme }) => ({
   display: 'grid',
-  gridTemplateRows: '60px 60px',
+  gridTemplateRows: '100px 100px',
   gridTemplateColumns: '1fr 1fr',
   gap: '20px',
-  padding: '70px 15px 10px 15px',
+  justifyItems: 'center',
+  padding: '0px 15px 10px 15px',
   position: 'relative',
 
   '.title-contact-links': {
@@ -261,7 +267,7 @@ export const ContactLinks = styled(Box)(({ theme }) => ({
   },
 
   '@media (min-width: 992px)': {
-    gridRow: '1/3',
+    gridRow: '2/3',
     gridColumn: '3',
   },
 }));
@@ -277,11 +283,10 @@ export const ProjectDetails = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   zIndex: 2000,
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: theme.palette.background.paper,
   transition: '0.3s linear',
 
   '.container-project': {
-    backgroundColor: theme.palette.background.paper,
     height: '100%',
     padding: '60px 0px 20px 0px',
     position: 'relative',

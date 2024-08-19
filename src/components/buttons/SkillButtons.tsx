@@ -20,7 +20,6 @@ function calcularAnosMesesPassados(data: Date) {
 }
 
 export default function SkillButtons({ skill, setSkillSelected }: Props) {
-  const [color, setColor] = React.useState('white');
   const [isSkillSelected, setIsSkillSelected] = React.useState(false);
   const [experiencia, setExperiencia] = React.useState({ anos: 0, meses: 0 });
 
@@ -38,11 +37,9 @@ export default function SkillButtons({ skill, setSkillSelected }: Props) {
       color={skill.color}
       onMouseEnter={() => {
         setSkillSelected(skill);
-        setColor(skill.color);
       }}
       onMouseLeave={() => {
         setSkillSelected(null);
-        setColor('white');
       }}
       onClick={() => setIsSkillSelected(!isSkillSelected)}
     >

@@ -18,7 +18,7 @@ export default function MenuList({ data }: Props) {
           className={`${item.classNames}`}
           key={index as number}
         >
-          <MenuListLink href={`#${item.classNames}`}>{item.name}</MenuListLink>
+          <MenuListLink href={`/home/#${item.classNames}`}>{item.name}</MenuListLink>
         </ListItem>
       ))}
       <DarkModeIcon />

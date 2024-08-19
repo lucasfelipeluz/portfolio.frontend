@@ -28,14 +28,14 @@ export const HelpTextSkillContainer = styled(Typography)(({ theme }) => ({
 }));
 
 export const AboutMeText = styled(Typography)(({ theme }) => ({
-  padding: '0 25px',
+  padding: '0 10px',
   color: theme.palette.text.primary,
   textAlign: 'center',
   fontSize: '15px',
 
   '@media (min-width: 992px)': {
-    gridRow: '2',
-    gridColumn: '1',
+    gridRow: '1',
+    gridColumn: '3',
   },
 }));
 
