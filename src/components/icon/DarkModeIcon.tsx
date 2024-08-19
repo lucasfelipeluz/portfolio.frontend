@@ -1,23 +1,14 @@
 import React from 'react';
 import { DarkMode, LightMode } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
 import { useSettings } from 'src/core/context/settingsContext';
-import { colors } from 'src/core/theme/theme';
+import { ThemeModeIconButton } from '../styles/button';
 
 export default function DarkModeIcon() {
   const { toggleLayoutMode, layoutMode } = useSettings();
 
   return (
-    <IconButton onClick={toggleLayoutMode}>
-      {layoutMode === 'dark' ? (
-        <LightMode />
-      ) : (
-        <DarkMode
-          sx={{
-            color: colors.text.light.main,
-          }}
-        />
-      )}
-    </IconButton>
+    <ThemeModeIconButton onClick={toggleLayoutMode}>
+      {layoutMode === 'dark' ? <LightMode className='icon' /> : <DarkMode className='icon' />}
+    </ThemeModeIconButton>
   );
 }

@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { NavItensProps } from 'src/types/Components';
 import MenuList from 'src/components/list/Menu';
 import PortfolioTitle from 'src/components/typography/PortfolioTitle';
+import strings from 'src/utils/strings';
+import { useLanguage } from 'src/core/context/languageContext';
 import MenuMobileComponent from './MenuMobile';
 import NavButtonComponent from './NavButton';
 import { Header, NavBar } from '../styles/header';
 import { MenuLine } from '../styles/line';
 
-interface Props {
-  data: NavItensProps[];
-}
+export default function HeaderComponent() {
+  const { language } = useLanguage();
 
-export default function HeaderComponent({ data }: Props) {
   const [toggleMenuMobile, setToggleMenuMobile] = useState<boolean>(false);
 
   const handleToggleMenuMobile = () => {
@@ -21,6 +21,12 @@ export default function HeaderComponent({ data }: Props) {
   const closeMenuMobile = () => {
     setToggleMenuMobile(false);
   };
+
+  const data: NavItensProps[] = [
+    { name: strings.projects[language.code], classNames: strings.classNames.projects },
+    { name: strings.skills[language.code], classNames: strings.classNames.skills },
+    { name: strings.contact[language.code], classNames: strings.classNames.contact },
+  ];
 
   return (
     <Header>

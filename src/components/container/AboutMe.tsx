@@ -1,10 +1,7 @@
 import React from 'react';
-import strings from 'src/utils/strings';
-import { LanguageCode } from 'src/core/types/languageContext';
 import { AboutMe } from 'src/types/AboutMe';
 import { Github, Linkedin } from 'mdi-material-ui';
 import { Email, Telegram } from '@mui/icons-material';
-import { Typography } from '@mui/material';
 import ContactLink from '../link/Contact';
 import { AboutMeContainer, AboutMeImgDev, ContactLinks } from '../styles/container';
 import { SeparatorAboutMe } from '../styles/line';
@@ -12,22 +9,20 @@ import { AboutMeText } from '../styles/typography';
 
 interface Props {
   aboutMe: AboutMe;
-  langCode: LanguageCode;
 }
 
-export default function AboutMeComponent({ aboutMe, langCode }: Props) {
+export default function AboutMeComponent({ aboutMe }: Props) {
   return (
     <AboutMeContainer>
-      <AboutMeImgDev gridRow={1}>
+      <AboutMeImgDev>
         <img src='https://avatars.githubusercontent.com/u/65639478?v=4' alt='' />
       </AboutMeImgDev>
-      <AboutMeText gridRow={2}>{aboutMe.text}</AboutMeText>
+      <AboutMeText>{aboutMe.text}</AboutMeText>
       <SeparatorAboutMe />
-      <ContactLinks gridRow={3}>
-        <Typography className='title-contact-links'>{strings.contact[langCode]}</Typography>
+      <ContactLinks>
         <ContactLink
           icon={<Github />}
-          color='#71CF62'
+          color='#60aa54'
           link={aboutMe.githubLink}
           title='Github'
           target='_blank'

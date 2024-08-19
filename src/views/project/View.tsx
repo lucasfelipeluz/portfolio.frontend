@@ -16,9 +16,6 @@ import { Project } from 'src/types/Project';
 import { ProjectImage } from 'src/types/ProjectImage';
 import { formatISODateToBRDate } from 'src/utils/helpers';
 import { SeparatorProjectDetails } from 'src/components/styles/line';
-import { NavItensProps } from 'src/types/Components';
-import { useLanguage } from 'src/core/context/languageContext';
-import strings from 'src/utils/strings';
 import Header from 'src/components/header/HomeHeader';
 
 function Item({ img }: { img: ProjectImage }) {
@@ -38,7 +35,6 @@ interface Props {
 }
 
 function View({ id }: Props) {
-  const { language } = useLanguage();
   const { data, refetch } = useHomeServices.getHomeProject(id);
 
   const [project, setProjectData] = useState<Project>();
@@ -56,16 +52,9 @@ function View({ id }: Props) {
     router.back();
   };
 
-  const headerData: NavItensProps[] = [
-    { name: strings.projects[language.code], classNames: strings.classNames.projects },
-    { name: strings.skills[language.code], classNames: strings.classNames.skills },
-    { name: strings.aboutMe[language.code], classNames: strings.classNames.aboutMe },
-    { name: strings.contact[language.code], classNames: strings.classNames.contact },
-  ];
-
   return (
     <>
-      <Header data={headerData} />
+      <Header />
       <ProjectDetails>
         <div className='container-project container-lg container-fluid'>
           <ActionsProjectDetails className='actions'>
