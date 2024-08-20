@@ -1,5 +1,9 @@
 import { Box, Card, styled } from '@mui/material';
 
+export const MainApplication = styled('main')(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+}));
+
 export const ProjectContentContainer = styled(Box)(() => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
