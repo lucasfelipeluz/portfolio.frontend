@@ -13,12 +13,8 @@ export default function MenuList({ data }: Props) {
   return (
     <List>
       {data.map((item, index) => (
-        <ListItem
-          sx={{ position: 'relative' }}
-          className={`${item.classNames}`}
-          key={index as number}
-        >
-          <MenuListLink href={`/home/#${item.classNames}`}>{item.name}</MenuListLink>
+        <ListItem className={`${item.classNames}`} key={index as number}>
+          <MenuListLink href={`/#${item.classNames}`}>{item.name}</MenuListLink>
         </ListItem>
       ))}
       <DarkModeIcon />

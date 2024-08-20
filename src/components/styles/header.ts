@@ -23,7 +23,7 @@ export const NavBar = styled(Box)(() => ({
   '@media (min-width: 992px)': {
     height: '53px',
     display: 'grid',
-    gridTemplateColumns: '2fr 3fr',
+    gridTemplateColumns: '2fr 2fr',
     position: 'relative',
     zIndex: 5,
   },
