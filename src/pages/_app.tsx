@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/main.css';
 import { MainApplication } from 'src/components/styles/container';
 import { ApplicationVariablesProvider } from 'src/core/context/applicationVariables';
+import { applicationConfig } from 'src/utils/config';
 
 const queryClient = new QueryClient();
 
@@ -20,7 +21,9 @@ function App({ Component, pageProps }: AppProps) {
         <SettingsProvider>
           <QueryClientProvider client={queryClient}>
             <Head>
-              <title>Portfolio Lucas Luz</title>
+              <title>
+                {applicationConfig.serverMode === 'development' ? 'dev - ' : ''}Portfolio Lucas Luz
+              </title>
             </Head>
             <MainApplication>
               <Component pageProps={pageProps} />

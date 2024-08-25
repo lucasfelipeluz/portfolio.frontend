@@ -217,6 +217,13 @@ const defaultDarkThemeOptions: ThemeOptions = {
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: colors.text.dark.main,
+        },
+      },
+    },
   },
 };
 
@@ -257,6 +264,13 @@ const defaultLigthThemeOptions: ThemeOptions = {
         root: {
           backgroundColor: colors.backgroundLightMode2,
           backgroundImage: 'none',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: colors.text.light.main,
         },
       },
     },
