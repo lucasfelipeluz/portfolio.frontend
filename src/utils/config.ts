@@ -2,11 +2,10 @@
 
 import { LanguageProps } from 'src/core/types/languageContext';
 
-export const configApi = {
-  urlApi: 'http://localhost',
-  hostApi: '8181',
-  serverMode: 'dev',
-  serverOn: 'true',
+export const applicationConfig = {
+  urlApi: process.env.NEXT_PUBLIC_API_URL,
+  serverMode: process.env.NEXT_PUBLIC_SERVER_MODE,
+  clientSource: process.env.NEXT_PUBLIC_CLIENT_SOURCE,
 };
 
 export const languages: LanguageProps[] = [
