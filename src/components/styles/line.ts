@@ -54,3 +54,18 @@ export const SeparatorProjectDetails = styled(Box)(({ theme }) => ({
     display: 'block',
   },
 }));
+
+export const LoginLine = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  zIndex: 0,
+  width: '2000px',
+  height: '300px',
+  backgroundColor: theme.palette.primary.dark,
+  right: '-400px',
+  bottom: '-400px',
+  rotate: '-30deg',
+
+  '@media (min-width: 768px)': {
+    display: 'none',
+  },
+}));

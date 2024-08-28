@@ -1,4 +1,4 @@
-import { Box, Card, styled } from '@mui/material';
+import { Box, Card, Container, styled } from '@mui/material';
 
 export const MainApplication = styled('main')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -337,4 +337,16 @@ export const SlideProjectDetails = styled(Box)(() => ({
 
 export const DescriptionProjectDetails = styled(Box)(() => ({
   padding: '0 15px',
+}));
+
+export const LoginContainer = styled(Container)(() => ({
+  height: '100vh',
+  position: 'relative',
+  overflow: 'hidden',
+
+  '@media (min-width: 768px)': {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 }));
