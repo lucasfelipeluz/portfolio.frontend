@@ -25,11 +25,11 @@ function CardProjectComponent({ project, langCode }: Props) {
         </Typography>
       </Box>
       <DescriptionProjectCard>
-        <Typography>{project.description}</Typography>
+        <Typography variant='body1'>{project.description.split('.')[0]}.</Typography>
       </DescriptionProjectCard>
       <SkillsContainerOnProject>
         {project.skills?.map((skill, index) => {
-          if (index < 5) {
+          if (index < 3) {
             return (
               <SkillSmallButtonOnProject href={`/skill/${skill.id}`} key={skill.id as number}>
                 {skill.title}

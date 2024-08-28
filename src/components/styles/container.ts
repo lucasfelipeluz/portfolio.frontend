@@ -49,16 +49,15 @@ export const DescriptionProjectCard = styled(Box)(() => ({
 }));
 
 export const SkillsContainer = styled(Box)(({ theme }) => ({
-  height: '100%',
   display: 'grid',
   gridTemplateColumns: '1fr',
   gridTemplateRows: '1fr',
   color: theme.palette.text.primary,
-  minHeight: '80vh',
+  minHeight: '100vh',
 
   '@media (min-width: 992px)': {
     gridTemplateColumns: '1fr 3px 1fr',
-    height: '100%',
+    minHeight: '100vh',
   },
 }));
 
@@ -179,7 +178,7 @@ export const SkillButton = styled(Box)(({ theme, color }) => ({
         alignItems: 'center',
         textAlign: 'center',
         paddingLeft: '20px',
-        borderBottom: `1px solid ${theme.palette.background.paper}`,
+        borderBottom: `1px solid ${color}`,
         position: 'relative',
         overflow: 'hidden',
         height: '100%',
@@ -303,7 +302,7 @@ export const ProjectDetails = styled(Box)(({ theme }) => ({
       gridTemplateRows: '1fr 1fr 1fr 1fr',
       width: '95%',
       padding: '60px 20px 20px 20px',
-      gap: '20px',
+      gap: '60px',
     },
   },
 }));
