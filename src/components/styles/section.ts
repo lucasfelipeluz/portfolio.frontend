@@ -15,6 +15,11 @@ export const SkillSection = styled(Section)(({ theme }) => ({
   minHeight: '100vh',
   backgroundColor: theme.palette.background.paper,
   padding: '25px 0',
+  height: 'auto',
+
+  '@media (min-width: 992px)': {
+    minHeight: '100vh',
+  },
 }));
 
 export const ContactSection = styled(Section)(() => ({
@@ -29,11 +34,28 @@ export const FooterSection = styled('section')(({ theme }) => ({
   userSelect: 'none',
 
   '.container': {
-    display: 'flex',
-    justifyContent: 'end',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 16px',
     alignItems: 'center',
     height: '100%',
     gap: '5px',
+
+    '.copyright': {
+      textAlign: 'end',
+    },
+
+    '.version': {
+      color: theme.palette.text.disabled,
+      fontSize: '10px',
+
+      '@media (min-width: 654px)': {
+        fontSize: '14px',
+      },
+
+      '@media (min-width: 992px)': {
+        fontSize: '14px',
+      },
+    },
 
     '.copyright, .icon': {
       color: theme.palette.text.disabled,

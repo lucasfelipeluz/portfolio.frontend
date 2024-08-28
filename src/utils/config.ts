@@ -6,6 +6,7 @@ export const applicationConfig = {
   urlApi: process.env.NEXT_PUBLIC_API_URL,
   serverMode: process.env.NEXT_PUBLIC_SERVER_MODE,
   clientSource: process.env.NEXT_PUBLIC_CLIENT_SOURCE,
+  version: process.env.NEXT_PUBLIC_APP_VERSION || '',
 };
 
 export const languages: LanguageProps[] = [

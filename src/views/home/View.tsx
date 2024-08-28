@@ -19,8 +19,10 @@ function View({ data }: Props) {
     >
       <Header />
       {data ? <SectionWelcomeComponent aboutMe={data?.aboutMe} /> : null}
-      {data ? <SectionProjectComponent projects={data.projects} /> : null}
-      {data ? <SectionSkillComponent skills={data?.skills} /> : null}
+      {data && data.projects.length > 0 ? (
+        <SectionProjectComponent projects={data.projects} />
+      ) : null}
+      {data && data.skills.length > 0 ? <SectionSkillComponent skills={data?.skills} /> : null}
       {data ? <SectionContactComponent aboutMe={data.aboutMe} /> : null}
       <FooterComponent />
     </Box>

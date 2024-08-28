@@ -21,10 +21,10 @@ function notFound() {
         }}
       >
         <Box sx={{ textAlign: 'center' }}>
-          <Typography variant='h3'>Ops! Service Unavailable.</Typography>
-          <Typography variant='body1'>My portfolio is not available at the moment.</Typography>
-          <Button sx={{ marginTop: '30px' }} variant='outlined'>
-            Report an issue
+          <Typography variant='h3'>Ops! We&apos;re in maintenance.</Typography>
+          <Typography variant='body1'>Portfolio is not available at the moment.</Typography>
+          <Button sx={{ marginTop: '30px' }} variant='outlined' href='/'>
+            Go back to home
           </Button>
         </Box>
       </Box>
