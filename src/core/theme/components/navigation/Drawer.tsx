@@ -18,7 +18,7 @@ const DrawerTheme: Components<Omit<Theme, 'components'>>['MuiDrawer'] = {
       border: 0,
       borderRight: 1,
       borderStyle: 'solid',
-      borderColor: theme.palette.info.main,
+      borderColor: theme.palette.primary.dark,
       backgroundColor: theme.palette.background.default,
       boxShadow: theme.customShadows[0],
       boxSizing: 'border-box',

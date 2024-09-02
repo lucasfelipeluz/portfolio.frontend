@@ -1,5 +1,5 @@
 import { PaletteOptions } from '@mui/material';
-import { black, blue, cyan, grey, purple, red, violate, white, yellow } from './colors';
+import { black, blue, cyan, grey, red, white, yellow } from './colors';
 
 const paletteGlobal: PaletteOptions = {
   grey: {

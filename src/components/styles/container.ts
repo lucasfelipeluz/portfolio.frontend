@@ -30,7 +30,6 @@ export const SkillsContainerOnProject = styled(Box)(() => ({
 
 export const ProjectCard = styled(Card)(({ theme }) => ({
   color: theme.palette.text.primary,
-  // backgroundColor: theme.palette.background.default,
   height: '350px',
   width: '350px',
   display: 'grid',
