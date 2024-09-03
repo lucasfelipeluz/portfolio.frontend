@@ -18,6 +18,14 @@ function SectionSkillComponent({ skills }: Props) {
 
   const [skillSelected, setSkillSelected] = useState<Skill | null>(null);
 
+  const handleClickSelectSkill = (skill: Skill) => {
+    if (skill.id === skillSelected?.id) {
+      setSkillSelected(null);
+    } else {
+      setSkillSelected(skill);
+    }
+  };
+
   return (
     <SkillSection id='skills'>
       <SectionTitle>{strings.skills[language.code]}</SectionTitle>
@@ -29,7 +37,13 @@ function SectionSkillComponent({ skills }: Props) {
         <SeparatorSkillDescription />
         <SkillSelector>
           {skills.map((skill) => (
-            <SkillButtons key={skill.id} skill={skill} setSkillSelected={setSkillSelected} />
+            <SkillButtons
+              key={skill.id}
+              skill={skill}
+              skillSelected={skillSelected}
+              setSkillSelected={setSkillSelected}
+              handleClickSelectSkill={handleClickSelectSkill}
+            />
           ))}
         </SkillSelector>
       </SkillsContainer>

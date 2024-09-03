@@ -113,6 +113,7 @@ export const HeaderSkillButton = styled(Box)(() => ({
 }));
 
 export const SkillButton = styled(Box)(({ theme, color }) => ({
+  cursor: 'pointer',
   border: `1px solid ${theme.palette.text.primary}`,
   width: '120px',
   height: '120px',
@@ -158,6 +159,12 @@ export const SkillButton = styled(Box)(({ theme, color }) => ({
           color,
         },
       },
+    },
+  },
+
+  '@media (min-width: 992px)': {
+    '&.selected': {
+      border: `5px solid ${color}`,
     },
   },
 

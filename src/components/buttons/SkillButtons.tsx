@@ -8,6 +8,8 @@ import { SkillButton } from '../styles/container';
 interface Props {
   skill: Skill;
   setSkillSelected: Function;
+  handleClickSelectSkill: Function;
+  skillSelected: Skill | null;
 }
 
 function calcularAnosMesesPassados(data: Date) {
@@ -19,8 +21,12 @@ function calcularAnosMesesPassados(data: Date) {
   return { anos: anosPassados, meses: mesesPassados };
 }
 
-export default function SkillButtons({ skill, setSkillSelected }: Props) {
-  const [isSkillSelected, setIsSkillSelected] = React.useState(false);
+export default function SkillButtons({
+  skill,
+  setSkillSelected,
+  handleClickSelectSkill,
+  skillSelected,
+}: Props) {
   const [experiencia, setExperiencia] = React.useState({ anos: 0, meses: 0 });
 
   const iconPath = (mdiIconPath as any)[skill.icon];
@@ -33,15 +39,11 @@ export default function SkillButtons({ skill, setSkillSelected }: Props) {
 
   return (
     <SkillButton
-      className={`skill ${isSkillSelected ? 'selected' : ''}`}
+      className={`skill ${skillSelected?.id === skill.id ? 'selected' : ''}`}
       color={skill.color}
-      onMouseEnter={() => {
-        setSkillSelected(skill);
+      onClick={() => {
+        handleClickSelectSkill(skill);
       }}
-      onMouseLeave={() => {
-        setSkillSelected(null);
-      }}
-      onClick={() => setIsSkillSelected(!isSkillSelected)}
     >
       <Box className='skill-header'>
         <Box className='container-icon'>
