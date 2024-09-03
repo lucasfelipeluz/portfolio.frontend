@@ -1,20 +1,20 @@
-import React from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { LanguageProvider } from 'src/core/context/languageContext';
-import { SettingsProvider } from 'src/core/context/settingsContext';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../styles/main.css';
 import { MainApplication } from 'src/components/styles/container';
 import { ApplicationVariablesProvider } from 'src/core/context/applicationVariables';
+import { LanguageProvider } from 'src/core/context/languageContext';
+import { SettingsProvider, useSettings } from 'src/core/context/settingsContext';
 import { applicationConfig } from 'src/utils/config';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../styles/main.css';
 
 const queryClient = new QueryClient();
 
 function App({ Component, pageProps }: AppProps) {
+  const { theme } = useSettings();
+
   return (
     <ApplicationVariablesProvider>
       <LanguageProvider>
@@ -25,7 +25,7 @@ function App({ Component, pageProps }: AppProps) {
                 {applicationConfig.serverMode === 'development' ? 'dev - ' : ''}Portfolio Lucas Luz
               </title>
             </Head>
-            <MainApplication>
+            <MainApplication style={{ backgroundColor: theme.palette.background.paper }}>
               <Component pageProps={pageProps} />
             </MainApplication>
             <ReactQueryDevtools initialIsOpen={false} />

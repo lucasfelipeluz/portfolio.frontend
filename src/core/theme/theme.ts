@@ -1,4 +1,8 @@
 import { createTheme, ThemeOptions } from '@mui/material';
+import components from './components';
+import { paletteBlack, paletteWhite } from './palette';
+import customShadows from './shadows';
+import typography from './typography';
 
 interface Colors {
   backgroundDarkMode1: string;
@@ -36,13 +40,6 @@ interface Colors {
   grey: string;
 }
 
-interface Fonts {
-  font1: string;
-  font2: string;
-  font3: string;
-  font4: string;
-}
-
 interface Color {
   main: string;
   light: string;
@@ -58,6 +55,7 @@ interface TextColor {
 
 /**
  * Paletas de cores do App
+ * @deprecated
  */
 export const colors: Colors = {
   backgroundDarkMode1: '#1E272E',
@@ -166,117 +164,12 @@ export const colors: Colors = {
   },
 };
 
-/**
- * Fontes do App.
- * @deprecated
- */
-export const fonts: Fonts = {
-  font1: 'KoHo',
-  font2: 'Kanit',
-  font3: 'Kodchasan',
-  font4: 'IBM Plex Sans',
+const defaultThemeOptions: ThemeOptions = {
+  typography,
+  customShadows,
+  components,
 };
 
-const defaultDarkThemeOptions: ThemeOptions = {
-  palette: {
-    background: { default: colors.backgroundDarkMode1, paper: colors.backgroundDarkMode2 },
-    mode: 'dark',
-    primary: colors.primary.dark,
-    secondary: colors.secondary.dark,
-    error: colors.error.dark,
-    warning: colors.warning.dark,
-    success: colors.success.dark,
-    info: colors.info.dark,
-    text: {
-      primary: colors.text.dark.main,
-      secondary: colors.text.dark.medium,
-      disabled: colors.text.dark.disabled,
-    },
-    divider: colors.grey,
-  },
-  typography: {
-    fontFamily: "'IBM Plex Sans', 'Roboto', 'Arial', sans-serif",
-    button: {
-      textTransform: 'none',
-    },
-  },
-  components: {
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          color: colors.text.dark.main,
-          fontFamily: "'IBM Plex Sans', 'Roboto', 'Arial', sans-serif",
-        },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          backgroundColor: colors.backgroundDarkMode2,
-          backgroundImage: 'none',
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          color: colors.text.dark.main,
-        },
-      },
-    },
-  },
-};
+export const defaultDarkTheme = createTheme({ ...defaultThemeOptions, palette: paletteBlack });
 
-const defaultLigthThemeOptions: ThemeOptions = {
-  palette: {
-    background: { default: colors.backgroundLightMode1, paper: colors.backgroundLightMode2 },
-    mode: 'light',
-    primary: colors.primary.light,
-    secondary: colors.secondary.light,
-    error: colors.error.light,
-    warning: colors.warning.light,
-    success: colors.success.light,
-    info: colors.info.light,
-    text: {
-      primary: colors.text.light.main,
-      secondary: colors.text.light.medium,
-      disabled: colors.text.light.disabled,
-    },
-    divider: colors.grey,
-  },
-  typography: {
-    fontFamily: "'IBM Plex Sans', 'Roboto', 'Arial', sans-serif",
-    button: {
-      textTransform: 'none',
-    },
-  },
-  components: {
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          color: colors.text.light.main,
-          fontFamily: "'IBM Plex Sans', 'Roboto', 'Arial', sans-serif",
-        },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          backgroundColor: colors.backgroundLightMode2,
-          backgroundImage: 'none',
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          color: colors.text.light.main,
-        },
-      },
-    },
-  },
-};
-
-export const defaultDarkTheme = createTheme(defaultDarkThemeOptions);
-
-export const defaultLightTheme = createTheme(defaultLigthThemeOptions);
+export const defaultLightTheme = createTheme({ ...defaultThemeOptions, palette: paletteWhite });

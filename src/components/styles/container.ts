@@ -1,4 +1,4 @@
-import { Box, Card, styled } from '@mui/material';
+import { Box, Card, Container, styled } from '@mui/material';
 
 export const MainApplication = styled('main')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -30,7 +30,6 @@ export const SkillsContainerOnProject = styled(Box)(() => ({
 
 export const ProjectCard = styled(Card)(({ theme }) => ({
   color: theme.palette.text.primary,
-  // backgroundColor: theme.palette.background.default,
   height: '350px',
   width: '350px',
   display: 'grid',
@@ -113,6 +112,7 @@ export const HeaderSkillButton = styled(Box)(() => ({
 }));
 
 export const SkillButton = styled(Box)(({ theme, color }) => ({
+  cursor: 'pointer',
   border: `1px solid ${theme.palette.text.primary}`,
   width: '120px',
   height: '120px',
@@ -158,6 +158,12 @@ export const SkillButton = styled(Box)(({ theme, color }) => ({
           color,
         },
       },
+    },
+  },
+
+  '@media (min-width: 992px)': {
+    '&.selected': {
+      border: `5px solid ${color}`,
     },
   },
 
@@ -321,5 +327,17 @@ export const DescriptionProjectDetails = styled(Box)(() => ({
     display: 'grid',
     gridTemplateColumns: '1fr',
     gridTemplateRows: '60px 700px 50px',
+  },
+}));
+
+export const LoginContainer = styled(Container)(() => ({
+  height: '100vh',
+  position: 'relative',
+  overflow: 'hidden',
+
+  '@media (min-width: 768px)': {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 }));

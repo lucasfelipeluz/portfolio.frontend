@@ -66,8 +66,10 @@ function SettingsProvider({ children }: LayoutSettingsProviderInput) {
 
   return (
     <SettingsContext.Provider value={contextValue}>
-      <CssBaseline />
-      <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </MuiThemeProvider>
     </SettingsContext.Provider>
   );
 }
