@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavItensProps } from 'src/types/Components';
+import { ArrowBack } from '@mui/icons-material';
+import { Box, IconButton } from '@mui/material';
 import MenuMobileList from 'src/components/list/MenuMobile';
+import { NavItensProps } from 'src/types/Components';
 import { MenuContainer, MenuMobile } from '../styles/header';
-import { MenuMobileLine } from '../styles/line';
 
 interface Props {
   ativo: boolean;
@@ -14,11 +15,13 @@ export default function MenuMobileComponent({ ativo, handleCloseMenu, data }: Pr
   return (
     <MenuMobile className={`menu-mobile ${ativo ? 'ativo' : ''}`}>
       <MenuContainer>
+        <Box sx={{ position: 'absolute', top: '30px', left: '10px' }}>
+          <IconButton onClick={handleCloseMenu}>
+            <ArrowBack sx={{ fontSize: '30px' }} />
+          </IconButton>
+        </Box>
         <MenuMobileList itens={data} handleCloseMenu={handleCloseMenu} />
-
-        <MenuMobileLine />
       </MenuContainer>
-      <div onClick={handleCloseMenu} className='sair-menu' />
     </MenuMobile>
   );
 }
