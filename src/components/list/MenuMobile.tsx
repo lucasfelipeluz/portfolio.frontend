@@ -19,7 +19,7 @@ export default function MenuMobileList({ itens, handleCloseMenu }: Props) {
           onClick={handleCloseMenu}
           key={index as number}
         >
-          <MenuMobileLink href={`#${item.classNames}`}>{item.name}</MenuMobileLink>
+          <MenuMobileLink href={`/#${item.classNames}`}>{item.name}</MenuMobileLink>
         </ListItem>
       ))}
       <DarkModeIcon />
