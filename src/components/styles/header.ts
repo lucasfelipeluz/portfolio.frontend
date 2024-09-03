@@ -78,6 +78,7 @@ export const TitleContainer = styled(Box)(() => ({
   placeItems: 'center',
   fontSize: '28px',
   userSelect: 'none',
+  cursor: 'pointer',
 
   '@media (min-width: 992px)': {
     height: '100%',

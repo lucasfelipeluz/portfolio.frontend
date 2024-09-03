@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowBack, Start } from '@mui/icons-material';
-import { Box, Container, IconButton, Typography } from '@mui/material';
+import { ArrowBack } from '@mui/icons-material';
+import { Box, IconButton, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import Carousel from 'react-material-ui-carousel';
 import {
@@ -115,32 +115,36 @@ function View({ id }: Props) {
                     height: '50px',
                   }}
                 >
-                  <LinkProjectDetails
-                    sx={{
-                      height: '50px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                    href={project.urlGithub}
-                    target='_blank'
-                    rel='noreferrer'
-                  >
-                    Github
-                  </LinkProjectDetails>
-                  <LinkProjectDetails
-                    sx={{
-                      height: '50px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                    href={project.urlWebsite}
-                    target='_blank'
-                    rel='noreferrer'
-                  >
-                    Site do projeto
-                  </LinkProjectDetails>
+                  {project.urlGithub && (
+                    <LinkProjectDetails
+                      sx={{
+                        height: '50px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      href={project.urlGithub}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      Github
+                    </LinkProjectDetails>
+                  )}
+                  {project.urlWebsite && (
+                    <LinkProjectDetails
+                      sx={{
+                        height: '50px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      href={project.urlWebsite}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      Site do projeto
+                    </LinkProjectDetails>
+                  )}
                 </Box>
               </DescriptionProjectDetails>
             </>
