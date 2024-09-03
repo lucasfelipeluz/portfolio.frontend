@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import FooterComponent from 'src/components/container/Footer';
-import Header from 'src/components/header/HomeHeader';
+import HomeLayout from 'src/components/layouts/Home';
 import SectionContactComponent from 'src/components/section/SectionContact';
 import SectionProjectComponent from 'src/components/section/SectionProjects';
 import SectionSkillComponent from 'src/components/section/SectionSkill';
@@ -17,14 +16,14 @@ function View({ data }: Props) {
     <Box
       sx={{ backgroundColor: 'background.default', height: '100%', transition: '0.3s ease-in-out' }}
     >
-      <Header />
-      {data ? <SectionWelcomeComponent aboutMe={data?.aboutMe} /> : null}
-      {data && data.projects.length > 0 ? (
-        <SectionProjectComponent projects={data.projects} />
-      ) : null}
-      {data && data.skills.length > 0 ? <SectionSkillComponent skills={data?.skills} /> : null}
-      {data ? <SectionContactComponent aboutMe={data.aboutMe} /> : null}
-      <FooterComponent />
+      <HomeLayout showFooter>
+        {data ? <SectionWelcomeComponent aboutMe={data?.aboutMe} /> : null}
+        {data && data.projects.length > 0 ? (
+          <SectionProjectComponent projects={data.projects} />
+        ) : null}
+        {data && data.skills.length > 0 ? <SectionSkillComponent skills={data?.skills} /> : null}
+        {data ? <SectionContactComponent aboutMe={data.aboutMe} /> : null}
+      </HomeLayout>
     </Box>
   );
 }
