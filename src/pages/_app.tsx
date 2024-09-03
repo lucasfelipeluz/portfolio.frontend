@@ -24,6 +24,7 @@ function App({ Component, pageProps }: AppProps) {
               <title>
                 {applicationConfig.serverMode === 'development' ? 'dev - ' : ''}Portfolio Lucas Luz
               </title>
+              <meta name='viewport' content='width=device-width, initial-scale=1.0' />
             </Head>
             <MainApplication style={{ backgroundColor: theme.palette.background.paper }}>
               <Component pageProps={pageProps} />
