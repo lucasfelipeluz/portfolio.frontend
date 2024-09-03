@@ -275,54 +275,34 @@ export const ContactLinks = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ProjectDetails = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  color: theme.palette.text.primary,
-  position: 'fixed',
-  top: '55px',
-  left: 0,
-  width: '100%',
-  height: '100%',
-  justifyContent: 'center',
-  alignItems: 'center',
-  zIndex: 2000,
-  backgroundColor: theme.palette.background.paper,
-  transition: '0.3s linear',
+export const ProjectDetails = styled(Box)(() => ({
+  marginTop: '20px',
 
-  '.container-project': {
-    height: '100%',
-    padding: '60px 0px 20px 0px',
-    position: 'relative',
+  '@media (min-width: 992px)': {
+    height: '100vh',
+
     display: 'grid',
-    gap: '10px',
-    overflowY: 'auto',
-
-    '@media (min-width: 992px)': {
-      gridTemplateColumns: '1fr 10px 1.5fr',
-      gridTemplateRows: '1fr 1fr 1fr 1fr',
-      width: '95%',
-      padding: '60px 20px 20px 20px',
-      gap: '60px',
-    },
+    gridTemplateColumns: '1fr 10px 400px',
+    gridTemplateRows: '20px 1fr',
+    gap: '20px',
   },
 }));
 
 export const ActionsProjectDetails = styled(Box)(() => ({
-  padding: '0 15px',
-  position: 'absolute',
   width: '100%',
   display: 'flex',
   justifyContent: 'start',
   alignItems: 'center',
-  marginTop: '10px',
+  gridColumn: '1',
+  gridRow: '1',
 }));
 
 export const SlideProjectDetails = styled(Box)(() => ({
   marginBottom: '30px',
 
   '@media (min-width: 992px)': {
-    gridRow: '1/5',
-    gridColumn: '3/4',
+    gridColumn: '1',
+    gridRow: '2/3',
     marginBottom: 0,
     display: 'flex',
     justifyContent: 'center',
@@ -335,5 +315,11 @@ export const SlideProjectDetails = styled(Box)(() => ({
 }));
 
 export const DescriptionProjectDetails = styled(Box)(() => ({
-  padding: '0 15px',
+  gridRow: '2/3',
+
+  '@media (min-width: 992px)': {
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gridTemplateRows: '60px 700px 50px',
+  },
 }));

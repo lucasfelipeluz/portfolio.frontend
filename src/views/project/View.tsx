@@ -16,7 +16,7 @@ import { Project } from 'src/types/Project';
 import { ProjectImage } from 'src/types/ProjectImage';
 import { formatISODateToBRDate } from 'src/utils/helpers';
 import { SeparatorProjectDetails } from 'src/components/styles/line';
-import Header from 'src/components/header/HomeHeader';
+import HomeLayout from 'src/components/layouts/Home';
 
 function Item({ img }: { img: ProjectImage }) {
   return (
@@ -53,10 +53,9 @@ function View({ id }: Props) {
   };
 
   return (
-    <>
-      <Header />
-      <ProjectDetails>
-        <div className='container-project container-lg container-fluid'>
+    <HomeLayout showFooter>
+      <Box className='container-fluid container-lg'>
+        <ProjectDetails>
           <ActionsProjectDetails className='actions'>
             <IconButton
               onClick={() => {
@@ -67,60 +66,95 @@ function View({ id }: Props) {
             </IconButton>
             <Typography className='title'>Voltar</Typography>
           </ActionsProjectDetails>
-          <SlideProjectDetails>
-            <div className='slide'>
-              <Carousel>{project?.images.map((img) => <Item key={img.id} img={img} />)}</Carousel>
-            </div>
-          </SlideProjectDetails>
           {project ? (
-            <DescriptionProjectDetails>
-              <Typography variant='h5'>{project.title}</Typography>
-              <Typography variant='body1' marginBottom='10px'>
-                {project.description}
-              </Typography>
-              <Box marginBottom='15px'>
-                <Typography variant='body2'>
-                  Iniciado em: {formatISODateToBRDate(project.startedAt)}
+            <>
+              <SlideProjectDetails>
+                <div className='slide'>
+                  <Carousel>
+                    {project?.images.map((img) => <Item key={img.id} img={img} />)}
+                  </Carousel>
+                </div>
+              </SlideProjectDetails>
+              <DescriptionProjectDetails>
+                <Typography variant='h5'>{project.title}</Typography>
+                <Typography variant='body1' marginBottom='10px'>
+                  {project.description}
+                  <Box marginBottom='15px'>
+                    <Typography variant='body2'>
+                      Iniciado em: {formatISODateToBRDate(project.startedAt)}
+                    </Typography>
+                    {project.finishedAt && (
+                      <Typography variant='body2'>
+                        Terminado em: {formatISODateToBRDate(project.finishedAt)}
+                      </Typography>
+                    )}
+                  </Box>
+                  <Box sx={{ marginBottom: '15px' }}>
+                    <Typography variant='body1'>Tecnologias utilizadas:</Typography>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'start',
+                        gap: '10px',
+                        flexWrap: 'wrap',
+                        padding: '5px 0',
+                      }}
+                    >
+                      {project.skills.map((skill) => (
+                        <SkillProjectDetails>{skill.title}</SkillProjectDetails>
+                      ))}
+                    </Box>
+                  </Box>
                 </Typography>
-                {project.finishedAt && (
-                  <Typography variant='body2'>
-                    Terminado em: {formatISODateToBRDate(project.finishedAt)}
-                  </Typography>
-                )}
-              </Box>
 
-              <Box sx={{ marginBottom: '15px' }}>
-                <Typography variant='body1'>Tecnologias utilizadas:</Typography>
                 <Box
                   sx={{
                     display: 'flex',
-                    justifyContent: 'start',
+                    justifyContent: 'space-around',
                     gap: '10px',
-                    flexWrap: 'wrap',
-                    padding: '5px 0',
+                    height: '50px',
                   }}
                 >
-                  {project.skills.map((skill) => (
-                    <SkillProjectDetails>{skill.title}</SkillProjectDetails>
-                  ))}
+                  {project.urlGithub && (
+                    <LinkProjectDetails
+                      sx={{
+                        height: '50px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      href={project.urlGithub}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      Github
+                    </LinkProjectDetails>
+                  )}
+                  {project.urlWebsite && (
+                    <LinkProjectDetails
+                      sx={{
+                        height: '50px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      href={project.urlWebsite}
+                      target='_blank'
+                      rel='noreferrer'
+                    >
+                      Site do projeto
+                    </LinkProjectDetails>
+                  )}
                 </Box>
-              </Box>
-              <Box sx={{ display: 'flex', justifyContent: 'space-around', gap: '10px' }}>
-                <LinkProjectDetails href={project.urlGithub} target='_blank' rel='noreferrer'>
-                  Github
-                </LinkProjectDetails>
-                <LinkProjectDetails href={project.urlWebsite} target='_blank' rel='noreferrer'>
-                  Site do projeto
-                </LinkProjectDetails>
-              </Box>
-            </DescriptionProjectDetails>
+              </DescriptionProjectDetails>
+            </>
           ) : (
             <Typography>Carregando...</Typography>
           )}
           <SeparatorProjectDetails />
-        </div>
-      </ProjectDetails>
-    </>
+        </ProjectDetails>
+      </Box>
+    </HomeLayout>
   );
 }
 

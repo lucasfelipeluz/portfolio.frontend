@@ -31,7 +31,6 @@ export const NavBar = styled(Box)(() => ({
 
 export const NavButton = styled(Box)(({ theme }) => ({
   position: 'absolute',
-  zIndex: 999,
   top: 0,
   left: 0,
   height: '100%',
@@ -79,6 +78,7 @@ export const TitleContainer = styled(Box)(() => ({
   placeItems: 'center',
   fontSize: '28px',
   userSelect: 'none',
+  cursor: 'pointer',
 
   '@media (min-width: 992px)': {
     height: '100%',
@@ -93,21 +93,21 @@ export const TitleContainer = styled(Box)(() => ({
 
 export const MenuMobile = styled(Box)(() => ({
   position: 'fixed',
-  top: '-800px',
+  left: '-800px',
+  bottom: '0px',
   zIndex: 1,
   width: '100%',
   height: '100vh',
   transition: '0.3s linear',
   display: 'grid',
-  gridTemplateRows: '60% 40%',
-  gap: 0,
 
   '@media (min-width: 992px)': {
     display: 'none',
   },
 
   '&.ativo': {
-    top: '0px',
+    left: '0px',
+    bottom: '0px',
   },
 }));
 
