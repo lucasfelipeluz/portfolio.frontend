@@ -19,7 +19,7 @@ export default function WelcomeInfomationComponent({ jobTitle, name, language }:
       <Typography variant='h2' sx={{ lineHeight: '49px', letterSpacing: '-3px' }}>
         {name}
       </Typography>
-      <Typography variant='body1' sx={{ paddingLeft: '5px' }}>
+      <Typography variant='body1' sx={{ paddingLeft: '5px' }} mt={{ xs: 1, md: 0 }}>
         {jobTitle}
       </Typography>
     </WelcomeInformation>
