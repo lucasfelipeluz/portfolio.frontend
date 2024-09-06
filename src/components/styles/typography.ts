@@ -1,12 +1,18 @@
 import { styled, Typography } from '@mui/material';
 import { white } from 'src/core/theme/colors';
 
-export const PortfolioTitle = styled(Typography)(() => ({
+export const PortfolioTitle = styled(Typography)(({ theme }) => ({
+  transition: '0.3s',
+
   '@media (min-width: 992px)': {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
+  },
+
+  '&:hover': {
+    color: theme.palette.primary.main,
   },
 }));
 
@@ -15,6 +21,8 @@ export const SectionTitle = styled(Typography)(() => ({
   fontWeight: 600,
   textAlign: 'center',
 }));
+
+export const ProjectSectionTitle = styled(SectionTitle)(() => ({}));
 
 export const HelpTextSkillContainer = styled(Typography)(({ theme }) => ({
   display: 'none',
@@ -47,4 +55,6 @@ export const SkillProjectDetails = styled(Typography)(({ theme }) => ({
   fontSize: '12px',
   borderRadius: '5px',
   userSelect: 'none',
+  color: white[50],
+  transition: '0.3s',
 }));

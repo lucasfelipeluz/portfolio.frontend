@@ -26,7 +26,7 @@ export const SkillSection = styled(Section)(({ theme }) => ({
 
 export const ProjectDetailsContainer = styled(Section)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
-  padding: '20px 0 30px 0',
+  padding: '20px 0 0px 0',
 }));
 
 export const ContactSection = styled(Container)(() => ({

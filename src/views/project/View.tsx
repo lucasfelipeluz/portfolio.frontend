@@ -1,11 +1,8 @@
-import { ArrowBack } from '@mui/icons-material';
-import { Box, Container, IconButton, Typography } from '@mui/material';
-import { useRouter } from 'next/router';
+import { Box, Container, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 import HomeLayout from 'src/components/layouts/Home';
 import {
-  ActionsProjectDetails,
   DescriptionProjectDetails,
   ProjectDetails,
   SlideProjectDetails,
@@ -48,27 +45,11 @@ function View({ id }: Props) {
     refetch();
   }, [data, project]);
 
-  const router = useRouter();
-
-  const onHandleToBackPage = () => {
-    router.back();
-  };
-
   return (
     <HomeLayout showFooter>
       <ProjectDetailsContainer>
         <Container>
           <ProjectDetails>
-            <ActionsProjectDetails className='actions'>
-              <IconButton
-                onClick={() => {
-                  onHandleToBackPage();
-                }}
-              >
-                <ArrowBack sx={{ color: 'text.primary' }} />
-              </IconButton>
-              <Typography className='title'>Voltar</Typography>
-            </ActionsProjectDetails>
             {project ? (
               <>
                 <SlideProjectDetails>

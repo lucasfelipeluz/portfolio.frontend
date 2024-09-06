@@ -37,7 +37,7 @@ export const SeparatorAboutMe = styled(Box)(({ theme }) => ({
 
     content: '""',
     display: 'block',
-    backgroundColor: theme.palette.divider,
+    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.divider : 'white',
     width: '1px',
   },
 }));

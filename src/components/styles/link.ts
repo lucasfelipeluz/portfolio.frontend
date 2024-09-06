@@ -1,5 +1,5 @@
 import { Box, Button, Link as MuiLink, styled } from '@mui/material';
-import { dark } from 'src/core/theme/colors';
+import { dark, white } from 'src/core/theme/colors';
 
 export const MenuListLink = styled(MuiLink)(({ theme }) => ({
   height: '100%',
@@ -143,6 +143,8 @@ export const LinkProjectDetails = styled(ButtonLink)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: theme.palette.background.paper,
+  color: white[50],
+  fontWeight: 600,
 
   '.icon': {
     fontSize: '15px',

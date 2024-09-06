@@ -1,7 +1,7 @@
 import { Box, Card, Container, styled } from '@mui/material';
 
 export const MainApplication = styled('main')(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.background.default,
 }));
 
 export const ProjectContentContainer = styled(Box)(() => ({
@@ -288,7 +288,6 @@ export const ContactLinks = styled(Box)(({ theme }) => ({
 
 export const ProjectDetails = styled(Box)(({ theme }) => ({
   marginTop: '20px',
-  // backgroundColor: theme.palette.background.default,
 
   '@media (min-width: 992px)': {
     height: '100vh',

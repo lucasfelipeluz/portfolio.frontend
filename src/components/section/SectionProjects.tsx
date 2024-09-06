@@ -1,12 +1,11 @@
-import React from 'react';
-import { useLanguage } from 'src/core/context/languageContext';
-import strings from 'src/utils/strings';
-import { Project } from 'src/types/Project';
 import { Container } from '@mui/material';
+import { useLanguage } from 'src/core/context/languageContext';
+import { Project } from 'src/types/Project';
+import strings from 'src/utils/strings';
 import CardProjectComponent from '../card/CardProject';
-import { ProjectSection } from '../styles/section';
-import { SectionTitle } from '../styles/typography';
 import { ProjectContentContainer } from '../styles/container';
+import { ProjectSection } from '../styles/section';
+import { ProjectSectionTitle } from '../styles/typography';
 
 interface Props {
   projects: Project[];
@@ -18,7 +17,7 @@ export default function SectionProjectComponent({ projects }: Props) {
   return (
     <ProjectSection id={`${strings.classNames.projects}`}>
       <Container>
-        <SectionTitle>{strings.projects[language.code]}</SectionTitle>
+        <ProjectSectionTitle>{strings.projects[language.code]}</ProjectSectionTitle>
 
         <ProjectContentContainer>
           {projects.map((project, index) => {
