@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
 import * as mdiIconPath from '@mdi/js';
 import Icon from '@mdi/react';
 import { Box, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
 import Skill from 'src/types/Skill';
+import { useSettings } from 'src/core/context/settingsContext';
 import { SkillButton } from '../styles/container';
 
 interface Props {
   skill: Skill;
-  setSkillSelected: Function;
   handleClickSelectSkill: Function;
   skillSelected: Skill | null;
 }
@@ -21,12 +21,7 @@ function calcularAnosMesesPassados(data: Date) {
   return { anos: anosPassados, meses: mesesPassados };
 }
 
-export default function SkillButtons({
-  skill,
-  setSkillSelected,
-  handleClickSelectSkill,
-  skillSelected,
-}: Props) {
+export default function SkillButtons({ skill, handleClickSelectSkill, skillSelected }: Props) {
   const [experiencia, setExperiencia] = React.useState({ anos: 0, meses: 0 });
 
   const iconPath = (mdiIconPath as any)[skill.icon];
@@ -40,9 +35,11 @@ export default function SkillButtons({
   return (
     <SkillButton
       className={`skill ${skillSelected?.id === skill.id ? 'selected' : ''}`}
+      id={`skill-${skill.id}`}
       color={skill.color}
       onClick={() => {
         handleClickSelectSkill(skill);
+        // handleScrollToSkill();
       }}
     >
       <Box className='skill-header'>

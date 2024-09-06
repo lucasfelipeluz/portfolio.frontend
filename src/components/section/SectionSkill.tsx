@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useLanguage } from 'src/core/context/languageContext';
 import Skill from 'src/types/Skill';
 import strings from 'src/utils/strings';
@@ -30,9 +30,9 @@ function SectionSkillComponent({ skills }: Props) {
     <SkillSection id='skills'>
       <SectionTitle>{strings.skills[language.code]}</SectionTitle>
       <HelpTextSkillContainer>
-        {strings.hoverUpTheMouseAboveTheSkill[language.code]}
+        {strings.clickToSeeMoreDetailsAboutTheSkill[language.code]}
       </HelpTextSkillContainer>
-      <SkillsContainer className='container-fluid container-lg'>
+      <SkillsContainer>
         <SkillDescription skillSelected={skillSelected} />
         <SeparatorSkillDescription />
         <SkillSelector>
@@ -41,7 +41,6 @@ function SectionSkillComponent({ skills }: Props) {
               key={skill.id}
               skill={skill}
               skillSelected={skillSelected}
-              setSkillSelected={setSkillSelected}
               handleClickSelectSkill={handleClickSelectSkill}
             />
           ))}

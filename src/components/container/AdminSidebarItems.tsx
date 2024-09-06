@@ -1,12 +1,10 @@
-import { House, Person, Phone, Psychology, Search, Work } from '@mui/icons-material';
+import { House, Person, Phone, Psychology, Work } from '@mui/icons-material';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Divider from '@mui/material/Divider';
-import InputAdornment from '@mui/material/InputAdornment';
 import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import AdminSidebarCollapseListItem from '../list/AdminSidebarCollapseListItem';
 import AdminSidebarListItem from '../list/AdminSidebarListItem';

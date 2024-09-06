@@ -1,10 +1,9 @@
-import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { LanguageCode } from 'src/core/types/languageContext';
 import { Project } from 'src/types/Project';
 import strings from 'src/utils/strings';
-import { ProjectCardLink, SkillSmallButtonOnProject } from '../styles/link';
-import { DescriptionProjectCard, ProjectCard, SkillsContainerOnProject } from '../styles/container';
+import { DescriptionProjectCard, ProjectCard } from '../styles/container';
+import { ProjectCardLink } from '../styles/link';
 
 interface Props {
   project: Project;
@@ -27,18 +26,6 @@ function CardProjectComponent({ project, langCode }: Props) {
       <DescriptionProjectCard>
         <Typography variant='body1'>{project.description.split('.')[0]}.</Typography>
       </DescriptionProjectCard>
-      <SkillsContainerOnProject>
-        {project.skills?.map((skill, index) => {
-          if (index < 3) {
-            return (
-              <SkillSmallButtonOnProject href={`/skill/${skill.id}`} key={skill.id as number}>
-                {skill.title}
-              </SkillSmallButtonOnProject>
-            );
-          }
-          return null;
-        })}
-      </SkillsContainerOnProject>
 
       <Box
         sx={{
@@ -47,7 +34,7 @@ function CardProjectComponent({ project, langCode }: Props) {
           alignItems: 'center',
         }}
       >
-        <ProjectCardLink href={`/project/${project.id}`} color='primary'>
+        <ProjectCardLink href={`/project/${project.id}`} color='primary' variant='outlined'>
           {strings.moreDetails[langCode]}
         </ProjectCardLink>
       </Box>

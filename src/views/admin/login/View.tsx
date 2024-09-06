@@ -1,20 +1,16 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { Box } from '@mui/material';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import Typography from '@mui/material/Typography';
 import { Eye } from 'mdi-material-ui';
-import { Box, Container } from '@mui/material';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { LoginContainer } from 'src/components/styles/container';
 import { LoginLine } from 'src/components/styles/line';
-import zIndex from '@mui/material/styles/zIndex';
-import FooterComponent from 'src/components/container/Footer';
 
 interface User {
   [key: string]: string;

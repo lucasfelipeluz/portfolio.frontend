@@ -1,19 +1,21 @@
-import { styled } from '@mui/material';
+import { Container, styled } from '@mui/material';
+import { white } from 'src/core/theme/colors';
 
 export const Section = styled('section')(() => ({
   height: '100vh',
   width: '100%',
 }));
 
-export const ProjectSection = styled(Section)(() => ({
+export const ProjectSection = styled(Section)(({ theme }) => ({
   minHeight: '100vh',
   height: 'auto',
   paddingBottom: '25px',
+  backgroundColor: theme.palette.background.paper,
 }));
 
 export const SkillSection = styled(Section)(({ theme }) => ({
   minHeight: '100vh',
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.background.default,
   padding: '25px 0',
   height: 'auto',
 
@@ -22,7 +24,12 @@ export const SkillSection = styled(Section)(({ theme }) => ({
   },
 }));
 
-export const ContactSection = styled(Section)(() => ({
+export const ProjectDetailsContainer = styled(Section)(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+  padding: '20px 0 30px 0',
+}));
+
+export const ContactSection = styled(Container)(() => ({
   height: 'auto',
   marginTop: '50px',
 }));
@@ -33,7 +40,7 @@ export const FooterSection = styled('section')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   userSelect: 'none',
 
-  '.container': {
+  '.content': {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 16px',
     alignItems: 'center',
@@ -45,8 +52,8 @@ export const FooterSection = styled('section')(({ theme }) => ({
     },
 
     '.version': {
-      color: theme.palette.text.disabled,
-      fontSize: '10px',
+      color: theme.palette.mode === 'dark' ? theme.palette.text.secondary : white[50],
+      fontSize: '16px',
 
       '@media (min-width: 654px)': {
         fontSize: '14px',
@@ -58,8 +65,8 @@ export const FooterSection = styled('section')(({ theme }) => ({
     },
 
     '.copyright, .icon': {
-      color: theme.palette.text.disabled,
-      fontSize: '12px',
+      color: theme.palette.mode === 'dark' ? theme.palette.text.secondary : white[50],
+      fontSize: '16px',
 
       '@media (min-width: 654px)': {
         fontSize: '16px',

@@ -20,7 +20,7 @@ export const SeparatorSkillDescription = styled(Box)(({ theme }) => ({
   width: '1px',
   height: '90%',
   marginTop: '25px',
-  backgroundColor: theme.palette.text.disabled,
+  backgroundColor: theme.palette.divider,
   display: 'none',
 
   '@media (min-width: 992px)': {
@@ -37,7 +37,7 @@ export const SeparatorAboutMe = styled(Box)(({ theme }) => ({
 
     content: '""',
     display: 'block',
-    backgroundColor: theme.palette.text.disabled,
+    backgroundColor: theme.palette.divider,
     width: '1px',
   },
 }));

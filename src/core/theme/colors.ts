@@ -115,7 +115,7 @@ export const yellow = {
   900: '#e0642b',
 };
 
-export const black = {
+export const darkGunmental = {
   50: '#ebedef',
   100: '#ccd3d8',
   200: '#abb6be',
@@ -126,6 +126,19 @@ export const black = {
   700: '#3d4e5a',
   800: '#2f3b45',
   900: '#1e272e',
+};
+
+export const dark = {
+  50: '#f2f8fd',
+  100: '#eaf0f4',
+  200: '#dfe4e9',
+  300: '#cdd3d7',
+  400: '#a8aeb2',
+  500: '#888d91',
+  600: '#888d91',
+  700: '#4e5356',
+  800: '#303538',
+  900: '#101518',
 };
 
 export const white = {

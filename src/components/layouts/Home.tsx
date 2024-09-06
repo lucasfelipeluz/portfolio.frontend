@@ -8,7 +8,6 @@ import FooterComponent from '../container/Footer';
 import MenuMobileComponent from '../header/MenuMobile';
 import NavButtonComponent from '../header/NavButton';
 import { Header as HeaderStyle, NavBar } from '../styles/header';
-import { MenuLine } from '../styles/line';
 
 interface Props {
   children: React.ReactNode;
@@ -37,7 +36,7 @@ export default function HomeLayout({ children, showFooter }: Props) {
   return (
     <>
       <HeaderStyle>
-        <NavBar className='container-fluid container-lg'>
+        <NavBar>
           <NavButtonComponent
             toggleMenuMobile={toggleMenuMobile}
             handleToggleMenuMobile={handleToggleMenuMobile}
@@ -50,7 +49,6 @@ export default function HomeLayout({ children, showFooter }: Props) {
             data={data}
           />
         </NavBar>
-        <MenuLine />
       </HeaderStyle>
       {children}
       {showFooter && <FooterComponent />}
