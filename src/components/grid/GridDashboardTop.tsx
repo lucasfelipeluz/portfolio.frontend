@@ -1,19 +1,5 @@
-import React from 'react';
+import { People, Phone, Psychology, Work } from '@mui/icons-material';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import {
-  Google,
-  HeartBroken,
-  List,
-  People,
-  Phone,
-  Psychology,
-  RateReview,
-  Work,
-} from '@mui/icons-material';
 import SimpleDashboardCard from '../card/SimpleDashboardCard';
 
 const cardsData = [

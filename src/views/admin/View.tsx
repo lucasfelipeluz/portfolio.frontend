@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
 import { Container, Grid, Typography } from '@mui/material';
 import GridDashboardTop from 'src/components/grid/GridDashboardTop';
-import AdminHeader from 'src/components/header/AdminHeader';
-import AdminSidebar from 'src/components/container/AdminSidebar';
 import AdminLayout from 'src/components/layouts/AdminLayout';
 
 export default function View() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
-
   return (
     <AdminLayout>
       <Container>

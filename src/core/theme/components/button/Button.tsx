@@ -1,6 +1,5 @@
 import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
-import { blue, dark } from '../../colors';
 
 const ButtonTheme: Components<Omit<Theme, 'components'>>['MuiButton'] = {
   defaultProps: {

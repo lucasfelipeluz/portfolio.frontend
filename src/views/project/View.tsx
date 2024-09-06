@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import { ArrowBack } from '@mui/icons-material';
 import { Box, Container, IconButton, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
+import HomeLayout from 'src/components/layouts/Home';
 import {
   ActionsProjectDetails,
   DescriptionProjectDetails,
@@ -10,15 +11,14 @@ import {
   SlideProjectDetails,
   ThereIsNotImageContainer,
 } from 'src/components/styles/container';
+import { SeparatorProjectDetails } from 'src/components/styles/line';
 import { LinkProjectDetails } from 'src/components/styles/link';
+import { ProjectDetailsContainer } from 'src/components/styles/section';
 import { SkillProjectDetails } from 'src/components/styles/typography';
 import useHomeServices from 'src/hooks/useServices/useHomeServices';
 import { Project } from 'src/types/Project';
 import { ProjectImage } from 'src/types/ProjectImage';
 import { formatISODateToBRDate } from 'src/utils/helpers';
-import { SeparatorProjectDetails } from 'src/components/styles/line';
-import HomeLayout from 'src/components/layouts/Home';
-import { ProjectDetailsContainer, Section } from 'src/components/styles/section';
 
 function Item({ img }: { img: ProjectImage }) {
   return (

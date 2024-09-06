@@ -1,5 +1,5 @@
-import { styled, Link as MuiLink, Box, Button } from '@mui/material';
-import { dark, white } from 'src/core/theme/colors';
+import { Box, Button, Link as MuiLink, styled } from '@mui/material';
+import { dark } from 'src/core/theme/colors';
 
 export const MenuListLink = styled(MuiLink)(({ theme }) => ({
   height: '100%',
