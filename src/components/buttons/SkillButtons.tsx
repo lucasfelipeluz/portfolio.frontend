@@ -3,6 +3,7 @@ import Icon from '@mdi/react';
 import { Box, Typography } from '@mui/material';
 import React, { useEffect } from 'react';
 import Skill from 'src/types/Skill';
+import { useSettings } from 'src/core/context/settingsContext';
 import { SkillButton } from '../styles/container';
 
 interface Props {
@@ -30,22 +31,6 @@ export default function SkillButtons({ skill, handleClickSelectSkill, skillSelec
     const anosMeses = calcularAnosMesesPassados(data);
     setExperiencia(anosMeses);
   }, [skill.startedAt]);
-
-  useEffect(() => {
-    if (skillSelected?.id === skill.id) {
-      const skillButtonElement = document.getElementById(`skill-${skill.id}`);
-
-      if (skillButtonElement) {
-        skillButtonElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      const skillButtonElement = document.getElementById('skills');
-
-      if (skillButtonElement) {
-        skillButtonElement.scrollIntoView({ behavior: 'instant' });
-      }
-    }
-  }, [skillSelected?.id === skill.id]);
 
   return (
     <SkillButton
