@@ -15,10 +15,7 @@ function SectionWelcomeComponent({ aboutMe }: Props) {
 
   return (
     <Section>
-      <WelcomeContainer
-        className='container-fluid container-lg'
-        sx={{ transition: '0.3s ease-in-out' }}
-      >
+      <WelcomeContainer sx={{ transition: '0.3s ease-in-out' }}>
         <WelcomeInfomationComponent
           language={language}
           jobTitle={aboutMe.jobTitle}

@@ -32,7 +32,7 @@ function SectionSkillComponent({ skills }: Props) {
       <HelpTextSkillContainer>
         {strings.hoverUpTheMouseAboveTheSkill[language.code]}
       </HelpTextSkillContainer>
-      <SkillsContainer className='container-fluid container-lg'>
+      <SkillsContainer>
         <SkillDescription skillSelected={skillSelected} />
         <SeparatorSkillDescription />
         <SkillSelector>

@@ -5,7 +5,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { MainApplication } from 'src/components/styles/container';
 import { ApplicationVariablesProvider } from 'src/core/context/applicationVariables';
 import { LanguageProvider } from 'src/core/context/languageContext';
-import { SettingsProvider, useSettings } from 'src/core/context/settingsContext';
+import { SettingsProvider } from 'src/core/context/settingsContext';
 import { applicationConfig } from 'src/utils/config';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/main.css';
@@ -13,8 +13,6 @@ import '../../styles/main.css';
 const queryClient = new QueryClient();
 
 function App({ Component, pageProps }: AppProps) {
-  const { theme } = useSettings();
-
   return (
     <ApplicationVariablesProvider>
       <LanguageProvider>
@@ -26,7 +24,7 @@ function App({ Component, pageProps }: AppProps) {
               </title>
               <meta name='viewport' content='width=device-width, initial-scale=1.0' />
             </Head>
-            <MainApplication style={{ backgroundColor: theme.palette.background.paper }}>
+            <MainApplication>
               <Component pageProps={pageProps} />
             </MainApplication>
             <ReactQueryDevtools initialIsOpen={false} />

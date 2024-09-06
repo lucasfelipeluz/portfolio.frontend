@@ -1,6 +1,6 @@
-import { Box, styled } from '@mui/material';
+import { Box, Container, styled } from '@mui/material';
 
-export const WelcomeContainer = styled(Box)(({ theme }) => ({
+export const WelcomeContainer = styled(Container)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
   color: theme.palette.text.primary,
   height: '100%',

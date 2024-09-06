@@ -1,5 +1,6 @@
 import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
+import { blue, dark } from '../../colors';
 
 const ButtonTheme: Components<Omit<Theme, 'components'>>['MuiButton'] = {
   defaultProps: {
@@ -11,7 +12,8 @@ const ButtonTheme: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       borderRadius: theme.shape.borderRadius,
       textTransform: 'initial',
       letterSpacing: 0.5,
-      fontWeight: 500,
+      fontWeight: 600,
+      transition: '0.3s',
     }),
     contained: ({ theme }) => ({
       '&.Mui-disabled': {
@@ -20,6 +22,7 @@ const ButtonTheme: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       },
     }),
     outlined: ({ theme }) => ({
+      color: theme.palette.primary.main,
       '&.Mui-disabled': {
         color: theme.palette.text.disabled,
         borderColor: theme.palette.text.disabled,
@@ -31,11 +34,11 @@ const ButtonTheme: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       },
     }),
     containedPrimary: ({ theme }) => ({
-      // eslint-disable-next-line max-len
-      background: `linear-gradient(128.49deg, ${theme.palette.primary.dark} 19.86%, ${theme.palette.secondary.dark} 68.34%)`,
+      backgroundColor: theme.palette.primary.dark,
+      color: theme.palette.text.primary,
+
       '&:hover': {
-        // eslint-disable-next-line max-len
-        background: `linear-gradient(128.49deg, ${theme.palette.primary.dark} 19.86%, ${theme.palette.secondary.dark} 68.34%)`,
+        backgroundColor: theme.palette.primary.main,
       },
     }),
     containedSecondary: ({ theme }) => ({

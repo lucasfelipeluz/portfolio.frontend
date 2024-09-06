@@ -9,7 +9,7 @@ interface Props {
 
 function SectionContactComponent({ aboutMe }: Props) {
   return (
-    <ContactSection className='container-fluid container-lg' id='contact'>
+    <ContactSection id='contact'>
       <AboutMeComponent aboutMe={aboutMe} />
     </ContactSection>
   );

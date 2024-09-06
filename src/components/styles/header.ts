@@ -1,4 +1,4 @@
-import { Box, styled } from '@mui/material';
+import { Box, Container, styled } from '@mui/material';
 
 export const Header = styled('header')(({ theme }) => ({
   transition: '0.3s linear',
@@ -12,7 +12,7 @@ export const Header = styled('header')(({ theme }) => ({
   },
 }));
 
-export const NavBar = styled(Box)(() => ({
+export const NavBar = styled(Container)(() => ({
   width: '100%',
   height: '100%',
   display: 'grid',
@@ -93,7 +93,7 @@ export const TitleContainer = styled(Box)(() => ({
 
 export const MenuMobile = styled(Box)(() => ({
   position: 'fixed',
-  left: '-800px',
+  left: '-1200px',
   bottom: '0px',
   zIndex: 1,
   width: '100%',
