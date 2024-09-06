@@ -5,6 +5,7 @@ export const Header = styled('header')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   height: '60px',
   position: 'relative',
+  boxShadow: 'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
 
   '@media (min-width: 992px)': {
     color: theme.palette.text.primary,
