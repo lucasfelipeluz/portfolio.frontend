@@ -16,7 +16,10 @@ export default function WelcomeInfomationComponent({ jobTitle, name, language }:
       <Typography variant='body1' sx={{ paddingLeft: '5px' }}>
         {strings.hello[language.code]}
       </Typography>
-      <Typography variant='h2' sx={{ lineHeight: '49px', letterSpacing: '-3px' }}>
+      <Typography
+        variant='h2'
+        sx={{ lineHeight: '49px', letterSpacing: '-3px', fontWeight: 200, fontSize: '60px' }}
+      >
         {name}
       </Typography>
       <Typography variant='body1' sx={{ paddingLeft: '5px' }} mt={{ xs: 1, md: 0 }}>

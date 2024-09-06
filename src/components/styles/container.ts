@@ -1,7 +1,7 @@
-import { Box, Card, styled } from '@mui/material';
+import { Box, Card, Container, styled } from '@mui/material';
 
 export const MainApplication = styled('main')(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.background.default,
 }));
 
 export const ProjectContentContainer = styled(Box)(() => ({
@@ -30,12 +30,11 @@ export const SkillsContainerOnProject = styled(Box)(() => ({
 
 export const ProjectCard = styled(Card)(({ theme }) => ({
   color: theme.palette.text.primary,
-  // backgroundColor: theme.palette.background.default,
-  height: '350px',
+  height: '250px',
   width: '350px',
   display: 'grid',
-  gridTemplateRows: '1fr 3fr 1fr 1fr',
-  padding: '5px 15px',
+  gridTemplateRows: '1fr 4fr 1fr',
+  padding: '10px 15px',
   borderRadius: '10px',
   maxWidth: '400px',
 }));
@@ -48,7 +47,7 @@ export const DescriptionProjectCard = styled(Box)(() => ({
   alignItems: 'center',
 }));
 
-export const SkillsContainer = styled(Box)(({ theme }) => ({
+export const SkillsContainer = styled(Container)(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr',
   gridTemplateRows: '1fr',
@@ -113,6 +112,7 @@ export const HeaderSkillButton = styled(Box)(() => ({
 }));
 
 export const SkillButton = styled(Box)(({ theme, color }) => ({
+  cursor: 'pointer',
   border: `1px solid ${theme.palette.text.primary}`,
   width: '120px',
   height: '120px',
@@ -152,12 +152,19 @@ export const SkillButton = styled(Box)(({ theme, color }) => ({
   // Animation on hover
   '&:hover': {
     '@media (min-width: 992px)': {
-      border: `1px solid ${color}`,
-      '.skill-header': {
-        '.skill-title, .container-icon': {
-          color,
-        },
-      },
+      borderWidth: '3px',
+      // '.skill-header': {
+      //   '.skill-title, .container-icon': {
+      //     color,
+      //   },
+      // },
+    },
+  },
+
+  '@media (min-width: 992px)': {
+    '&.selected': {
+      borderWidth: '5px',
+      // border: `5px solid ${color}`,
     },
   },
 
@@ -170,7 +177,6 @@ export const SkillButton = styled(Box)(({ theme, color }) => ({
       display: 'grid',
       gridTemplateRows: '80px 1fr',
       gridTemplateColumns: '1fr',
-      border: `1px solid ${color}`,
 
       '.skill-header': {
         display: 'flex',
@@ -178,14 +184,14 @@ export const SkillButton = styled(Box)(({ theme, color }) => ({
         alignItems: 'center',
         textAlign: 'center',
         paddingLeft: '20px',
-        borderBottom: `1px solid ${color}`,
+        borderBottom: `1px solid ${theme.palette.text.primary}`,
         position: 'relative',
         overflow: 'hidden',
         height: '100%',
 
         '.container-icon': {
           fontSize: '30px',
-          backgroundColor: color,
+          // backgroundColor: color,
           position: 'absolute',
           top: 0,
           left: 0,
@@ -193,6 +199,8 @@ export const SkillButton = styled(Box)(({ theme, color }) => ({
           height: '100%',
 
           '.skill-icon': {
+            // color,
+
             width: '70px',
             height: '70px',
           },
@@ -256,6 +264,7 @@ export const ContactLinks = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridTemplateRows: '100px 100px',
   gridTemplateColumns: '1fr 1fr',
+  alignItems: 'end',
   gap: '20px',
   justifyItems: 'center',
   padding: '0px 15px 10px 15px',
@@ -270,12 +279,14 @@ export const ContactLinks = styled(Box)(({ theme }) => ({
   },
 
   '@media (min-width: 992px)': {
+    gridTemplateRows: '100px ',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
     gridRow: '2/3',
     gridColumn: '3',
   },
 }));
 
-export const ProjectDetails = styled(Box)(() => ({
+export const ProjectDetails = styled(Box)(({ theme }) => ({
   marginTop: '20px',
 
   '@media (min-width: 992px)': {
@@ -322,4 +333,23 @@ export const DescriptionProjectDetails = styled(Box)(() => ({
     gridTemplateColumns: '1fr',
     gridTemplateRows: '60px 700px 50px',
   },
+}));
+
+export const LoginContainer = styled(Container)(() => ({
+  height: '100vh',
+  position: 'relative',
+  overflow: 'hidden',
+
+  '@media (min-width: 768px)': {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+}));
+
+export const ThereIsNotImageContainer = styled(Box)(() => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '500px',
 }));

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useLanguage } from 'src/core/context/languageContext';
 import Skill from 'src/types/Skill';
 import strings from 'src/utils/strings';
@@ -18,18 +18,31 @@ function SectionSkillComponent({ skills }: Props) {
 
   const [skillSelected, setSkillSelected] = useState<Skill | null>(null);
 
+  const handleClickSelectSkill = (skill: Skill) => {
+    if (skill.id === skillSelected?.id) {
+      setSkillSelected(null);
+    } else {
+      setSkillSelected(skill);
+    }
+  };
+
   return (
     <SkillSection id='skills'>
       <SectionTitle>{strings.skills[language.code]}</SectionTitle>
       <HelpTextSkillContainer>
-        {strings.hoverUpTheMouseAboveTheSkill[language.code]}
+        {strings.clickToSeeMoreDetailsAboutTheSkill[language.code]}
       </HelpTextSkillContainer>
-      <SkillsContainer className='container-fluid container-lg'>
+      <SkillsContainer>
         <SkillDescription skillSelected={skillSelected} />
         <SeparatorSkillDescription />
         <SkillSelector>
           {skills.map((skill) => (
-            <SkillButtons key={skill.id} skill={skill} setSkillSelected={setSkillSelected} />
+            <SkillButtons
+              key={skill.id}
+              skill={skill}
+              skillSelected={skillSelected}
+              handleClickSelectSkill={handleClickSelectSkill}
+            />
           ))}
         </SkillSelector>
       </SkillsContainer>

@@ -12,6 +12,9 @@ interface ColorProps {
   greenItems: string;
 }
 
+/**
+ * @deprecated
+ */
 export default function WelcomeSvg() {
   const { layoutMode } = useSettings();
 

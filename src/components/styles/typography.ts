@@ -1,24 +1,33 @@
 import { styled, Typography } from '@mui/material';
+import { white } from 'src/core/theme/colors';
 
-export const PortfolioTitle = styled(Typography)(() => ({
+export const PortfolioTitle = styled(Typography)(({ theme }) => ({
+  transition: '0.3s',
+
   '@media (min-width: 992px)': {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+
+  '&:hover': {
+    color: theme.palette.primary.main,
+  },
 }));
 
 export const SectionTitle = styled(Typography)(() => ({
-  fontSize: '30px',
-  fontWeight: 400,
+  fontSize: '35px',
+  fontWeight: 600,
   textAlign: 'center',
 }));
+
+export const ProjectSectionTitle = styled(SectionTitle)(() => ({}));
 
 export const HelpTextSkillContainer = styled(Typography)(({ theme }) => ({
   display: 'none',
   color: theme.palette.text.disabled,
-  fontWeight: 400,
+  fontWeight: 600,
   textAlign: 'center',
   fontSize: '15px',
 
@@ -27,11 +36,12 @@ export const HelpTextSkillContainer = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const AboutMeText = styled(Typography)(({ theme }) => ({
+export const AboutMeText = styled(Typography)(() => ({
   padding: '0 10px',
-  color: theme.palette.text.primary,
+  color: white[50],
+  fontWeight: 400,
   textAlign: 'center',
-  fontSize: '15px',
+  fontSize: '18px',
 
   '@media (min-width: 992px)': {
     gridRow: '1',
@@ -40,9 +50,11 @@ export const AboutMeText = styled(Typography)(({ theme }) => ({
 }));
 
 export const SkillProjectDetails = styled(Typography)(({ theme }) => ({
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: theme.palette.background.paper,
   padding: '3px',
   fontSize: '12px',
   borderRadius: '5px',
   userSelect: 'none',
+  color: white[50],
+  transition: '0.3s',
 }));

@@ -78,6 +78,11 @@ export default {
     pt: 'Passe o mouse por cima da tecnologia para ver a descrição',
   },
 
+  clickToSeeMoreDetailsAboutTheSkill: {
+    en: 'Click to see more details about the skill',
+    pt: 'Clique para ver mais detalhes sobre a habilidade',
+  },
+
   // Without translation
   classNames: {
     projects: 'projects',

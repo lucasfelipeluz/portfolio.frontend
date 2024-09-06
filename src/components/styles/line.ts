@@ -20,7 +20,7 @@ export const SeparatorSkillDescription = styled(Box)(({ theme }) => ({
   width: '1px',
   height: '90%',
   marginTop: '25px',
-  backgroundColor: theme.palette.text.disabled,
+  backgroundColor: theme.palette.divider,
   display: 'none',
 
   '@media (min-width: 992px)': {
@@ -37,7 +37,7 @@ export const SeparatorAboutMe = styled(Box)(({ theme }) => ({
 
     content: '""',
     display: 'block',
-    backgroundColor: theme.palette.text.disabled,
+    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.divider : 'white',
     width: '1px',
   },
 }));
@@ -52,5 +52,20 @@ export const SeparatorProjectDetails = styled(Box)(({ theme }) => ({
 
   '@media (min-width: 992px)': {
     display: 'block',
+  },
+}));
+
+export const LoginLine = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  zIndex: 0,
+  width: '2000px',
+  height: '300px',
+  backgroundColor: theme.palette.primary.dark,
+  right: '-400px',
+  bottom: '-400px',
+  rotate: '-30deg',
+
+  '@media (min-width: 768px)': {
+    display: 'none',
   },
 }));

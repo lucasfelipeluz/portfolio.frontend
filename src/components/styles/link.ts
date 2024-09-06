@@ -1,4 +1,5 @@
-import { styled, Link as MuiLink } from '@mui/material';
+import { Box, Button, Link as MuiLink, styled } from '@mui/material';
+import { dark, white } from 'src/core/theme/colors';
 
 export const MenuListLink = styled(MuiLink)(({ theme }) => ({
   height: '100%',
@@ -9,7 +10,8 @@ export const MenuListLink = styled(MuiLink)(({ theme }) => ({
   textAlign: 'center',
 
   '&:hover': {
-    color: theme.palette.primary.main,
+    color: theme.palette.mode === 'dark' ? theme.palette.primary.dark : dark[900],
+    textDecoration: theme.palette.mode === 'dark' ? 'none' : 'underline',
   },
 }));
 
@@ -52,7 +54,6 @@ export const ButtonLink = styled(MuiLink)(({ theme }) => ({
   '&:hover': {
     color: theme.palette.text.secondary,
     backgroundColor: theme.palette.mode === 'light' ? theme.palette.primary.light : '',
-    // backgroundColor: theme.palette.primary.dark,
     filter: 'saturate(1.7)',
   },
 }));
@@ -61,12 +62,18 @@ export const ProjectButtonLink = styled(ButtonLink)(() => ({
   borderRadius: '5px',
 }));
 
-export const SkillSmallButtonOnProject = styled(ProjectButtonLink)(() => ({
-  fontSize: '14px',
+export const SkillSmallButtonOnProject = styled(Box)(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === 'dark' ? theme.palette.background.paper : theme.palette.background.paper,
+  fontSize: '13px',
   padding: '5px',
+  color: theme.palette.mode === 'dark' ? theme.palette.text.secondary : 'white',
+  userSelect: 'none',
+  borderRadius: '2px',
+  fontWeight: 'bold',
 }));
 
-export const ProjectCardLink = styled(ProjectButtonLink)(() => ({
+export const ProjectCardLink = styled(Button)(() => ({
   fontSize: '15px',
   padding: '10px',
   width: '100%',
@@ -87,42 +94,57 @@ export const ContactLink = styled(MuiLink)(({ theme, color }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   filter: 'saturate(0.5)',
-  border: `3px solid ${color}`,
+  border: `3px solid ${
+    theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.background.default
+  }`,
 
   '.container-icon': {
     transition: '0.3s',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    color: theme.palette.text.primary,
+    color:
+      theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.background.default,
 
     svg: {
       transition: '0.3s linear',
       fontSize: '35px',
-      color: theme.palette.text.primary,
+      color:
+        theme.palette.mode === 'dark'
+          ? theme.palette.primary.dark
+          : theme.palette.background.default,
     },
   },
 
   '&:hover': {
     filter: 'saturate(1.7)',
-    backgroundColor: `${color}`,
+    backgroundColor:
+      theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.background.default,
 
     '.container-icon': {
-      filter: 'saturate(1.2)',
+      // filter: 'saturate(1.2)',
 
       svg: {
-        color: theme.palette.background.paper,
+        color:
+          theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.primary.dark,
       },
     },
   },
 }));
 
-export const LinkProjectDetails = styled(ButtonLink)(() => ({
+export const LinkProjectDetails = styled(ButtonLink)(({ theme }) => ({
   width: '100%',
   borderRadius: '5px',
   textAlign: 'center',
   padding: '10px',
   fontSize: '15px',
+  height: '50px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: theme.palette.background.paper,
+  color: white[50],
+  fontWeight: 600,
 
   '.icon': {
     fontSize: '15px',
