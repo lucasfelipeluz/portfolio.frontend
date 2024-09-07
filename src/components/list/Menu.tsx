@@ -1,4 +1,3 @@
-import React from 'react';
 import { ListItem } from '@mui/material';
 import { MenuList as List } from 'src/components/styles/list';
 import { NavItensProps } from 'src/types/Components';
