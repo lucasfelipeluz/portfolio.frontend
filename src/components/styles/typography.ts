@@ -1,4 +1,4 @@
-import { styled, Typography } from '@mui/material';
+import { Box, styled, Typography } from '@mui/material';
 import { white } from 'src/core/theme/colors';
 
 export const PortfolioTitle = styled(Typography)(({ theme }) => ({
@@ -36,16 +36,24 @@ export const HelpTextSkillContainer = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const AboutMeText = styled(Typography)(() => ({
-  padding: '0 10px',
-  color: white[50],
-  fontWeight: 400,
-  textAlign: 'center',
-  fontSize: '18px',
+export const AboutMeText = styled(Box)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '20px',
 
-  '@media (min-width: 992px)': {
-    gridRow: '1',
-    gridColumn: '3',
+  p: {
+    padding: '0 10px',
+    color: white[50],
+    fontWeight: 400,
+    textAlign: 'center',
+    fontSize: '18px',
+
+    '@media (min-width: 992px)': {
+      gridRow: '1',
+      gridColumn: '3',
+    },
   },
 }));
 

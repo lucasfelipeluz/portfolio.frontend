@@ -7,6 +7,8 @@ export interface AboutMe {
   githubLink: string;
   youtubeLink: string;
   linkedinLink: string;
+  pathCv: string;
+  pathProfilePic: string;
   adress: string;
   isAvailable: boolean;
   createdAt: string;
