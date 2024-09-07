@@ -52,11 +52,10 @@ export const SkillsContainer = styled(Container)(({ theme }) => ({
   gridTemplateColumns: '1fr',
   gridTemplateRows: '1fr',
   color: theme.palette.text.primary,
-  minHeight: '100vh',
+  minHeight: '700px',
 
   '@media (min-width: 992px)': {
     gridTemplateColumns: '1fr 3px 1fr',
-    minHeight: '100vh',
   },
 }));
 
@@ -85,9 +84,10 @@ export const SkillDescription = styled(Box)(() => ({
 export const SkillSelector = styled(Box)(() => ({
   padding: '30px 5px',
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'space-evenly',
+  alignContent: 'flex-start',
   flexWrap: 'wrap',
-  gap: '10px',
+  gap: '50px 0',
 }));
 
 export const HeaderSkillButton = styled(Box)(() => ({
@@ -230,7 +230,7 @@ export const AboutMeContainer = styled(Box)(({ theme }) => ({
   borderRadius: '10px',
 
   '@media (min-width: 992px)': {
-    height: '500px',
+    height: 'auto',
     gridTemplateColumns: '1fr 10px 1fr',
     gap: '0',
   },

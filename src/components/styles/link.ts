@@ -150,3 +150,30 @@ export const LinkProjectDetails = styled(ButtonLink)(({ theme }) => ({
     fontSize: '15px',
   },
 }));
+
+export const CvButton = styled(MuiLink)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  height: '50px',
+  alignItems: 'center',
+  textDecoration: 'none',
+  transition: '0.3s',
+  fontWeight: 600,
+  fontSize: '15px',
+  borderRadius: '5px',
+  minWidth: '200px',
+  filter: 'saturate(0.5)',
+  color:
+    theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.background.default,
+  border: `3px solid ${
+    theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.background.default
+  }`,
+
+  '&:hover': {
+    color: theme.palette.mode === 'dark' ? theme.palette.text.primary : theme.palette.primary.dark,
+    filter: 'saturate(1.7)',
+    borderWidth: '3px',
+    backgroundColor:
+      theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.background.default,
+  },
+}));

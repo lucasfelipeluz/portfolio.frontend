@@ -18,7 +18,7 @@ export const MenuMobileLine = styled(Box)(({ theme }) => ({
 
 export const SeparatorSkillDescription = styled(Box)(({ theme }) => ({
   width: '1px',
-  height: '90%',
+  height: '100%',
   marginTop: '25px',
   backgroundColor: theme.palette.divider,
   display: 'none',

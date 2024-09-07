@@ -14,19 +14,18 @@ export const ProjectSection = styled(Section)(({ theme }) => ({
 }));
 
 export const SkillSection = styled(Section)(({ theme }) => ({
-  minHeight: '100vh',
+  minHeight: '700px',
   backgroundColor: theme.palette.background.default,
   padding: '25px 0',
   height: 'auto',
 
-  '@media (min-width: 992px)': {
-    minHeight: '100vh',
-  },
+  '@media (min-width: 992px)': {},
 }));
 
 export const ProjectDetailsContainer = styled(Section)(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
   padding: '20px 0 0px 0',
+  height: 'auto',
 }));
 
 export const ContactSection = styled(Container)(() => ({
@@ -45,7 +44,6 @@ export const FooterSection = styled('section')(({ theme }) => ({
     gridTemplateColumns: '1fr 1fr 16px',
     alignItems: 'center',
     height: '100%',
-    gap: '5px',
 
     '.copyright': {
       textAlign: 'end',

@@ -1,11 +1,13 @@
-import React from 'react';
-import { AboutMe } from 'src/types/AboutMe';
-import { Github, Linkedin } from 'mdi-material-ui';
 import { Email, Telegram } from '@mui/icons-material';
+import { Typography } from '@mui/material';
+import { Github, Linkedin } from 'mdi-material-ui';
+import { AboutMe } from 'src/types/AboutMe';
 import ContactLink from '../link/Contact';
+
 import { AboutMeContainer, AboutMeImgDev, ContactLinks } from '../styles/container';
 import { SeparatorAboutMe } from '../styles/line';
 import { AboutMeText } from '../styles/typography';
+import { CvButton } from '../styles/link';
 
 interface Props {
   aboutMe: AboutMe;
@@ -15,9 +17,14 @@ export default function AboutMeComponent({ aboutMe }: Props) {
   return (
     <AboutMeContainer>
       <AboutMeImgDev>
-        <img src='https://avatars.githubusercontent.com/u/65639478?v=4' alt='' />
+        <img src={aboutMe.pathProfilePic} alt='' />
       </AboutMeImgDev>
-      <AboutMeText>{aboutMe.text}</AboutMeText>
+      <AboutMeText>
+        <Typography>{aboutMe.text}</Typography>
+        <CvButton href={aboutMe.pathCv} download='pdfdolucas.pdf' target='_blank' rel='noreferrer'>
+          Baixar currículo
+        </CvButton>
+      </AboutMeText>
       <SeparatorAboutMe />
       <ContactLinks>
         <ContactLink
