@@ -1,5 +1,4 @@
-import { Button, IconButton, styled } from '@mui/material';
-import { white } from 'src/core/theme/colors';
+import { IconButton, styled } from '@mui/material';
 
 export const ThemeModeIconButton = styled(IconButton)(({ theme }) => ({
   transition: '0.3s',

@@ -8,7 +8,6 @@ interface Skill {
   icon: string;
   color: string;
   viewPriority: number;
-  createdAt: string;
   projects: Project[];
 }
 
