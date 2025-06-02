@@ -1,5 +1,5 @@
 import { Email, Telegram } from '@mui/icons-material';
-import { Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import { Github, Linkedin } from 'mdi-material-ui';
 import { getAboutMe } from 'src/store';
 import ContactLink from '../link/Contact';
@@ -18,9 +18,11 @@ export default function AboutMeComponent() {
       </AboutMeImgDev>
       <AboutMeText>
         <Typography>{aboutMe.text}</Typography>
-        <CvButton href='' download='pdfdolucas.pdf' target='_blank' rel='noreferrer'>
-          Baixar currículo
-        </CvButton>
+        <Stack gap={1}>
+          <CvButton href={aboutMe.pathCv} target='_blank' rel='noreferrer'>
+            Baixar currículo
+          </CvButton>
+        </Stack>
       </AboutMeText>
       <SeparatorAboutMe />
       <ContactLinks>

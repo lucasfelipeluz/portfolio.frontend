@@ -18,17 +18,17 @@
       "startedAt": "2019-06-01",
       "icon": "mdiLanguageTypescript",
       "color": "#3178c6",
-      "viewPriority": 2,
+      "viewPriority": 1,
       "projects": []
     },
     {
       "id": 3,
       "title": "Node.js",
-      "description": "Desenvolvi APIs de alta performance com Node.js, estruturando microserviços resilientes para sistemas críticos.",
-      "startedAt": "2019-06-01",
+      "description": "Desenvolvo APIs robustas e consistentes com Node.js, garantindo desempenho e alta escalabilidade. Utilizei frameworks como Fastify e Express.js para construir APIs RESTful e GraphQL para APIs mais complexas.",
+      "startedAt": "2019-01-01",
       "icon": "mdiNodejs",
       "color": "#43853d",
-      "viewPriority": 3,
+      "viewPriority": 5,
       "projects": []
     },
     {
@@ -38,7 +38,7 @@
       "startedAt": "2021-01-01",
       "icon": "mdiReact",
       "color": "#000000",
-      "viewPriority": 4,
+      "viewPriority": 5,
       "projects": []
     },
     {
@@ -46,9 +46,9 @@
       "title": ".NET",
       "description": "Atuei com .NET desenvolvendo APIs robustas e integrando sistemas complexos utilizando ASP.NET, Entity Framework e LINQ.",
       "startedAt": "2018-03-01",
-      "icon": "mdiMicrosoftVisualStudio",
+      "icon": "mdiDotNet",
       "color": "#512bd4",
-      "viewPriority": 5,
+      "viewPriority": 2,
       "projects": []
     },
     {
@@ -58,7 +58,7 @@
       "startedAt": "2020-05-01",
       "icon": "mdiCloudSync",
       "color": "#0db7ed",
-      "viewPriority": 6,
+      "viewPriority": 4,
       "projects": []
     },
     {
@@ -68,7 +68,7 @@
       "startedAt": "2020-05-01",
       "icon": "mdiAws",
       "color": "#ff9900",
-      "viewPriority": 7,
+      "viewPriority": 4,
       "projects": []
     },
     {
@@ -78,7 +78,7 @@
       "startedAt": "2020-10-01",
       "icon": "mdiDocker",
       "color": "#2496ed",
-      "viewPriority": 8,
+      "viewPriority": 2,
       "projects": []
     },
     {
@@ -88,7 +88,7 @@
       "startedAt": "2019-01-01",
       "icon": "mdiDatabase",
       "color": "#336791",
-      "viewPriority": 9,
+      "viewPriority": 4,
       "projects": []
     },
     {
@@ -98,7 +98,7 @@
       "startedAt": "2020-02-01",
       "icon": "mdiLeaf",
       "color": "#47a248",
-      "viewPriority": 10,
+      "viewPriority": 1,
       "projects": []
     },
     {
@@ -108,7 +108,7 @@
       "startedAt": "2021-06-01",
       "icon": "mdiDatabase",
       "color": "#dc382d",
-      "viewPriority": 11,
+      "viewPriority": 1,
       "projects": []
     },
     {
@@ -118,7 +118,17 @@
       "startedAt": "2019-04-01",
       "icon": "mdiAccountGroup",
       "color": "#6c757d",
-      "viewPriority": 12,
+      "viewPriority": 1,
+      "projects": []
+    },
+    {
+      "id": 13,
+      "title": "GraphQL",
+      "description": "Desenvolvi APIs GraphQL para melhorar a eficiência e a escalabilidade das aplicações.",
+      "startedAt": "2024-06-01",
+      "icon": "mdiGraphql",
+      "color": "#e535ab",
+      "viewPriority": 1,
       "projects": []
     }
   ]

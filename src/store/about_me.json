@@ -1,12 +1,12 @@
 {
   "name": "Lucas Felipe Luz",
   "text": "Sou desenvolvedor há aproximadamente 7 anos, com foco principal em backend, mas com capacidade para atuar no frontend sempre que necessário. Tenho experiência prévia com .NET e, atualmente, trabalho principalmente com JavaScript e TypeScript, utilizando tecnologias como Node.js e Next.js. Também possuo conhecimentos em DevOps, com facilidade para implementar, configurar e colocar aplicações em produção.",
-  "jobTitle": "Desenvolvedor",
+  "jobTitle": "Full Stack Developer",
   "telegramLink": "https://t.me/lucasfelipeluz",
   "githubLink": "https://github.com/lucasfelipeluz",
   "linkedinLink": "https://www.linkedin.com/in/lucasfelipeluz/",
-  "pathCv": "src/assets/cv/LucasFelipeLuz-CV-PT.pdf",
-  "pathCvEnglish": "src/assets/cv/LucasFelipeLuz-CV-EN.pdf",
+  "pathCv": "https://drive.google.com/drive/folders/1uY0pd281BR2SjiXZU9kLkWt17vhxWlAU?usp=sharing",
+  "pathCvEnglish": "https://drive.google.com/file/d/1GcB0cR9sbd-WFLvN8cGmpUwLdnDjaSkH/view?usp=sharing",
   "adress": "Pernambuco, Brazil",
   "isAvailable": false
 }

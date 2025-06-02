@@ -11,7 +11,7 @@ import { HelpTextSkillContainer, SectionTitle } from '../styles/typography';
 import SkillButtons from '../buttons/SkillButtons';
 
 function SectionSkillComponent() {
-  const skills = getSkills();
+  const skills = getSkills().sort((a, b) => b.viewPriority - a.viewPriority);
   const { language } = useLanguage();
 
   const [skillSelected, setSkillSelected] = useState<Skill | null>(null);
@@ -34,16 +34,14 @@ function SectionSkillComponent() {
         <SkillDescription skillSelected={skillSelected} />
         <SeparatorSkillDescription />
         <SkillSelector>
-          {skills
-            .sort((a, b) => a.viewPriority - b.viewPriority)
-            .map((skill) => (
-              <SkillButtons
-                key={skill.id}
-                skill={skill}
-                skillSelected={skillSelected}
-                handleClickSelectSkill={handleClickSelectSkill}
-              />
-            ))}
+          {skills.map((skill) => (
+            <SkillButtons
+              key={skill.id}
+              skill={skill}
+              skillSelected={skillSelected}
+              handleClickSelectSkill={handleClickSelectSkill}
+            />
+          ))}
         </SkillSelector>
       </SkillsContainer>
     </SkillSection>

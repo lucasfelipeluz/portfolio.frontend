@@ -23,7 +23,7 @@ export default function HeaderComponent() {
   };
 
   const data: NavItensProps[] = [
-    { name: strings.projects[language.code], classNames: strings.classNames.projects },
+    // { name: strings.projects[language.code], classNames: strings.classNames.projects },
     { name: strings.skills[language.code], classNames: strings.classNames.skills },
     { name: strings.contact[language.code], classNames: strings.classNames.contact },
   ];
