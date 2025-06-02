@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material';
 import { LightbulbOutline, LightbulbVariant } from 'mdi-material-ui';
+import packageJSON from 'src/../package.json';
 import { useSettings } from 'src/core/context/settingsContext';
-import { applicationConfig } from 'src/utils/config';
 import { FooterSection } from '../styles/section';
 
 export default function FooterComponent() {
@@ -10,7 +10,7 @@ export default function FooterComponent() {
   return (
     <FooterSection>
       <Container className='content'>
-        <Typography className='version'>{applicationConfig.version}</Typography>
+        <Typography className='version'>v{packageJSON.version}</Typography>
 
         <Box
           sx={{

@@ -60,13 +60,13 @@ export const BurgerButton = styled(Box)(({ theme }) => ({
     transition: '0.3s',
 
     '&.ativo': {
-      '&:nth-child(1)': {
+      '&:nth-of-type(1)': {
         transform: 'rotate(40deg) translate(9px, 9px)',
       },
-      '&:nth-child(2)': {
+      '&:nth-of-type(2)': {
         opacity: 0,
       },
-      '&:nth-child(3)': {
+      '&:nth-of-type(3)': {
         transform: 'rotate(-40deg) translate(9px, -9px)',
       },
     },
