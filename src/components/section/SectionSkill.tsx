@@ -2,18 +2,16 @@ import { useState } from 'react';
 import { useLanguage } from 'src/core/context/languageContext';
 import Skill from 'src/types/Skill';
 import strings from 'src/utils/strings';
-import SkillButtons from '../buttons/SkillButtons';
+import { getSkills } from 'src/store';
 import SkillDescription from '../container/SkillDescription';
 import { SkillsContainer, SkillSelector } from '../styles/container';
 import { SeparatorSkillDescription } from '../styles/line';
 import { SkillSection } from '../styles/section';
 import { HelpTextSkillContainer, SectionTitle } from '../styles/typography';
+import SkillButtons from '../buttons/SkillButtons';
 
-interface Props {
-  skills: Skill[];
-}
-
-function SectionSkillComponent({ skills }: Props) {
+function SectionSkillComponent() {
+  const skills = getSkills();
   const { language } = useLanguage();
 
   const [skillSelected, setSkillSelected] = useState<Skill | null>(null);
@@ -36,14 +34,16 @@ function SectionSkillComponent({ skills }: Props) {
         <SkillDescription skillSelected={skillSelected} />
         <SeparatorSkillDescription />
         <SkillSelector>
-          {skills.map((skill) => (
-            <SkillButtons
-              key={skill.id}
-              skill={skill}
-              skillSelected={skillSelected}
-              handleClickSelectSkill={handleClickSelectSkill}
-            />
-          ))}
+          {skills
+            .sort((a, b) => a.viewPriority - b.viewPriority)
+            .map((skill) => (
+              <SkillButtons
+                key={skill.id}
+                skill={skill}
+                skillSelected={skillSelected}
+                handleClickSelectSkill={handleClickSelectSkill}
+              />
+            ))}
         </SkillSelector>
       </SkillsContainer>
     </SkillSection>

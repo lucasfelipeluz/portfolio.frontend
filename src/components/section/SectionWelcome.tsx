@@ -1,17 +1,13 @@
-import React from 'react';
 import { useLanguage } from 'src/core/context/languageContext';
-import { AboutMe } from 'src/types/AboutMe';
+import { getAboutMe } from 'src/store';
 import WelcomeInfomationComponent from '../container/WelcomeInfomation';
 import { Section } from '../styles/section';
 import { DeveloperIlustration, WelcomeContainer } from '../styles/welcome';
 import WelcomeSvg from '../svg/Welcome';
 
-interface Props {
-  aboutMe: AboutMe;
-}
-
-function SectionWelcomeComponent({ aboutMe }: Props) {
+function SectionWelcomeComponent() {
   const { language } = useLanguage();
+  const aboutMe = getAboutMe();
 
   return (
     <Section>

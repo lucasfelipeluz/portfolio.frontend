@@ -12,19 +12,13 @@ interface Props {
 
 export default function AdminSidebarListItem({ title, icon, href }: Props) {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState(false);
 
   const handleClick = () => {
     setOpen(!open);
   };
 
   return (
-    <ListItemButton
-      component={Link}
-      href={href}
-      onClick={handleClick}
-      sx={{ opacity: active ? 1 : 0.3 }}
-    >
+    <ListItemButton component={Link} href={href} onClick={handleClick} sx={{ opacity: 0.3 }}>
       <ListItemIcon>{icon}</ListItemIcon>
       <ListItemText
         primary={title}

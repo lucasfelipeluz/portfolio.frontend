@@ -111,7 +111,7 @@ export const HeaderSkillButton = styled(Box)(() => ({
   '.skill-icon': {},
 }));
 
-export const SkillButton = styled(Box)(({ theme, color }) => ({
+export const SkillButton = styled(Box)(({ theme }) => ({
   cursor: 'pointer',
   border: `1px solid ${theme.palette.text.primary}`,
   width: '120px',
@@ -286,7 +286,7 @@ export const ContactLinks = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ProjectDetails = styled(Box)(({ theme }) => ({
+export const ProjectDetails = styled(Box)(() => ({
   marginTop: '20px',
 
   '@media (min-width: 992px)': {
