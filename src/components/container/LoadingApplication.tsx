@@ -1,5 +1,4 @@
 import { Box, CircularProgress, Container, Typography } from '@mui/material';
-import React from 'react';
 import { useSettings } from 'src/core/context/settingsContext';
 
 export default function LoadApplicationContainer() {

@@ -27,9 +27,7 @@ export default function SkillDescription({ skillSelected }: Props) {
     >
       <Typography>{skillSelected?.description}</Typography>
       {skillSelected?.startedAt && (
-        <Typography className='xp'>
-          {experience.years} anos e {experience.months} meses de experiência
-        </Typography>
+        <Typography className='xp'>{experience.years} anos de experiência.</Typography>
       )}
     </SkillDescriptionStyle>
   );

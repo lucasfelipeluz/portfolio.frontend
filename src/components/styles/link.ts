@@ -80,7 +80,7 @@ export const ProjectCardLink = styled(Button)(() => ({
   textAlign: 'center',
 }));
 
-export const ContactLink = styled(MuiLink)(({ theme, color }) => ({
+export const ContactLink = styled(MuiLink)(({ theme }) => ({
   borderRadius: '5px',
   overflow: 'hidden',
   padding: '10px 15px',

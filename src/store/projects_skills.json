@@ -1,0 +1,125 @@
+{
+  "projects": [],
+  "skills": [
+    {
+      "id": 1,
+      "title": "JavaScript",
+      "description": "Utilizei JavaScript para criar soluções dinâmicas e escaláveis, liderando a construção de aplicações modernas e performáticas.",
+      "startedAt": "2017-01-01",
+      "icon": "mdiLanguageJavascript",
+      "color": "#f7df1e",
+      "viewPriority": 1,
+      "projects": []
+    },
+    {
+      "id": 2,
+      "title": "TypeScript",
+      "description": "Com TypeScript elevei a qualidade do código, implementando tipagens robustas que reduziram drasticamente os bugs em produção.",
+      "startedAt": "2019-06-01",
+      "icon": "mdiLanguageTypescript",
+      "color": "#3178c6",
+      "viewPriority": 2,
+      "projects": []
+    },
+    {
+      "id": 3,
+      "title": "Node.js",
+      "description": "Desenvolvi APIs de alta performance com Node.js, estruturando microserviços resilientes para sistemas críticos.",
+      "startedAt": "2019-06-01",
+      "icon": "mdiNodejs",
+      "color": "#43853d",
+      "viewPriority": 3,
+      "projects": []
+    },
+    {
+      "id": 4,
+      "title": "Next.js",
+      "description": "Implementei aplicações server-side rendering com Next.js, melhorando significativamente a experiência do usuário e SEO.",
+      "startedAt": "2021-01-01",
+      "icon": "mdiReact",
+      "color": "#000000",
+      "viewPriority": 4,
+      "projects": []
+    },
+    {
+      "id": 5,
+      "title": ".NET",
+      "description": "Atuei com .NET desenvolvendo APIs robustas e integrando sistemas complexos utilizando ASP.NET, Entity Framework e LINQ.",
+      "startedAt": "2018-03-01",
+      "icon": "mdiMicrosoftVisualStudio",
+      "color": "#512bd4",
+      "viewPriority": 5,
+      "projects": []
+    },
+    {
+      "id": 6,
+      "title": "DevOps",
+      "description": "Implementei pipelines de CI/CD, automatizando processos e acelerando o deploy contínuo de aplicações para ambientes produtivos.",
+      "startedAt": "2020-05-01",
+      "icon": "mdiCloudSync",
+      "color": "#0db7ed",
+      "viewPriority": 6,
+      "projects": []
+    },
+    {
+      "id": 7,
+      "title": "AWS",
+      "description": "Desenvolvi e escalei infraestruturas na nuvem utilizando serviços como EC2, S3 e RDS, garantindo segurança e alta disponibilidade.",
+      "startedAt": "2020-05-01",
+      "icon": "mdiAws",
+      "color": "#ff9900",
+      "viewPriority": 7,
+      "projects": []
+    },
+    {
+      "id": 8,
+      "title": "Docker",
+      "description": "Containerizei aplicações para garantir portabilidade e eficiência, facilitando ambientes de desenvolvimento e produção.",
+      "startedAt": "2020-10-01",
+      "icon": "mdiDocker",
+      "color": "#2496ed",
+      "viewPriority": 8,
+      "projects": []
+    },
+    {
+      "id": 9,
+      "title": "Banco de Dados",
+      "description": "Experiência sólida no desenvolvimento e manutenção de bancos de dados relacionais (MySQL, PostgreSQL) e não relacionais (MongoDB). Capacidade de modelar estruturas eficientes, otimizar consultas e implementar estratégias de indexação para melhorar a performance. Domínio em integrações com ORMs como Sequelize e Mongoose. Experiência na utilização de Redis como solução de cache, armazenamento de dados em memória e gerenciamento de filas, contribuindo para a escalabilidade e a redução da latência em sistemas distribuídos. Atuação com replicação de dados, configuração de clusters para alta disponibilidade e balanceamento de carga. Implementação de políticas de segurança, controle de acessos e práticas de backup e recuperação para garantir a integridade e a disponibilidade dos dados. Habilidade para gerenciar ambientes de banco de dados na nuvem (AWS RDS) e aplicar práticas de versionamento e migração de esquemas com segurança.",
+      "startedAt": "2019-01-01",
+      "icon": "mdiDatabase",
+      "color": "#336791",
+      "viewPriority": 9,
+      "projects": []
+    },
+    {
+      "id": 10,
+      "title": "MongoDB",
+      "description": "Implementei soluções NoSQL para lidar com grandes volumes de dados de forma flexível e escalável.",
+      "startedAt": "2020-02-01",
+      "icon": "mdiLeaf",
+      "color": "#47a248",
+      "viewPriority": 10,
+      "projects": []
+    },
+    {
+      "id": 11,
+      "title": "Redis",
+      "description": "Otimizei a performance de aplicações utilizando Redis como solução de cache e gerenciamento de sessões.",
+      "startedAt": "2021-06-01",
+      "icon": "mdiDatabase",
+      "color": "#dc382d",
+      "viewPriority": 11,
+      "projects": []
+    },
+    {
+      "id": 12,
+      "title": "SCRUM",
+      "description": "Participei ativamente de squads ágeis, aplicando metodologias SCRUM para garantir entregas rápidas e iterativas.",
+      "startedAt": "2019-04-01",
+      "icon": "mdiAccountGroup",
+      "color": "#6c757d",
+      "viewPriority": 12,
+      "projects": []
+    }
+  ]
+}

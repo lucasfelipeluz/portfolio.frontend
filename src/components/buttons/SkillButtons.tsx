@@ -3,7 +3,6 @@ import Icon from '@mdi/react';
 import { Box, Typography } from '@mui/material';
 import React, { useEffect } from 'react';
 import Skill from 'src/types/Skill';
-import { useSettings } from 'src/core/context/settingsContext';
 import { SkillButton } from '../styles/container';
 
 interface Props {
