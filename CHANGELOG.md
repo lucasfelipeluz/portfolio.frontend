@@ -1,3 +1,9 @@
+## v0.10.0 (2025-06-02)
+
+### Feat
+
+- **skills**: improviments on skills descriptions
+
 ## v0.9.0 (2025-06-02)
 
 ### Feat
